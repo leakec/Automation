@@ -4,6 +4,7 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+import undetected_chromedriver.v2 as uc
 from Pass import passDict
 from my_items import myItems
 
@@ -14,22 +15,10 @@ ralphsUser = passDict["Ralphs"]["username"]
 ralphsPass = passDict["Ralphs"]["password"]
 
 # Constants
-chromePath = "/usr/bin/chromedriver"
 sleepTime = 2.0
 
-# Set option to avoid access denied error
-options = webdriver.ChromeOptions() 
-options.add_argument("start-maximized")
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
-options.add_experimental_option('useAutomationExtension', False)
-chrome_prefs = {}
-chrome_prefs["profile.default_content_settings"] = { "popups": 1 }
-options.experimental_options["prefs"] = chrome_prefs
-
 # Create browser session
-s = Service(chromePath)
-browser = webdriver.Chrome(service=s, options=options)
-browser.delete_all_cookies()
+browser = uc.Chrome()
 atexit.register(browser.close)
 tabs = {}
 
@@ -47,7 +36,6 @@ def switchTab(browser,key):
         raise ValueError(f"key is of type {type(key)}. Only int or str are accepted.")
     browser.switch_to.window(browser.window_handles[k])
 
-"""
 # Log into todoist
 browser.get("https://todoist.com")
 tabs["todoist"] = 0
@@ -70,29 +58,18 @@ def deleteItem(item):
     item.find_elements(By.CSS_SELECTOR, ".task_checkbox.priority_1")[0].click()
 
 food = [j.text.split("\n")[0] for j in items]
-"""
-food = ["chicken"]
 
 # Go to Ralphs
 newTab(browser)
 tabs["ralphs"] = 1
 switchTab(browser,"ralphs")
-browser.delete_all_cookies()
 sleep(sleepTime)
-if False:
-    browser.get("https://www.ralphs.com/signin")
-    sleep(sleepTime)
-    browser.find_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
-    browser.find_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
-    for k in range(10):
-        try:
-            browser.delete_all_cookies()
-            browser.find_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() # Not sure why but we need multiple clicks to get past the pop up issue
-            sleep(sleepTime)
-        except:
-            break
-else:
-    browser.get("https://www.ralphs.com/")
+browser.get("https://www.ralphs.com/signin")
+switchTab(browser,0) # Ralphs becomes tab 0 once we get it, not sure why
+browser.find_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
+browser.find_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
+browser.find_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() # Not sure why but we need multiple clicks to get past the pop up issue
+sleep(sleepTime)
 
 # Add items to shopping cart
 addedIdx = np.zeros(len(food),dtype=bool)
