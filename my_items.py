@@ -42,7 +42,7 @@ myItems["bananas"] = myItems["banana"]
 myItems["pizza"] = myItems["supreme pizza"]
 
 #################################
-myRecipies = {
+myRecipes = {
     "amatriciana", {"items": ["crushed tomatoes","buccatini","romano cheese","parmesean cheese", "bacon"]},
     "fajitas", {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "orange pepper", "onion", "tortillas", "fajita seasoning", "avocado"]},
     "chicken tortilla soup", {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream"]},
