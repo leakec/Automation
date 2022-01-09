@@ -1,3 +1,10 @@
 site_name: Recipe Book
 site_url: https://Jones-Good-Ass-Recipe-book.com
 nav:
+  - Home: 'index.md'
+  - Template: 'recipe_template.md'
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true

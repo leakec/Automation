@@ -21,4 +21,8 @@ if __name__ == '__main__':
     with open(yamlFile) as f:
         data = yaml.load(f, Loader=yaml.Loader)
 
+    title = data['title']
+    ingredients = ["{} {} {} {} {}".format(i.get('amount',''), i.get('units',''), "of" if 'units' in i else "", i['name'], i.get('notes','')).strip() for i in data['ingredients']]
+    steps = data['steps']
+
 
