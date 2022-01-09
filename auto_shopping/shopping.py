@@ -1,6 +1,7 @@
 import numpy as np
 from time import sleep
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from Pass import passDict
 from my_items import myItems
 from my_driver import MyDriver
@@ -47,11 +48,15 @@ browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click()
 # Add items to shopping cart
 addedIdx = np.zeros(len(food),dtype=bool)
 for k,item in enumerate(food):
-    keywords = myItems.get(item,[])
-    if keywords:
+    foodInfo = myItems.get(item,{})
+    if foodInfo:
         sb = browser.get_element(By.XPATH, '//*[@id="SearchBar-input"]')
-        sb.send_keys(item+"\n")
+        while not sb.get_attribute("value") == "":
+            sb.send_keys(Keys.BACK_SPACE)
+        sb.send_keys(foodInfo["search"]+"\n")
         sleep(sleepTime)
+
+        keywords = foodInfo["keywords"]
 
         results = browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
         for res in results:
