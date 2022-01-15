@@ -6,8 +6,8 @@ import click
 # Setup click
 @click.command(context_settings=dict(help_option_names=["-h","--help"]))
 @click.pass_context
-@click.argument("yaml-file", type=str, "Input yaml file that has the recipe data).")
-@click.argument("output-file", type=str, "Output markdown file that contains the formatted recipe..")
+@click.argument("yaml-file", type=str,)# help="Input yaml file that has the recipe data).")
+@click.argument("output-file", type=str,)# help="Output markdown file that contains the formatted recipe..")
 @click.option("--template-file", type=str, help="Recipe template file.", default="recipe_template.md")
 def cli(ctx, yaml_file, output_file, **kwargs):
     kwargs['yaml_file'] = yaml_file
@@ -28,14 +28,14 @@ with open(yamlFile) as f:
 
 # Format the data
 title = data['title']
-ingredients = ["  * [ ] {} {} {} {} {}\n".format(i.get('amount',''), i.get('units',''), "of" if 'units' in i else "", i['name'], i.get('notes','')).strip() for i in data['ingredients']]
+ingredients = ["  * [ ] " + "{} {} {} {} {}".format(i.get('amount',''), i.get('units',''), "of" if 'units' in i else "", i['name'], i.get('notes','')).strip()+"\n" for i in data['ingredients']]
 steps = ["  1. {}\n".format(step) for step in data['steps']]
 
 # Apply data to template
 with open(templateFile, "r") as f:
     template = f.read()
 
-recipe = template.format(title,ingredients,steps)
+recipe = template.format(title=title,ingredients=''.join(ingredients),steps=''.join(steps))
 
 # Write recipe
 with open(outputFile, "w") as f:
