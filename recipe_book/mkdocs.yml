@@ -1,8 +1,8 @@
 site_name: Recipe Book
 site_url: https://Jones-Good-Ass-Recipe-book.com
+use_directory_urls: false
 nav:
   - Home: 'index.md'
-  - Template: 'recipe_template.md'
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:

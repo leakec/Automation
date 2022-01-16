@@ -14,5 +14,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        recipe_template.md  # The documentation homepage.
+        amatriciana.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Tags
+[amatriciana](recipes/amatriciana.html)
+
