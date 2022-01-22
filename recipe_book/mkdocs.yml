@@ -3,8 +3,10 @@ site_url: https://Jones-Good-Ass-Recipe-book.com
 use_directory_urls: false
 nav:
   - Home: 'index.md'
+  - Tags: 'tags.md'
 markdown_extensions:
-  - def_list
+  - pymdownx.extra
+  - pymdownx.details
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true

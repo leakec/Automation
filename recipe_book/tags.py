@@ -3,14 +3,16 @@
 import yaml
 import click
 
-#TODO: Add tag file as an argument
-#TODO: Create tag.md file with tags as headings and alphabetical list of recipes underneath
-
 # Setup click
 @click.command(context_settings=dict(help_option_names=["-h","--help"]))
 @click.pass_context
-@click.option("--recipes", nargs=-1, type=str, help="Recipe yaml files.")
-def cli(ctx, **kwargs):
+@click.argument("output-dir", type=str, nargs=1) # Directory where final tags.md will go
+@click.argument("recipe-dir", type=str, nargs=1) # Directory where final .md files are stored
+@click.argument("recipes-yml", nargs=-1, type=str) # All of the .yml recipes
+def cli(ctx, output_dir, recipe_dir, recipes_yml, **kwargs):
+    kwargs['output_dir'] = output_dir 
+    kwargs['recipe_dir'] = recipe_dir
+    kwargs['recipes_yml'] = recipes_yml
     return kwargs
 
 # Get yaml files
@@ -21,24 +23,48 @@ except:
     import sys
     sys.exit()
 
-recipes = cfgobj["recipes"]
+outputDir = cfgobj["output_dir"]
+recipeDir = cfgobj["recipe_dir"]
+recipes = cfgobj["recipes_yml"]
 
 # Get all tags for all recipes
 tags = {}
 
 for recipe in recipes:
-    name = recipe.replace(".yml","")
+    name = recipe.split("/")[-1].replace(".yml","")
     with open(recipe) as f:
         data = yaml.load(f, Loader=yaml.Loader)
 
-    tagsData = data["tags"]
-    for tag in tagsData:
-        if tag in tags:
-            tags[tag].append(name)
+    tagsData = data.get("tags",None)
+    for fullTag in tagsData:
+        expand = fullTag.split("/")
+        if len(expand) > 1:
+            val = tags.setdefault(expand[0],{})
+            for tag in expand[1:-1]:
+                val = val.setdefault(tag,{})
+            val = val.setdefault(expand[-1],[])
         else:
-            tags[tag] = [name]
+            val = tags.setdefault(expand[0],[])
+        val.append(name)
 
+# Write the tags file
+def writeTag(tag,vals):
+    s = "<details><summary>"+tag+"</summary><ul>\n"
+    for v in vals:
+        s += '<li><a href="'+recipeDir+v+'">'+v+"</a></li>\n"
+    s += "</ul></details>\n"
+    return s
 
+def recurseTag(tag,val,s=""):
+    if isinstance(val,list):
+        s += writeTag(tag,val)
+    else:
+        s += "<details><summary>"+tag+"</summary>\n"
+        for t,v in val.items():
+            s += recurseTag(t,v)
+        s += "</details>\n"
+    return s
 
-
-
+with open(outputDir+"/tags.md","w") as f:
+    for tag,val in tags.items():
+        f.write(recurseTag(tag,val))
