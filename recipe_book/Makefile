@@ -16,6 +16,7 @@ clean:
 
 all: tags $(RECIPES_MD)
 	cp $(RECIPE_DATA)/index.md $(DOCS)
+	cp $(RECIPE_DATA)/*.css $(DOCS)
 	mkdocs build
 
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml

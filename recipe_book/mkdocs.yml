@@ -5,6 +5,8 @@ nav:
   - Home: 'index.md'
   - Tags: 'tags.md'
 theme: journal
+extra_css: 
+  - style.min.css
 markdown_extensions:
   - pymdownx.extra
   - pymdownx.details
