@@ -51,7 +51,7 @@ for recipe in recipes:
 def writeTag(tag,vals):
     s = "<details><summary>"+tag+"</summary><ul>\n"
     for v in vals:
-        s += '<li><a href="'+recipeDir+v+'">'+v+"</a></li>\n"
+        s += '<li><a href="'+recipeDir+"/"+v+'.html">'+v+"</a></li>\n"
     s += "</ul></details>\n"
     return s
 
@@ -60,9 +60,10 @@ def recurseTag(tag,val,s=""):
         s += writeTag(tag,val)
     else:
         s += "<details><summary>"+tag+"</summary>\n"
+        s += '<ul style="list-style-type:none;">\n'
         for t,v in val.items():
-            s += recurseTag(t,v)
-        s += "</details>\n"
+            s += "<li>"+recurseTag(t,v)+"</li>"
+        s += "</ul></details>\n"
     return s
 
 with open(outputDir+"/tags.md","w") as f:
