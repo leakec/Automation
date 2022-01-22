@@ -3,7 +3,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from Pass import passDict
-from my_items import myItems
+from my_items import myItems, myRecipes
 from my_driver import MyDriver
 
 # Get usernames and passwords
@@ -45,21 +45,35 @@ browser.get_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUse
 browser.get_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
 browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
 
+# Find food element
+def addToCart(foodInfo):
+    sb = browser.get_element(By.XPATH, '//*[@id="SearchBar-input"]')
+    while not sb.get_attribute("value") == "":
+        sb.send_keys(Keys.BACK_SPACE)
+    sb.send_keys(foodInfo["search"]+"\n")
+    sleep(sleepTime)
+
+    keywords = foodInfo["keywords"]
+
+    results = browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
+    for res in results:
+        if all((x in res.text for x in keywords)):
+            res.find_element(By.CSS_SELECTOR, ".mt-32.mb-12").click()
+            return True
+    return False
+
 # Add items to shopping cart
 addedIdx = np.zeros(len(food),dtype=bool)
 for k,item in enumerate(food):
+    recipeInfo = myRecipes.get(item,{})
+    if recipeInfo:
+        addedIdx = all(addToCart(myItems[food]) for food in recipeInfo['items'])
     foodInfo = myItems.get(item,{})
     if foodInfo:
-        sb = browser.get_element(By.XPATH, '//*[@id="SearchBar-input"]')
-        while not sb.get_attribute("value") == "":
-            sb.send_keys(Keys.BACK_SPACE)
-        sb.send_keys(foodInfo["search"]+"\n")
-        sleep(sleepTime)
+        addedIdx[k] = addToCart(foodInfo)
 
-        keywords = foodInfo["keywords"]
-
-        results = browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
-        for res in results:
-            if all((x in res.text for x in keywords)):
-                res.find_element(By.CSS_SELECTOR, ".mt-32.mb-12").click()
-                addedIdx[k] = True
+# Remove items that have been completed
+browser.switchTab("todoist")
+for k,added in enumerate(addedIdx):
+    if added:
+        deleteItem(items[k]):
