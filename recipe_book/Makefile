@@ -20,7 +20,7 @@ all: tags $(RECIPES_MD)
 	mkdocs build
 
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml
-	mkdir $(RECIPES)
+	mkdir -p $(RECIPES)
 	./recipe_converter --template-file $(RECIPE_TEMPLATE) $< $@ 
 
 tags:

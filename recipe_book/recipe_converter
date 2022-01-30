@@ -27,8 +27,17 @@ with open(yamlFile) as f:
     data = yaml.load(f, Loader=yaml.Loader)
 
 # Format the data
+def ingredient_formatter(i):
+    s = " * [ ] {}".format(i.get("amount", ""))
+    if "units" in i:
+        s += " {} of".format(i["units"])
+    s += " {}\n".format(i["name"])
+    if "notes" in i:
+        s += "    * {}\n".format(i["notes"])
+    return s
+
 title = data['title']
-ingredients = ["  * [ ] " + "{} {} {} {} {}".format(i.get('amount',''), i.get('units',''), "of" if 'units' in i else "", i['name'], i.get('notes','')).strip()+"\n" for i in data['ingredients']]
+ingredients = [ingredient_formatter(i) for i in data['ingredients']]
 steps = ["  1. {}\n".format(step) for step in data['steps']]
 
 # Apply data to template

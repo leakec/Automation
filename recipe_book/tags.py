@@ -29,13 +29,15 @@ recipes = cfgobj["recipes_yml"]
 
 # Get all tags for all recipes
 tags = {}
+nameLink = {}
 
 for recipe in recipes:
-    name = recipe.split("/")[-1].replace(".yml","")
     with open(recipe) as f:
         data = yaml.load(f, Loader=yaml.Loader)
+    name = data["title"]
+    nameLink[name] = recipe.split("/")[-1].replace(".yml",".html")
 
-    tagsData = data.get("tags",None)
+    tagsData = data.get("tags",{})
     for fullTag in tagsData:
         expand = fullTag.split("/")
         if len(expand) > 1:
@@ -51,7 +53,7 @@ for recipe in recipes:
 def writeTag(tag,vals):
     s = "<details><summary>"+tag+"</summary><ul>\n"
     for v in vals:
-        s += '<li><a href="'+recipeDir+"/"+v+'.html">'+v+"</a></li>\n"
+        s += '<li><a href="'+recipeDir+"/"+nameLink[v]+'">'+v+"</a></li>\n"
     s += "</ul></details>\n"
     return s
 

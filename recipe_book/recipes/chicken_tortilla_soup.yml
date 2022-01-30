@@ -1,0 +1,47 @@
+title: Chicken Tortilla Soup
+chef: Rachelle Chin
+ingredients:
+  - name: Chicken 
+    amount: 1.5 - 2.0
+    units: lbs
+  - name: Chicken broth
+    amount: 32
+    units: fl oz
+  - name: Bell peppers (assorted colors)
+    amount: 3
+  - name: Half and half
+    amount: 16
+    units: oz
+    notes: Heavy whipping cream works as well.
+  - name: Salsa
+    amount: 2
+    units: 16 oz jars
+    notes: Carl recommends making at least one of these a Chipotle salsa.
+  - name: Frozen peas
+    amount: 1
+    units: 10 oz bag
+    notes: Frozen corn works as well.
+  - name: Cheddar cheese
+    amount: 16 
+    units: oz
+  - name: Tortilla chips
+    amount: 1
+    units: bag
+  - name: Sour cream
+    amount: 8
+    units: oz
+time:
+  prep: 
+    hh: 0
+    mm: 15
+  cook:
+    hh: 4-6
+    mm: 
+steps:
+  - Cut the chicken into ~1/2 inch cubes
+  - Chop bell peppers
+  - Add chicken, bell peppers, chicken broth, salsa, frozen peas, and half & half to the crock pot.
+  - Cook on high for 4 hours or medium for 6 hours.
+  - When serving, add cheddar cheese, crumbled tortilla chips, and sour cream to taste.
+tags:
+  - Entrees
