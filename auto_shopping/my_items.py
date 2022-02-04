@@ -35,6 +35,8 @@ myItems = {
         "chicken broth": {"search": "chicken broth", "keywords": ["Simple Truth", "Low Sodium", "Free Range", "Chicken Broth", "32 oz"]},
         "frozen peas": {"search": "frozen peas", "keywords": ["Birds Eye", "Sweet Peas", "10 oz"]},
         "sour cream": {"search": "sour cream", "keywords": ["Daisy Pure", "Sour Cream", "8 oz"]},
+        "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
+        "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
@@ -45,5 +47,5 @@ myItems["pizza"] = myItems["supreme pizza"]
 myRecipes = {
     "amatriciana": {"items": ["crushed tomatoes","buccatini","romano cheese","parmesean cheese", "bacon"]},
     "fajitas": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "orange pepper", "onion", "tortillas", "fajita seasoning", "avocado"]},
-    "chicken tortilla soup": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream"]},
+    "chicken tortilla soup": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream", "salsa", "chipotle salsa"]},
 }

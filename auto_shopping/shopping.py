@@ -67,13 +67,20 @@ addedIdx = np.zeros(len(food),dtype=bool)
 for k,item in enumerate(food):
     recipeInfo = myRecipes.get(item,{})
     if recipeInfo:
-        addedIdx = all(addToCart(myItems[food]) for food in recipeInfo['items'])
+        addedIdx[k] = all(addToCart(myItems[food]) for food in recipeInfo['items'])
     foodInfo = myItems.get(item,{})
     if foodInfo:
         addedIdx[k] = addToCart(foodInfo)
+
+# Get all items that have not been added
+notAdded = [food[k] for k,t in enumerate(addedIdx) if not t]
 
 # Remove items that have been completed
 browser.switchTab("todoist")
 for k,added in enumerate(addedIdx):
     if added:
-        deleteItem(items[k]):
+        deleteItem(items[k])
+
+# Print out items that need to be added manually
+print("I was not able to find the following items:")
+print(notAdded)
