@@ -36,12 +36,13 @@ myItems = {
         "frozen peas": {"search": "frozen peas", "keywords": ["Birds Eye", "Sweet Peas", "10 oz"]},
         "sour cream": {"search": "sour cream", "keywords": ["Daisy Pure", "Sour Cream", "8 oz"]},
         "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
-        "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
+        "sugar": {"search": "sugar", "keywords": ["C&H", "Pure Granulated", "4 lb"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
 myItems["bananas"] = myItems["banana"]
 myItems["pizza"] = myItems["supreme pizza"]
+myItems["avocados"] = myItems["avocado"]
 
 #################################
 myRecipes = {

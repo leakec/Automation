@@ -1,4 +1,3 @@
-import atexit
 from undetected_chromedriver.v2 import Chrome
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
@@ -6,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 class MyDriver(Chrome):
     
     def __init__(self,name=None):
+        import atexit
+
         super().__init__()
 
         # If an element takes longer than this, exit
