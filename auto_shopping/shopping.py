@@ -30,7 +30,7 @@ browser.get_element(By.XPATH,'//*[@id="password"]').send_keys(todoistPass)
 browser.get_element(By.XPATH,'//*[@id="login_form"]/button').click()
 
 # Get the Alexa shopping list (synced with todoist)
-browser.get_element(By.XPATH,'//*[@id="projects_list"]/li[4]/table/tbody/tr/td[2]/span').click()
+browser.get_element(By.XPATH,'//*[@id="projects_list"]/li[4]/div/div/a/span[2]').click()
 
 # Get the items from the list
 items = browser.find_elements(By.CSS_SELECTOR, ".task_list_item.task_list_item--project_hidden.task_list_item--shortcuts-enabled")

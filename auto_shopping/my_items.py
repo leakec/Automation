@@ -26,7 +26,7 @@ myItems = {
         "romano cheese": {"search": "romano cheese", "keywords": ["Private Selection","Shredded","Romano", "5 oz"]},
         "bacon": {"search": "bacon", "keywords": ["Kroger", "Thick Cut", "Hardwood Smoked", "16 oz"]},
         "bucatini": {"search": "bucatini", "keywords": ["Private Selection", "Bucatini", "16 oz"]},
-        "toritlla chips": {"search": "tortilla chips", "keywords": ["Tostitos", "Scoops", "Chips", "10 oz"]},
+        "tortilla chips": {"search": "tortilla chips", "keywords": ["Tostitos", "Scoops", "Chips", "10 oz"]},
         "frozen vegetables": {"search": "frozen vegetables", "keywords": ["Birds Eye", "California Blend", "60 oz"]},
         "avocado": {"search": "avocado", "keywords": ["Kroger","Haas Avocado", "4 ct"]},
         "guacamole salsa": {"search": "guacamole salsa", "keywords": ["Herdez", "Medium", "Guacamole", "Salsa", "15.7 oz"]},
@@ -37,6 +37,7 @@ myItems = {
         "sour cream": {"search": "sour cream", "keywords": ["Daisy Pure", "Sour Cream", "8 oz"]},
         "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
         "sugar": {"search": "sugar", "keywords": ["C&H", "Pure Granulated", "4 lb"]},
+        "everything bagels": {"search": "everything bagels", "keywords": ["Thomas", "Everything Bagels"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
