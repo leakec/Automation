@@ -2,6 +2,7 @@
 
 import yaml
 import click
+from typing import Optional, Dict
 
 # Setup click
 @click.command(context_settings=dict(help_option_names=["-h","--help"]))
@@ -36,7 +37,42 @@ def ingredient_formatter(i):
         s += "    * {}\n".format(i["notes"])
     return s
 
+# Format the time
+def time_formatter(t: Dict[str, int]) -> Optional[str]:
+    hh = t.get("hh","")
+    mm = t.get("mm","")
+    ss = t.get("ss","")
+    if hh:
+        if mm:
+            if ss:
+                time = str(hh) + " hours " + str(mm) + " minutes and " + ss + " seconds"
+            else:
+                time = str(hh) + " hours and " + str(mm) + " minutes"
+        elif ss:
+            time = str(hh) + " hours and " + str(ss) + " seconds"
+        else:
+            time = str(hh) + " hours"
+    elif mm:
+        if ss:
+            time = str(mm) + " minutes and " + ss + " seconds"
+        else:
+            time = str(mm) + " minutes"
+    elif ss:
+        time = ss + " seconds"
+    else:
+        time = None
+
+    return time
+
 title = data['title']
+time = ""
+timeData = data.get("time",{})
+prepTime = time_formatter(timeData.get("prep", {}))
+if prepTime:
+    time += "Prep time: "+prepTime+"<br>"
+cookTime = time_formatter(timeData.get("cook", {}))
+if cookTime:
+    time += "Cook time: "+cookTime
 ingredients = [ingredient_formatter(i) for i in data['ingredients']]
 steps = ["  1. {}\n".format(step) for step in data['steps']]
 
@@ -44,7 +80,7 @@ steps = ["  1. {}\n".format(step) for step in data['steps']]
 with open(templateFile, "r") as f:
     template = f.read()
 
-recipe = template.format(title=title,ingredients=''.join(ingredients),steps=''.join(steps))
+recipe = template.format(title=title,time=time,ingredients=''.join(ingredients),steps=''.join(steps))
 
 # Write recipe
 with open(outputFile, "w") as f:

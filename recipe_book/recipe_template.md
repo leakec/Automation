@@ -1,5 +1,8 @@
 # {title}
 
+## Time
+{time}
+
 ## Ingredients
 {ingredients}
 
