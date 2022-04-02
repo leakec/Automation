@@ -1,5 +1,6 @@
 myItems = {
         "chicken": {"search": "chicken", "keywords": ["Natural Raised Cage Free", "Breast"]},
+        "ground turkey": {"search": "ground turkey", "keywords": ["Jennie-O", "93% Lean", "Ground Turkey"]},
         "carl's milk": {"search": "whole milk", "keywords": ["Ralphs", "Whole", "1 gal"]},
         "nina's milk": {"search": "milk 0% organic", "keywords": ["Fat Free", "0.5 gal"]},
         "tortilla": {"search": "tortilla", "keywords": ["Whole Wheat", "Flour Tortillas", "24 ct"]},
@@ -17,6 +18,7 @@ myItems = {
         "salsa": {"search": "salsa", "keywords": ["Tostitos", "Medium", "Chunky", "Salsa"]},
         "chipotle salsa": {"search": "chiptole salsa", "keywords": ["Private Selection", "Medium", "Tomatillo", "Chipotle"]},
         "fajita seasoning": {"search": "fajita seasoning lawry", "keywords": ["Lawry", "Fajitas", "Seasoning"]},
+        "taco seasoning": {"search": "taco seasoning", "keywords": ["Old El Paso", "Reduced Sodium", "Taco Seasoning"]},
         "supreme pizza": {"search": "supreme pizza", "keywords": ["Red Baron", "Classic Crust", "Supreme"]},
         "oranges": {"search": "oranges", "keywords": ["Kroger", "Naval Oranges", "4lb"]},
         "frozen chicken": {"search": "frozen chicken", "keywords": ["Tyson", "Grilled", "Fully Cooked"]},
@@ -38,6 +40,8 @@ myItems = {
         "cheddar cheese": {"search": "cheddar cheese", "keywords": ["Kroger", "Sharp Cheddar Cheese", "32 oz"]},
         "sugar": {"search": "sugar", "keywords": ["C&H", "Pure Granulated", "4 lb"]},
         "everything bagels": {"search": "everything bagels", "keywords": ["Thomas", "Everything Bagels"]},
+        "black beans": {"search": "black beans", "keywords": ["Kroger", "Black Beans"]},
+        "diced tomatoes": {"search": "diced tomatoes", "keywords": ["Rotel", "Green Chiles", "Diced Tomatoes"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
@@ -50,4 +54,5 @@ myRecipes = {
     "amatriciana": {"items": ["crushed tomatoes","buccatini","romano cheese","parmesean cheese", "bacon"]},
     "fajitas": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "orange pepper", "onion", "tortillas", "fajita seasoning", "avocado"]},
     "chicken tortilla soup": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream", "salsa", "chipotle salsa"]},
+    "tacos": {"items": ["ground turkey", "black beans", "diced tomatoes", "onion", "tortillas", "taco seasoning", "avocado"]},
 }
