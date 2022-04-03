@@ -4,10 +4,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 class MyDriver(Chrome):
     
-    def __init__(self,name=None):
+    def __init__(self,name=None, **kwargs):
         import atexit
 
-        super().__init__()
+        super().__init__(**kwargs)
 
         # If an element takes longer than this, exit
         self._timeout = 10
@@ -36,6 +36,11 @@ class MyDriver(Chrome):
 
     def get_element(self, *args, **kwargs):
         """ Finds an element, but after the element is loaded. """
-        element_present = ec.presence_of_element_located(args)
-        return WebDriverWait(self, self._timeout).until(element_present)
+        try:
+            element_present = ec.presence_of_element_located(args)
+            return WebDriverWait(self, self._timeout).until(element_present)
+        except Exception as e:
+            print(e)
+            input("Press any key to continute ...")
+            return
 

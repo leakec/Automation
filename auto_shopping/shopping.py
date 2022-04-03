@@ -2,6 +2,7 @@ import numpy as np
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from undetected_chromedriver.v2 import ChromeOptions
 from Pass import passDict
 from my_items import myItems, myRecipes
 from my_driver import MyDriver
@@ -20,7 +21,9 @@ def deleteItem(item):
     item.find_elements(By.CSS_SELECTOR, ".task_checkbox.priority_1")[0].click()
 
 # Create web driver
-browser = MyDriver(name="todoist")
+chrome_options = ChromeOptions()
+chrome_options.add_argument("--disable-notifications")
+browser = MyDriver(name="todoist", options=chrome_options)
 
 # Log into todoist
 browser.get("https://todoist.com")
@@ -44,6 +47,7 @@ browser.switchTab("ralphs") # For some reason get puts us back in the first tab
 browser.get_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
 browser.get_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
 browser.get_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click() # Accept cookie
+browser.get_element(By.XPATH,'//*[@id="kds-Modal-l1ikezox"]/footer/div/button[2]') # Disable stupid pop up
 browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
 
 # Find food element

@@ -30,7 +30,7 @@ myItems = {
         "bucatini": {"search": "bucatini", "keywords": ["Private Selection", "Bucatini", "16 oz"]},
         "tortilla chips": {"search": "tortilla chips", "keywords": ["Tostitos", "Scoops", "Chips", "10 oz"]},
         "frozen vegetables": {"search": "frozen vegetables", "keywords": ["Birds Eye", "California Blend", "60 oz"]},
-        "avocado": {"search": "avocado", "keywords": ["Kroger","Haas Avocado", "4 ct"]},
+        "avocado": {"search": "avocado", "keywords": ["Kroger","Hass Avocado", "4 ct"]},
         "guacamole salsa": {"search": "guacamole salsa", "keywords": ["Herdez", "Medium", "Guacamole", "Salsa", "15.7 oz"]},
         "chipotle sauce": {"search": "chipotle sauce", "keywords": ["Cholula", "Chipotle", "Hot Sauce"]},
         "half and half": {"search": "half and half", "keywords": ["Kroger", "Half", "1 pt"]},
@@ -41,7 +41,7 @@ myItems = {
         "sugar": {"search": "sugar", "keywords": ["C&H", "Pure Granulated", "4 lb"]},
         "everything bagels": {"search": "everything bagels", "keywords": ["Thomas", "Everything Bagels"]},
         "black beans": {"search": "black beans", "keywords": ["Kroger", "Black Beans"]},
-        "diced tomatoes": {"search": "diced tomatoes", "keywords": ["Rotel", "Green Chiles", "Diced Tomatoes"]},
+        "diced tomatoes": {"search": "diced tomatoes", "keywords": ["Rotel", "Green Chilies", "Diced Tomatoes"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
