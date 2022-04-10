@@ -36,9 +36,16 @@ class MyDriver(Chrome):
 
     def get_element(self, *args, **kwargs):
         """ Finds an element, but after the element is loaded. """
+        element_present = ec.presence_of_element_located(args)
+        return WebDriverWait(self, self._timeout).until(element_present)
+
+    def get_element_safe(self, *args, **kwargs):
+        """ 
+        Finds an element, but after the element is loaded. Has a saftey catch in 
+        case something fails.
+        """
         try:
-            element_present = ec.presence_of_element_located(args)
-            return WebDriverWait(self, self._timeout).until(element_present)
+            self.get_element(*args, **kwargs)
         except Exception as e:
             print(e)
             input("Press any key to continute ...")

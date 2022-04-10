@@ -42,12 +42,17 @@ myItems = {
         "everything bagels": {"search": "everything bagels", "keywords": ["Thomas", "Everything Bagels"]},
         "black beans": {"search": "black beans", "keywords": ["Kroger", "Black Beans"]},
         "diced tomatoes": {"search": "diced tomatoes", "keywords": ["Rotel", "Green Chilies", "Diced Tomatoes"]},
+        "bratwurst": {"search": "bratwurst", "count": 2, "keywords": ["Kroger", "Bratwurst"]},
+        "bratwurst buns": {"search": "whole wheat hot dog buns", "keywords": ["Simple Truth", "Whole Wheat", "Hot Dog Buns"]},
+        "bratwurst beer": {"search": "beer 24 oz", "count": 2, "keywords": ["Corona", "Lager Beer", "24 fl oz"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
 myItems["bananas"] = myItems["banana"]
 myItems["pizza"] = myItems["supreme pizza"]
 myItems["avocados"] = myItems["avocado"]
+myItems["climing burritos"] = myItems["climbing burritos"]
+myItems["bagels"] = myItems["everything bagels"]
 
 #################################
 myRecipes = {
@@ -55,4 +60,5 @@ myRecipes = {
     "fajitas": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "orange pepper", "onion", "tortillas", "fajita seasoning", "avocado"]},
     "chicken tortilla soup": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream", "salsa", "chipotle salsa"]},
     "tacos": {"items": ["ground turkey", "black beans", "diced tomatoes", "onion", "tortillas", "taco seasoning", "avocado"]},
+    "beer bratwurst": {"items": ["bratwurst", "bratwurst buns", "bratwurst beer", "onion"]},
 }

@@ -47,7 +47,7 @@ browser.switchTab("ralphs") # For some reason get puts us back in the first tab
 browser.get_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
 browser.get_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
 browser.get_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click() # Accept cookie
-browser.get_element(By.XPATH,'//*[@id="kds-Modal-l1ikezox"]/footer/div/button[2]') # Disable stupid pop up
+browser.get_element_safe(By.XPATH,'//*[@id="kds-Modal-l1ikezox"]/footer/div/button[2]') # Disable stupid pop up
 browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
 
 # Find food element
