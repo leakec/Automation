@@ -14,10 +14,11 @@ RECIPES_MD = $(patsubst $(RECIPE_DATA)%, $(RECIPES)%, $(patsubst %.yml, %.md, $(
 clean:
 	rm -rf docs/*
 
-all: tags all_recipes $(RECIPES_MD)
-	cp $(RECIPE_DATA)/index.md $(DOCS)
-	cp $(RECIPE_DATA)/*.css $(DOCS)
+local: copy_data
 	mkdocs build
+
+all: copy_data
+	mkdocs serve
 
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml
 	mkdir -p $(RECIPES)
@@ -28,3 +29,7 @@ tags:
 
 all_recipes:
 	./scripts/all_recipes $(DOCS) recipes $(RECIPES_YML)
+
+copy_data: tags all_recipes $(RECIPES_MD)
+	cp $(RECIPE_DATA)/index.md $(DOCS)
+	cp $(RECIPE_DATA)/*.css $(DOCS)
