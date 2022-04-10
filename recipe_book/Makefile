@@ -14,14 +14,17 @@ RECIPES_MD = $(patsubst $(RECIPE_DATA)%, $(RECIPES)%, $(patsubst %.yml, %.md, $(
 clean:
 	rm -rf docs/*
 
-all: tags $(RECIPES_MD)
+all: tags all_recipes $(RECIPES_MD)
 	cp $(RECIPE_DATA)/index.md $(DOCS)
 	cp $(RECIPE_DATA)/*.css $(DOCS)
 	mkdocs build
 
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml
 	mkdir -p $(RECIPES)
-	./recipe_converter --template-file $(RECIPE_TEMPLATE) $< $@ 
+	./scripts/recipe_converter --template-file $(RECIPE_TEMPLATE) $< $@ 
 
 tags:
-	./tags.py $(DOCS) recipes $(RECIPES_YML)
+	./scripts/tags $(DOCS) recipes $(RECIPES_YML)
+
+all_recipes:
+	./scripts/all_recipes $(DOCS) recipes $(RECIPES_YML)

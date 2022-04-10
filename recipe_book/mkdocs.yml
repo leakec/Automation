@@ -3,6 +3,7 @@ site_url: https://Jones-Good-Ass-Recipe-book.com
 use_directory_urls: false
 nav:
   - Home: 'index.md'
+  - All Recipes: 'all_recipes.md'
   - Tags: 'tags.md'
 theme: journal
 extra_css: 

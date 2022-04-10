@@ -1,0 +1,45 @@
+#!/usr/bin/python
+
+import yaml
+import click
+
+# Setup click
+@click.command(context_settings=dict(help_option_names=["-h","--help"]))
+@click.pass_context
+@click.argument("output-dir", type=str, nargs=1) # Directory where final tags.md will go
+@click.argument("recipe-dir", type=str, nargs=1) # Directory where final .md files are stored
+@click.argument("recipes-yml", nargs=-1, type=str) # All of the .yml recipes
+def cli(ctx, output_dir, recipe_dir, recipes_yml, **kwargs):
+    kwargs['output_dir'] = output_dir 
+    kwargs['recipe_dir'] = recipe_dir
+    kwargs['recipes_yml'] = recipes_yml
+    return kwargs
+
+# Get yaml files
+try:
+    cfgobj = cli(standalone_mode=False)
+except:
+    # Exit if help was called
+    import sys
+    sys.exit()
+
+outputDir = cfgobj["output_dir"]
+recipeDir = cfgobj["recipe_dir"]
+recipes = cfgobj["recipes_yml"]
+
+# Get and sort all recipes
+names = []
+nameLinks = []
+for recipe in recipes:
+    with open(recipe) as f:
+        data = yaml.load(f, Loader=yaml.Loader)
+    names.append(data["title"])
+    nameLinks.append(recipe.split("/")[-1].replace(".yml",".html"))
+
+# Add all links 
+all_recipe_str = "# All Recipes\n\n"
+for name, nameLink in sorted(zip(names, nameLinks), key=lambda pair: pair[0]):
+    all_recipe_str += "* ["+name+"]("+recipeDir+"/"+nameLink+")\n"
+
+with open(outputDir+"/all_recipes.md","w") as f:
+    f.write(all_recipe_str)
