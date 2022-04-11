@@ -20,6 +20,9 @@ local: copy_data
 all: copy_data
 	mkdocs serve
 
+website: copy_data
+	ngrok http 127.0.0.1:8000
+
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml
 	mkdir -p $(RECIPES)
 	./scripts/recipe_converter --template-file $(RECIPE_TEMPLATE) $< $@ 
