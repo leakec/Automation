@@ -5,3 +5,4 @@ mkdir -p ~/.config/awesome/ && cp theme.lua ~/.config/awesome/ && cp rc.lua ~/.c
 mkdir -p ~/.config/picom/picom.conf && cp picom.conf ~/.config/picom/picom.conf
 cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 cp tmux.conf ~/.tmux.conf
+cat ./gterminal.profiles | dconf load /org/gnome/terminal/legacy/profiles:/
