@@ -46,6 +46,10 @@ myItems = {
         "bratwurst buns": {"search": "whole wheat hot dog buns", "keywords": ["Simple Truth", "Whole Wheat", "Hot Dog Buns"]},
         "bratwurst beer": {"search": "beer 24 oz", "count": 2, "keywords": ["Corona", "Lager Beer", "24 fl oz"]},
         "ham lunchmeat": {"search": "black forest ham", "keywords": ["Applegate", "Uncured", "Black Forest Ham"]},
+        "peanut butter": {"search": "peanut butter", "keywords": ["All Natural", "Peanut Butter"]},
+        "tater tots": {"search": "tater tots", "keywords": ["Tater Tots", "Frozen"]},
+        "coffee": {"search": "coffee whole peets", "keywords": ["Peet's", "Whole Bean", "Big Bang Medium"]},
+        "floss": {"search": "floss", "keywords": ["Kroger", "Floss", "Mint Wax"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
