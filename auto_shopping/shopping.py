@@ -64,10 +64,9 @@ def addToCart(foodInfo):
     results = browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
     for res in results:
         if all((x in res.text for x in keywords)):
-            res.find_element(By.CSS_SELECTOR, ".mt-32.mb-12").click()
             if res.find_elements(By.CSS_SELECTOR, ".kds-QuantityStepper-wrapper.kds-QuantityStepper-wrapper--hidden"):
                 # Item has not been added to cart yet
-                res.click()
+                res.find_element(By.CSS_SELECTOR, ".mt-32.mb-12").click()
                 count -= 1
             incrementer = res.find_element(By.CSS_SELECTOR, ".kds-Button.kds-Button--primary.kds-Button--compact.kds-Button--hasIconOnly.kds-QuantityStepper-incButton.shadow-4")
             while count > 0:
