@@ -20,3 +20,8 @@ These steps will make your website viewable on your local network from a name li
   * Worth double checking here that it is viewable locally. Can you use the computers IP address for this, or just `localhost`.
 2. Use `mDNS` to host website over local network. Note, you will need to make the `ServerName=myhost.local`, where `myhost` matches the `host-name` in `/etc/avahi/avahi-daemon.conf`
 
+To automatically enable apache2 on startup, use:
+`sudo update-rc.d apache2 enable`
+To disable use:
+`sudo update-rc.d apache2 disable`
+

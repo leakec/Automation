@@ -20,8 +20,11 @@ local: copy_data
 all: copy_data
 	mkdocs serve
 
-website: copy_data
+website_ngrok: copy_data
 	ngrok http 127.0.0.1:8000
+
+website: local
+	sudo cp -r site/* /var/www/home/
 
 $(RECIPES)/%.md: $(RECIPE_DATA)/%.yml
 	mkdir -p $(RECIPES)

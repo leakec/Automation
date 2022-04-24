@@ -64,7 +64,15 @@ def time_formatter(t: Dict[str, int]) -> Optional[str]:
 
     return time
 
+# Get title
 title = data['title']
+
+# Get chef
+chef = data.get("chef",None)
+if chef:
+    chef = "Chef: "+chef
+
+# Get cook time
 time = ""
 timeData = data.get("time",{})
 prepTime = time_formatter(timeData.get("prep", {}))
@@ -73,14 +81,18 @@ if prepTime:
 cookTime = time_formatter(timeData.get("cook", {}))
 if cookTime:
     time += "Cook time: "+cookTime
+
+# Get ingredients
 ingredients = [ingredient_formatter(i) for i in data['ingredients']]
+
+# Get steps
 steps = ["  1. {}\n".format(step) for step in data['steps']]
 
 # Apply data to template
 with open(templateFile, "r") as f:
     template = f.read()
 
-recipe = template.format(title=title,time=time,ingredients=''.join(ingredients),steps=''.join(steps))
+recipe = template.format(title=title,chef=chef,time=time,ingredients=''.join(ingredients),steps=''.join(steps))
 
 # Write recipe
 with open(outputFile, "w") as f:
