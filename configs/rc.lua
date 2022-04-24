@@ -328,6 +328,9 @@ globalkeys = gears.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
+    -- Adds screen saver
+    awful.key({ modkey,           }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
@@ -583,9 +586,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart applications
+-- awful.spawn.with_shell("picom")
 awful.spawn.with_shell("picom --experimental-backend")
---awful.spawn.with_shell(“picom”)
---awful.spawn.with_shell(“nitrogen --restore”)
+awful.util.spawn_with_shell("xscreensaver -no-splash")
 
 -- Customize terminal
 
