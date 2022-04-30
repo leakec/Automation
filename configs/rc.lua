@@ -329,7 +329,8 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Adds screen saver
-    awful.key({ modkey,           }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey,           }, "l", function () awful.util.spawn("xscreensaver-command -lock") end,
+              {description = "lock screen", group = "custom"}),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
