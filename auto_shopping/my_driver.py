@@ -45,7 +45,7 @@ class MyDriver(Chrome):
         case something fails.
         """
         try:
-            self.get_element(*args, **kwargs)
+            return self.get_element(*args, **kwargs)
         except Exception as e:
             print(e)
             input("Press any key to continute ...")

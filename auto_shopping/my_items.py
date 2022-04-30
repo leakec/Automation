@@ -50,6 +50,7 @@ myItems = {
         "tater tots": {"search": "tater tots", "keywords": ["Tater Tots", "Frozen"]},
         "coffee": {"search": "coffee whole peets", "keywords": ["Peet's", "Whole Bean", "Big Bang Medium"]},
         "floss": {"search": "floss", "keywords": ["Kroger", "Floss", "Mint Wax"]},
+        "apples": {"search": "apples", "keywords": ["Kroger", "Fuji", "Apples", "Bag"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
@@ -58,6 +59,7 @@ myItems["pizza"] = myItems["supreme pizza"]
 myItems["avocados"] = myItems["avocado"]
 myItems["climing burritos"] = myItems["climbing burritos"]
 myItems["bagels"] = myItems["everything bagels"]
+myItems["amy's burritos"] = myItems["nina's burritos"]
 
 #################################
 myRecipes = {
