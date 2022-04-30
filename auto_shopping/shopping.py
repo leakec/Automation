@@ -28,9 +28,9 @@ browser = MyDriver(name="todoist", options=chrome_options)
 # Log into todoist
 browser.get("https://todoist.com")
 browser.get_element(By.XPATH,'//*[@id="__next"]/div/main/div[1]/header/nav/div/ul[2]/li[1]/a').click()
-browser.get_element(By.XPATH,'//*[@id="email"]').send_keys(todoistUser)
-browser.get_element(By.XPATH,'//*[@id="password"]').send_keys(todoistPass)
-browser.get_element(By.XPATH,'//*[@id="login_form"]/button').click()
+browser.get_element(By.XPATH,'//*[@id="element-0"]').send_keys(todoistUser)
+browser.get_element(By.XPATH,'//*[@id="element-2"]').send_keys(todoistPass)
+browser.get_element(By.XPATH,'//*[@id="todoist_app"]/div/div/div/div/div[1]/form/button/span').click()
 
 # Get the Alexa shopping list (synced with todoist)
 browser.get_element(By.XPATH,'//*[@id="projects_list"]/li[4]/div/div/a/span[2]').click()
@@ -44,11 +44,10 @@ food = [j.text.split("\n")[0] for j in items]
 browser.newTab(name="ralphs")
 browser.get("https://www.ralphs.com/signin")
 browser.switchTab("ralphs") # For some reason get puts us back in the first tab
+browser.get_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click() # Accept cookie
 browser.get_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
 browser.get_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
-browser.get_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click() # Accept cookie
-browser.get_element_safe(By.XPATH,'//*[@id="kds-Modal-l1ikezox"]/footer/div/button[2]') # Disable stupid pop up
-browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
+browser.get_element_safe(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
 
 # Find food element
 def addToCart(foodInfo):
