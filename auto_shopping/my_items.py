@@ -20,7 +20,7 @@ myItems = {
         "fajita seasoning": {"search": "fajita seasoning lawry", "keywords": ["Lawry", "Fajitas", "Seasoning"]},
         "taco seasoning": {"search": "taco seasoning", "keywords": ["Old El Paso", "Reduced Sodium", "Taco Seasoning"]},
         "supreme pizza": {"search": "supreme pizza", "keywords": ["Red Baron", "Classic Crust", "Supreme"]},
-        "oranges": {"search": "oranges", "keywords": ["Kroger", "Naval Oranges", "4lb"]},
+        "oranges": {"search": "navel oranges", "keywords": ["Private Selection", "Navel Oranges"]},
         "frozen chicken": {"search": "frozen chicken", "keywords": ["Tyson", "Grilled", "Fully Cooked"]},
         "crushed tomatoes": {"search": "crushed tomatoes", "keywords": ["Hunt's", "Crushed Tomatoes", "28 oz"]},
         "banana": {"search": "banana", "keywords": ["Organic", "Banana"]},
@@ -51,6 +51,12 @@ myItems = {
         "coffee": {"search": "coffee whole peets", "keywords": ["Peet's", "Whole Bean", "Big Bang Medium"]},
         "floss": {"search": "floss", "keywords": ["Kroger", "Floss", "Mint Wax"]},
         "apples": {"search": "apples", "keywords": ["Kroger", "Fuji", "Apples", "Bag"]},
+        "pork shoulder": {"search": "pork shoulder", "keywords": ["Pork", "Boston Butt", "Shoulder Roast"]},
+        "root beer": {"search": "root beer", "keywords": ["A&W", "Root Beer", "2 L"]},
+        "BBQ sauce": {"search": "BBQ sauce", "keywords": ["Stubb's", "Smoky Mesquite",]},
+        "brioche buns": {"search": "buns", "keywords": ["Alfaro's", "Bakery Brioche Buns", "6 ct"]},
+        "hamburger  buns": {"search": "hamburger buns wheat", "keywords": ["Simple Truth", "Whole Wheat Hamburger Buns", "8 ct"]},
+        "potato salad": {"search": "potato salad", "keywords": ["Reser's", "Potato Salad", "32 oz"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
@@ -68,4 +74,5 @@ myRecipes = {
     "chicken tortilla soup": {"items": ["chicken","red pepper", "yellow pepper", "green pepper", "chicken broth", "half and half", "frozen peas", "sour cream", "salsa", "chipotle salsa"]},
     "tacos": {"items": ["ground turkey", "black beans", "diced tomatoes", "onion", "tortillas", "taco seasoning", "avocado"]},
     "beer bratwurst": {"items": ["bratwurst", "bratwurst buns", "bratwurst beer", "onion"]},
+    "pulled pork": {"items": ["pork shoulder", "root beer", "BBQ sauce", "brioche buns", "hamburger buns"]},
 }

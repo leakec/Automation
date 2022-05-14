@@ -14,7 +14,7 @@ ralphsUser = passDict["Ralphs"]["username"]
 ralphsPass = passDict["Ralphs"]["password"]
 
 # Constants
-sleepTime = 2.0
+sleepTime = 2.5
 
 # Useful functions
 def deleteItem(item):
@@ -28,9 +28,9 @@ browser = MyDriver(name="todoist", options=chrome_options)
 # Log into todoist
 browser.get("https://todoist.com")
 browser.get_element(By.XPATH,'//*[@id="__next"]/div/main/div[1]/header/nav/div/ul[2]/li[1]/a').click()
-browser.get_element(By.XPATH,'//*[@id="element-0"]').send_keys(todoistUser)
-browser.get_element(By.XPATH,'//*[@id="element-2"]').send_keys(todoistPass)
-browser.get_element(By.XPATH,'//*[@id="todoist_app"]/div/div/div/div/div[1]/form/button/span').click()
+browser.get_element(By.XPATH,'//*[@id="labeled-input-1"]').send_keys(todoistUser)
+browser.get_element(By.XPATH,'//*[@id="labeled-input-3"]').send_keys(todoistPass)
+browser.get_element(By.XPATH,'//*[@id="todoist_app"]/div/div/div[2]/div[1]/div/div/form/button').click()
 
 # Get the Alexa shopping list (synced with todoist)
 browser.get_element(By.XPATH,'//*[@id="projects_list"]/li[4]/div/div/a/span[2]').click()
