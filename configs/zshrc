@@ -16,6 +16,24 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 autoload -Uz compinit
 compinit
 
+## Setup coloring
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+## Key bindings
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+
+## User-specific commands
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
@@ -36,6 +54,3 @@ export TPS_DEPLOY_DIR=~/Documents/JplDartsLab/TPS
 export YAM_TARGET=x86_64-fedora34-linux
 #source ~/Documents/eelsPkg/src/DshellEnv/srun-complete.zsh
 
-# Key bindings
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
