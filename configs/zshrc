@@ -25,7 +25,7 @@ export PATH
 
 export EDITOR='vim'
 export SVN_EDITOR='vim'
-alias vim=vimx
+#alias vim=vimx
 
 # DARTS stuff
 alias srun=~/Documents/JplDartsLab/dlabrun
@@ -34,7 +34,7 @@ export YAM_PROJECT=Dshell
 export SITECONFIGDIR=~/Documents/JplDartsLab/siteconfigs 
 export TPS_DEPLOY_DIR=~/Documents/JplDartsLab/TPS
 export YAM_TARGET=x86_64-fedora34-linux
-source ~/Documents/eelsPkg/src/DshellEnv/srun-complete.zsh
+#source ~/Documents/eelsPkg/src/DshellEnv/srun-complete.zsh
 
 # Key bindings
 bindkey '^[[H' beginning-of-line
