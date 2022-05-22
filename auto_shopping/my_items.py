@@ -57,6 +57,7 @@ myItems = {
         "brioche buns": {"search": "buns", "keywords": ["Alfaro's", "Bakery Brioche Buns", "6 ct"]},
         "hamburger  buns": {"search": "hamburger buns wheat", "keywords": ["Simple Truth", "Whole Wheat Hamburger Buns", "8 ct"]},
         "potato salad": {"search": "potato salad", "keywords": ["Reser's", "Potato Salad", "32 oz"]},
+        "carl's deoderant": {"search": "deoderant degree arctic edge", "keywords": ["Degree", "Arctic Edge"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]
