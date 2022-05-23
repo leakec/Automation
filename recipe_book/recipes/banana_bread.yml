@@ -1,0 +1,49 @@
+title: Banana Bread
+# chef: Internet
+ingredients:
+  - name: Bananas 
+    amount: 2-3
+    notes: Size should be about medium. Best if overripe. I like to freeze them when they go bad, and then use them when I'm ready to make banana bread.
+  - name: Vegetable oil
+    amount: 1/3
+    units: cup
+  - name: egg
+    amount: 1
+  - name: Baking soda
+    amount: 1/2
+    units: teaspoon
+  - name: Salt
+    amount: 1
+    units: pinch
+  - name: Vanilla extract
+    amount: 1
+    units: teaspoon
+  - name: Sugar
+    amount: 3/4
+    units: cup
+  - name: All purpose flour
+    amount: 1.5
+    units: cups
+  - name: Chocolate chips
+    amount: 1/2
+    units: cup
+  - name: Butter or oil to grease a loaf pan.
+time:
+  prep: 
+    hh: 0
+    mm: 10
+  cook:
+    hh: 0
+    mm: 50
+steps:
+  - Grease a loaf pan with oil or butter. 
+  - Preheat the oven to 350.
+  - Mash the bananas in a large bowl.
+  - Add the vegetable oil and egg. Mix well.
+  - Add the baking soda, salt, and vanilla extract. Mix well.
+  - Add the surgar and flour. Mix well.
+  - Add in the chocolate chips. Mix well.
+  - Bake at 350 for 50 minutes.
+tags:
+  - Desserts
+
