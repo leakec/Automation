@@ -1,7 +1,7 @@
 myItems = {
         "chicken": {"search": "chicken", "keywords": ["Natural Raised Cage Free", "Breast"]},
         "ground turkey": {"search": "ground turkey", "keywords": ["Jennie-O", "93% Lean", "Ground Turkey"]},
-        "carl's milk": {"search": "whole milk", "keywords": ["Ralphs", "Whole", "1 gal"]},
+        "carl's milk": {"search": "whole milk", "keywords": ["Ralphs", "Whole", "1 Gallon"]},
         "nina's milk": {"search": "milk 0% organic", "keywords": ["Fat Free", "0.5 gal"]},
         "tortilla": {"search": "tortilla", "keywords": ["Whole Wheat", "Flour Tortillas", "24 ct"]},
         "eggs": {"search": "eggs", "keywords": ["Happy Egg","Free Range","18 ct"]},
@@ -58,6 +58,9 @@ myItems = {
         "hamburger  buns": {"search": "hamburger buns wheat", "keywords": ["Simple Truth", "Whole Wheat Hamburger Buns", "8 ct"]},
         "potato salad": {"search": "potato salad", "keywords": ["Reser's", "Potato Salad", "32 oz"]},
         "carl's deoderant": {"search": "deoderant degree arctic edge", "keywords": ["Degree", "Arctic Edge"]},
+        "flour": {"search": "flour", "keywords": ["Gold Medal", "All Purpose Flour", "5 lb"]},
+        "meatballs": {"search": "meatballs", "keywords": ["Kroger", "Fully Cooked", "Homestyle Meatballs", "1 lb"]},
+        "chocolate chips": {"search": "chocolate chips", "keywords": ["Nestle", "Semi Sweet Chocolate Chips", "12 oz"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]

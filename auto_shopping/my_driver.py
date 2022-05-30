@@ -51,3 +51,15 @@ class MyDriver(Chrome):
             input("Press any key to continute ...")
             return
 
+    def click_safe(self, element):
+        """ 
+        Attempts to click an element. Has a safety catch in case something fails.
+        """
+        try:
+            element.click()
+        except Exception as e:
+            print(e)
+            input("Press any key to continute ...")
+            element.click()
+            return
+

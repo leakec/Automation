@@ -47,7 +47,8 @@ browser.switchTab("ralphs") # For some reason get puts us back in the first tab
 browser.get_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click() # Accept cookie
 browser.get_element(By.XPATH,'//*[@id="SignIn-emailInput"]').send_keys(ralphsUser)
 browser.get_element(By.XPATH,'//*[@id="SignIn-passwordInput"]').send_keys(ralphsPass)
-browser.get_element_safe(By.XPATH,'//*[@id="SignIn-submitButton"]').click() 
+sign_in = browser.get_element(By.XPATH,'//*[@id="SignIn-submitButton"]') 
+browser.click_safe(sign_in) # Safety click in case ad is present
 
 # Find food element
 def addToCart(foodInfo):
@@ -60,12 +61,17 @@ def addToCart(foodInfo):
     keywords = foodInfo["keywords"]
     count = foodInfo.get("count", 1)
 
-    results = browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
+    # First result is for items previously bought. Second is for regular item search.
+    results = browser.find_elements(By.XPATH, '//*[@id="content"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div')
+    results += browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
     for res in results:
         if all((x in res.text for x in keywords)):
             if res.find_elements(By.CSS_SELECTOR, ".kds-QuantityStepper-wrapper.kds-QuantityStepper-wrapper--hidden"):
                 # Item has not been added to cart yet
-                res.find_element(By.CSS_SELECTOR, ".mt-32.mb-12").click()
+                els = res.find_elements(By.CSS_SELECTOR, ".mt-32.mb-12")
+                if not els:
+                    els = res.find_elements(By.CSS_SELECTOR, ".py-16.align-top.text-center.flex.justify-center.items-center")
+                els[0].click()
                 count -= 1
             incrementer = res.find_element(By.CSS_SELECTOR, ".kds-Button.kds-Button--primary.kds-Button--compact.kds-Button--hasIconOnly.kds-QuantityStepper-incButton.shadow-4")
             while count > 0:
