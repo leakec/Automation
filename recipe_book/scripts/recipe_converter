@@ -68,7 +68,7 @@ def time_formatter(t: Dict[str, int]) -> Optional[str]:
 title = data['title']
 
 # Get chef
-chef = data.get("chef",None)
+chef = data.get("chef","")
 if chef:
     chef = "Chef: "+chef
 

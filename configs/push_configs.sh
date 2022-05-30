@@ -8,3 +8,5 @@ cp tmux.conf ~/.tmux.conf
 cat ./gterminal.profiles | dconf load /org/gnome/terminal/legacy/profiles:/
 cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
 cp ./xscreensaver ~/.xscreensaver
+cp ./zshrc ~/.zshrc
+cp ./ctags ~/.ctags

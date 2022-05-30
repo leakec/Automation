@@ -8,3 +8,5 @@ cp ~/.tmux.conf ./tmux.conf
 dconf dump /org/gnome/terminal/ > ./gterminal.preferences
 cp /usr/local/share/mupen64plus/InputAutoCfg.ini .
 cp ~/.xscreensaver ./xscreensaver
+cp ~/.zshrc ./zshrc
+cp ~/.ctags ./ctags
