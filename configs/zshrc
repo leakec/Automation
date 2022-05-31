@@ -44,6 +44,9 @@ alias l='ls -CF'
 ## Key bindings
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+# In tmux
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
 
 ## User-specific commands
 # User specific environment
