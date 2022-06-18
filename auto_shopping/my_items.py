@@ -61,6 +61,11 @@ myItems = {
         "flour": {"search": "flour", "keywords": ["Gold Medal", "All Purpose Flour", "5 lb"]},
         "meatballs": {"search": "meatballs", "keywords": ["Kroger", "Fully Cooked", "Homestyle Meatballs", "1 lb"]},
         "chocolate chips": {"search": "chocolate chips", "keywords": ["Nestle", "Semi Sweet Chocolate Chips", "12 oz"]},
+        "contact solution": {"search": "contact solution", "keywords": ["Clear Care", "12 fl oz"]},
+        "vegetable oil": {"search": "vegetable oil", "keywords": ["Kroger", "48 fl oz"]},
+        "baking soda": {"search": "baking soda", "keywords": ["Arm & Hammer", "1 lb"]},
+        "jelly": {"search": "jelly", "keywords": ["Welch's", "30 oz"]},
+        "laundry detergent": {"search": "laundry detergent", "keywords": ["Arm & Hammer", "Free & Clear", "Sensitive Skin", "144.5 fl oz"]},
 }
 
 myItems["tortillas"] = myItems["tortilla"]

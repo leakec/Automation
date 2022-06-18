@@ -27,7 +27,7 @@ browser = MyDriver(name="todoist", options=chrome_options)
 
 # Log into todoist
 browser.get("https://todoist.com")
-browser.get_element(By.XPATH,'//*[@id="__next"]/div/main/div[1]/header/nav/div/ul[2]/li[1]/a').click()
+browser.get_element(By.XPATH,'//*[@id="__next"]/div/div/header/nav[2]/div/ul[2]/li[1]/a').click()
 browser.get_element(By.XPATH,'//*[@id="labeled-input-1"]').send_keys(todoistUser)
 browser.get_element(By.XPATH,'//*[@id="labeled-input-3"]').send_keys(todoistPass)
 browser.get_element(By.XPATH,'//*[@id="todoist_app"]/div/div/div[2]/div[1]/div/div/form/button').click()
@@ -64,6 +64,9 @@ def addToCart(foodInfo):
     # First result is for items previously bought. Second is for regular item search.
     results = browser.find_elements(By.XPATH, '//*[@id="content"]/div/div/div/div[2]/div[2]/div[3]/div[1]/div')
     results += browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
+    if len(results) < 5:
+        sleep(4.0)
+        results += browser.find_elements(By.CSS_SELECTOR, ".AutoGrid-cell.min-w-0")
     for res in results:
         if all((x in res.text for x in keywords)):
             if res.find_elements(By.CSS_SELECTOR, ".kds-QuantityStepper-wrapper.kds-QuantityStepper-wrapper--hidden"):
@@ -71,7 +74,14 @@ def addToCart(foodInfo):
                 els = res.find_elements(By.CSS_SELECTOR, ".mt-32.mb-12")
                 if not els:
                     els = res.find_elements(By.CSS_SELECTOR, ".py-16.align-top.text-center.flex.justify-center.items-center")
-                els[0].click()
+                if len(els) > 0:
+                    try:
+                        els[0].click()
+                    except:
+                        res.find_element(By.CSS_SELECTOR, ".kds-Button.kds-Button--primary.kds-Button--compact.kds-Button--hasIconOnly.kds-QuantityStepper-incButton.shadow-4").click()
+                else:
+                    res.find_element(By.CSS_SELECTOR, ".kds-Button.kds-Button--primary.kds-Button--compact.kds-QuantityStepper-ctaButton.shadow-4").click()
+                    
                 count -= 1
             incrementer = res.find_element(By.CSS_SELECTOR, ".kds-Button.kds-Button--primary.kds-Button--compact.kds-Button--hasIconOnly.kds-QuantityStepper-incButton.shadow-4")
             while count > 0:
