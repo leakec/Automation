@@ -10,3 +10,4 @@ cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
 cp ./xscreensaver ~/.xscreensaver
 cp ./zshrc ~/.zshrc
 cp ./ctags ~/.ctags
+cp -r nvim ~/.config/nvim
