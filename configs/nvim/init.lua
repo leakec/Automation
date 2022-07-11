@@ -77,7 +77,12 @@ set t_Co=256
 set wildmode=longest,list,full
 set wildmenu
 
+" Set yaml spacing
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+" Setup persistent undo
+set undofile " Maintain undo history between sessions
+set undodir=~/.nvim/undodir " Store files needed for persistent undo here
 
 
 """ coc setup below this point """"""""""""""""""""""""""""""""""""""""""
