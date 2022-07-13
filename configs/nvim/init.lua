@@ -270,6 +270,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Store last position when closing a file
+    use 'farmergreg/vim-lastplace'
+
     -- Coc setup
     use {'neoclide/coc.nvim', branch = 'release'}
 
