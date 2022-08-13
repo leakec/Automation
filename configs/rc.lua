@@ -173,7 +173,7 @@ awful.util.tasklist_buttons = mytable.join(
 )
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
-beautiful.wallpaper = "/home/leake/Pictures/Wallpapers/Dark_forest_3.jpg"
+beautiful.wallpaper = "/home/leake/Pictures/Wallpapers/SteamPunk2.jpg"
 
 -- }}}
 
