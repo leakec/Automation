@@ -56,6 +56,5 @@ then
 fi
 export PATH
 
-export EDITOR='vim'
-export SVN_EDITOR='vim'
-#alias vim=vimx
+export EDITOR='nvim'
+export SVN_EDITOR='nvim'
