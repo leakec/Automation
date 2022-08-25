@@ -1,5 +1,6 @@
 {
   "suggest.autoTrigger": "none",
   "coc.preferences.triggerSignatureHelp":true,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "pydocstring.formatter": "numpy"
 }

@@ -38,6 +38,11 @@ vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", {silent = true
 vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-reference)", {silent = true})
 
+-- Use ga or gA for code action
+vim.api.nvim_set_keymap("n", "ga", "<Plug>(coc-codeaction-line)", {})
+vim.api.nvim_set_keymap("x", "ga", "<Plug>(coc-codeaction-selected)", {})
+vim.api.nvim_set_keymap("n", "gA", "<Plug>(coc-codeaction)", {})
+
 -- Use K to show documentation in preview window.
 vim.api.nvim_set_keymap("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
 
