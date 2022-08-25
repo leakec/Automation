@@ -2,5 +2,6 @@
   "suggest.autoTrigger": "none",
   "coc.preferences.triggerSignatureHelp":true,
   "python.formatting.provider": "black",
-  "pydocstring.formatter": "numpy"
+  "pydocstring.formatter": "numpy",
+  "coc.preferences.jumpCommand": "vsplit"
 }
