@@ -48,6 +48,9 @@ bindkey '^[[F' end-of-line
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 
+## Set keyboard repeat rate
+xset r rate 100 30
+
 ## User-specific commands
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
