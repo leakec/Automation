@@ -515,6 +515,12 @@ globalkeys = mytable.join(
             naughty.notify(common)
         end,
         {description = "mpc on/off", group = "widgets"}),
+    awful.key({}, "Print",
+        function ()
+			awful.util.spawn("flameshot gui")
+            --os.execute("flameshot gui")
+        end,
+        {description = "Screenshot", group = "widgets"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
