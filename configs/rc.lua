@@ -520,7 +520,7 @@ globalkeys = mytable.join(
 			awful.util.spawn("flameshot gui")
             --os.execute("flameshot gui")
         end,
-        {description = "Screenshot", group = "widgets"}),
+        {description = "take a screenshot", group = "widgets"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
