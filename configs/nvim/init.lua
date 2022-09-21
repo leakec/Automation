@@ -9,8 +9,17 @@ vim.opt.undofile = true
 -- Turn line numbering on, used in conjunction with sitiom/nvim-numbertoggle plugin
 vim.opt.number = true
 
--- Coc setup below this point: ----------------------------------------------------
+-- Coc setup 
 require('coc-config')
+
+-- Code folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
+    pattern = "*",
+    command = "normal zR",
+    desc = "Open all tree sitterfolds.",
+})
 
 -- Install packer for plugins
 local fn = vim.fn
@@ -35,6 +44,14 @@ return require('packer').startup(function(use)
 		  require("numbertoggle").setup()
 	   end
 	}
+
+	-- Tree sitter for code folding
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+		ensure_installed = { "cpp", "python" },
+		auto_install = true,
+    }
 
     -- Coc setup
     use {'neoclide/coc.nvim', branch = 'release'}
