@@ -5,6 +5,7 @@ cp ~/.config/awesome/theme.lua .
 cp ~/.config/awesome/rc.lua .
 cp ~/.config/picom/picom.conf .
 cp ~/.config/gromit-mpx.cfg .
+cp ~/.config/alacritty/alacritty.yml .
 cp ~/.tmux.conf ./tmux.conf
 dconf dump /org/gnome/terminal/ > ./gterminal.preferences
 cp /usr/local/share/mupen64plus/InputAutoCfg.ini .
