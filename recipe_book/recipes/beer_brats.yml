@@ -1,0 +1,35 @@
+title: Beer Bratwurst
+ingredients:
+  - name: Bratwurst
+    amount: 10 
+  - name: Beer 
+    amount: 48
+    units: oz
+    notes: Quality of the beer does not matter. The cheaper the better.
+  - name: Onion
+    amount: 1
+  - name: Garlic
+    amount: 4-6 
+    units: cloves
+  - name: Butter
+    amount: 1.5
+    units: tablespoons
+  - name: Bratwurst buns
+    amount: 10
+time:
+  prep: 
+    hh: 0
+    mm: 5
+  cook:
+    hh: 6
+steps:
+  - Julian the onion.
+  - Dice the garlic.
+  - Add the beer, onion, garlic, bratwurst, and butter to the slow cooker.
+  - Cook on low for 6 hours.
+  - Server over buns with sauce of your choice. Spicy mustard or BBQ sauce are great!
+tags:
+  - Region/America
+  - Entrees
+  - Slow cooker
+
