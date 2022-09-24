@@ -48,6 +48,18 @@ bindkey '^[[F' end-of-line
 bindkey '^[[1~' beginning-of-line
 bindkey '^[[4~' end-of-line
 
+## No duplicate history
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=5000
+HISTDUP=erase
+setopt noincappendhistory # Does not share between tmux panes
+setopt nosharehistory # Does not share between tmux panes 
+#setopt hist_ignore_all_dups
+#setopt hist_save_no_dups
+setopt hist_ignore_dups # Removes subsequent dupes
+#setopt hist_find_no_dups
+
 ## Set keyboard repeat rate
 xset r rate 150 30
 
