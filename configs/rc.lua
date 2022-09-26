@@ -173,8 +173,45 @@ awful.util.tasklist_buttons = mytable.join(
      awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
 )
 
+-- Set random seed
+math.randomseed(os.time())
+
+-- Lua implementation of PHP scandir function with shuffler 
+function scandir(directory)
+    local i, t, popen = 0, {}, io.popen
+    local pfile = popen('ls -a "'..directory..'"')
+	-- Get files
+    for filename in pfile:lines() do
+        i = i + 1
+        t[i] = filename
+    end
+    pfile:close()
+
+	-- Shuffle files
+	for k = #t, 2, -1 do
+    	local j = math.random(k)
+		t[k], t[j] = t[j], t[k]
+  	end
+    return t, i
+end
+
+local Wallpapers, WallpaperLength = scandir("/home/leake/Pictures/Wallpapers")
+local WallpaperNum = 1
+
+-- Sets wallpaper based on number
+function setWallpaper()
+	WallpaperNum = WallpaperNum + 1
+	if (WallpaperNum > WallpaperLength)
+	then
+		WallpaperNum = 1
+	end
+	beautiful.wallpaper = "/home/leake/Pictures/Wallpapers/" .. Wallpapers[WallpaperNum]
+	gears.wallpaper.maximized(beautiful.wallpaper, awful.screen.focused(), true)
+end
+
+--beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
-beautiful.wallpaper = "/home/leake/Pictures/Wallpapers/SteamPunk2.jpg"
+setWallpaper()
 
 -- }}}
 
@@ -516,12 +553,19 @@ globalkeys = mytable.join(
             naughty.notify(common)
         end,
         {description = "mpc on/off", group = "widgets"}),
+
+	-- Screenshots
     awful.key({}, "Print",
         function ()
 			awful.util.spawn("flameshot gui")
             --os.execute("flameshot gui")
         end,
         {description = "take a screenshot", group = "widgets"}),
+
+	-- Change wallpaper
+	awful.key({ altkey, "Control" }, "w",
+		setWallpaper,
+		{description = "change wallpaper", group = "widgets"}),
 
     -- Copy primary to clipboard (terminals to gtk)
     awful.key({ modkey }, "c", function () awful.spawn.with_shell("xsel | xsel -i -b") end,
