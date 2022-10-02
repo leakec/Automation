@@ -8,7 +8,7 @@ cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 cp tmux.conf ~/.tmux.conf
 cat ./gterminal.preferences | dconf load /org/gnome/terminal/legacy/profiles:/
 cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
-cp ./xscreensaver ~/.xscreensaver
+cp ./betterlockscreenrc ~/.config/betterlockscreenrc
 cp ./zshrc ~/.zshrc
 cp ./ctags ~/.ctags
 rm -rf ~/.config/nvim; cp -r nvim ~/.config/nvim

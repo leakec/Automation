@@ -4,3 +4,9 @@
 [submodule "configs/rofi"]
 	path = configs/rofi
 	url = https://github.com/adi1090x/rofi.git
+[submodule "configs/betterlockscreen"]
+	path = configs/betterlockscreen
+	url = https://github.com/betterlockscreen/betterlockscreen.git
+[submodule "configs/i3lock-color"]
+	path = configs/i3lock-color
+	url = https://github.com/Raymo111/i3lock-color.git

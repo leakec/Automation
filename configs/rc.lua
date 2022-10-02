@@ -105,7 +105,6 @@ local vi_focus     = false -- vi-like client focus https://github.com/lcpz/aweso
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "librewolf"
-local scrlocker    = "xscreensaver-command -lock"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -314,7 +313,7 @@ globalkeys = mytable.join(
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
+    awful.key({ altkey, "Control" }, "l", function () os.execute(string.format("betterlockscreen -l")) end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Show help
@@ -872,4 +871,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 beautiful.useless_gap = 3
 awful.spawn.with_shell("picom --experimental-backend")
-awful.util.spawn_with_shell("xscreensaver -no-splash")
