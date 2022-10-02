@@ -13,3 +13,4 @@ cp ~/.xscreensaver ./xscreensaver
 cp ~/.zshrc ./zshrc
 cp ~/.ctags ./ctags
 cp -r ~/.config/nvim .
+cp ~/.config/screenkey.json .
