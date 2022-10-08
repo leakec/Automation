@@ -208,6 +208,7 @@ function setWallpaper()
 	end
 	beautiful.wallpaper = Wallpapers[WallpaperNum]
 	gears.wallpaper.maximized(beautiful.wallpaper, awful.screen.focused(), true)
+	os.execute("betterlockscreen -u "..Wallpapers[WallpaperNum].." &")
 end
 
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -315,7 +316,7 @@ globalkeys = mytable.join(
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(string.format("betterlockscreen -l")) end,
+    awful.key({ altkey, "Control" }, "l", function () os.execute(string.format("betterlockscreen --off 30 -l")) end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Show help
