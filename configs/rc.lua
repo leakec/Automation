@@ -176,9 +176,11 @@ awful.util.tasklist_buttons = mytable.join(
 math.randomseed(os.time())
 
 -- Lua implementation of PHP scandir function with shuffler 
+-- Only scans for jpg and png files
 function scandir(directory)
     local i, t, popen = 0, {}, io.popen
-    local pfile = popen('ls -a "'..directory..'"')
+    local pfile = popen('ls -a "'..directory..'"*.jpg "'..directory..'"*.png')
+
 	-- Get files
     for filename in pfile:lines() do
         i = i + 1
@@ -194,7 +196,7 @@ function scandir(directory)
     return t, i
 end
 
-local Wallpapers, WallpaperLength = scandir("/home/leake/Pictures/Wallpapers")
+local Wallpapers, WallpaperLength = scandir("/home/leake/Pictures/Wallpapers/")
 local WallpaperNum = 1
 
 -- Sets wallpaper based on number
@@ -204,7 +206,7 @@ function setWallpaper()
 	then
 		WallpaperNum = 1
 	end
-	beautiful.wallpaper = "/home/leake/Pictures/Wallpapers/" .. Wallpapers[WallpaperNum]
+	beautiful.wallpaper = Wallpapers[WallpaperNum]
 	gears.wallpaper.maximized(beautiful.wallpaper, awful.screen.focused(), true)
 end
 
