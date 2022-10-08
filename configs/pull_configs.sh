@@ -7,10 +7,12 @@ cp ~/.config/picom/picom.conf .
 cp ~/.config/gromit-mpx.cfg .
 cp ~/.config/alacritty/alacritty.yml .
 cp ~/.tmux.conf ./tmux.conf
-dconf dump /org/gnome/terminal/ > ./gterminal.preferences
 cp /usr/local/share/mupen64plus/InputAutoCfg.ini .
 cp ~/.config/betterlockscreenrc .
 cp ~/.zshrc ./zshrc
 cp ~/.ctags ./ctags
 cp -r ~/.config/nvim .
 cp ~/.config/screenkey.json .
+
+# Not used anymore 
+# dconf dump /org/gnome/terminal/ > ./gterminal.preferences
