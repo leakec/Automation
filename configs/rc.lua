@@ -872,5 +872,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
+-- Set borders
+beautiful.border_width = 3
+beautiful.border_focus = "#4c00b0"
+
+-- Set useless gaps 
 beautiful.useless_gap = 3
+
+-- Start picom
 awful.spawn.with_shell("picom --experimental-backend")
