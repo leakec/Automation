@@ -3,5 +3,9 @@
   "coc.preferences.triggerSignatureHelp":true,
   "python.formatting.provider": "black",
   "pydocstring.formatter": "numpy",
-  "coc.preferences.jumpCommand": "vsplit"
+  "coc.preferences.jumpCommand": "vsplit",
+  "diagnostic.errorSign": "✘",
+  "diagonistc.warningSign": "⚠",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "⚑"
 }
