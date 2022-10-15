@@ -12,6 +12,24 @@ vim.opt.number = true
 -- Coc setup 
 require('coc-config')
 
+-- LSP setup
+-- local lsp = require('lsp-zero')
+-- lsp.preset('recommended')
+-- 
+-- lsp.use('pyright', {
+--   settings = {
+--     python = {
+--       analysis = {
+-- 		autoImportCompletions = true,
+-- 		autoSearchPaths = true,
+-- 		useLibraryCodeForTypes = true,
+-- 		typeCheckingMode = 'basic',
+--       }
+--     }
+--   }
+-- })
+-- lsp.setup()
+
 -- Code folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -55,6 +73,29 @@ return require('packer').startup(function(use)
 
     -- Coc setup
     use {'neoclide/coc.nvim', branch = 'release'}
+
+	-- LSP setup
+	--use {
+	--  'VonHeikemen/lsp-zero.nvim',
+	--  requires = {
+	--		-- LSP Support
+	--		{'neovim/nvim-lspconfig'},
+	--		{'williamboman/mason.nvim'},
+	--		{'williamboman/mason-lspconfig.nvim'},
+
+	--		-- Autocompletion
+	--		{'hrsh7th/nvim-cmp'},
+	--		{'hrsh7th/cmp-buffer'},
+	--		{'hrsh7th/cmp-path'},
+	--		{'saadparwaiz1/cmp_luasnip'},
+	--		{'hrsh7th/cmp-nvim-lsp'},
+	--		{'hrsh7th/cmp-nvim-lua'},
+
+	--		-- Snippets
+	--		{'L3MON4D3/LuaSnip'},
+	--		{'rafamadriz/friendly-snippets'},
+	--	  }
+	--	}
 
     -- Telescope plugin (fuzzy sorting) + sorter for speed
     --use {
