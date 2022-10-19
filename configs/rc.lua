@@ -179,7 +179,7 @@ math.randomseed(os.time())
 -- Only scans for jpg and png files
 function scandir(directory)
     local i, t, popen = 0, {}, io.popen
-    local pfile = popen('ls -a "'..directory..'"*.jpg "'..directory..'"*.png')
+    local pfile = popen('find "'..directory..'" -regex \'.*\\(jpg\\|png\\|jpeg\\)\'')
 
 	-- Get files
     for filename in pfile:lines() do
