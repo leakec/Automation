@@ -9,13 +9,13 @@ vim.opt.undofile = true
 -- Turn line numbering on, used in conjunction with sitiom/nvim-numbertoggle plugin
 vim.opt.number = true
 
--- Coc setup 
+-- Coc setup
 require('coc-config')
 
 -- LSP setup
 -- local lsp = require('lsp-zero')
 -- lsp.preset('recommended')
--- 
+--
 -- lsp.use('pyright', {
 --   settings = {
 --     python = {
