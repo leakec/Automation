@@ -18,17 +18,14 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.signcolumn = "number"
 
 -- Use <Tab> and <S-Tab> to navigate the completion list in coc
-vim.api.nvim_set_keymap("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
-vim.api.nvim_set_keymap("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1) : '<TAB>'", {noremap = true, silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<S-TAB>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'", {noremap = true, expr = true})
 
 -- Use <C-k> to trigger completion.
 vim.api.nvim_set_keymap("i", "<C-k>", "coc#refresh()", { silent = true, expr = true })
 
 -- Make <CR> auto-select the first completion item and notify coc.nvim to
 vim.api.nvim_set_keymap("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : '<CR>'" , {silent = true, expr = true, noremap = true})
-
--- This doesn't work as of neovim 0.8, so using the line above
--- vim.api.nvim_set_keymap("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
 
 -- Use `[g` and `]g` to navigate diagnostics
 -- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
