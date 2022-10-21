@@ -12,6 +12,7 @@ cp ./zshrc ~/.zshrc
 cp ./ctags ~/.ctags
 rm -rf ~/.config/nvim; cp -r nvim ~/.config/nvim
 cp screenkey.json ~/.config/screenkey.json
+rm -rf ~/.confg/kitty; cp -r kitty ~/.config/kitty
 
 # Not used anymore
 # cat ./gterminal.preferences | dconf load /org/gnome/terminal/legacy/profiles:/

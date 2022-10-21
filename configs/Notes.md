@@ -2,11 +2,12 @@
 * Awesome WM for my window manager
 * Picom, specifically, the Jonaburg fork for compistor
 * Rofi for my dmenu
-* Alacrity for my terminal
+* Kitty for my terminal
 * Zsh for my shell
 * Tmux for my multiplexer
 * Neovim for my text editor
 * Betterlockscreen for screen locking
+* Jet brains mono for font
 
 ## Ctags
 * kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html

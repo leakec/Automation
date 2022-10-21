@@ -9,6 +9,10 @@ vim.opt.undofile = true
 -- Turn line numbering on, used in conjunction with sitiom/nvim-numbertoggle plugin
 vim.opt.number = true
 
+-- Split new windows to the right or below
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Coc setup
 require('coc-config')
 
