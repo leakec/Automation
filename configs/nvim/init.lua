@@ -13,8 +13,15 @@ vim.opt.number = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Bash-like tab completion
+vim.o.wildmode = "longest,list,full"
+
 -- Coc setup
 require('coc-config')
+
+-- Set mappings for leap
+require('leap').add_default_mappings()
+require('leap').opts.highlight_unlabeled_phase_one_targets = true
 
 -- LSP setup
 -- local lsp = require('lsp-zero')
@@ -53,11 +60,15 @@ end
 -- Setup plugins
 -- coc setup for LSP
 return require('packer').startup(function(use)
+
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
     -- Store last position when closing a file
     use 'farmergreg/vim-lastplace'
+
+	-- For code traversal
+	use 'ggandor/leap.nvim'
 
 	-- For line numbering
 	use {
