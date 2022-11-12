@@ -16,6 +16,16 @@ vim.opt.splitbelow = true
 -- Bash-like tab completion
 vim.o.wildmode = "longest,list,full"
 
+---Highlight yanked text
+--
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('yank_highlight', {}),
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup='IncSearch', timeout=300 }
+  end,
+})
+
 -- Coc setup
 require('coc-config')
 
