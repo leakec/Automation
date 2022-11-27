@@ -17,7 +17,6 @@ vim.opt.splitbelow = true
 vim.o.wildmode = "longest,list,full"
 
 ---Highlight yanked text
---
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('yank_highlight', {}),
   pattern = '*',
@@ -60,6 +59,13 @@ vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
     desc = "Open all tree sitterfolds.",
 })
 
+-- Telescope keybindings
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 -- Install packer for plugins
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -79,6 +85,12 @@ return require('packer').startup(function(use)
 
 	-- For code traversal
 	use 'ggandor/leap.nvim'
+
+	-- For synchronizing nvim across tmux 
+	use {
+		"aserowy/tmux.nvim",
+		config = function() require("tmux").setup() end
+	}
 
 	-- For line numbering
 	use {
@@ -123,10 +135,10 @@ return require('packer').startup(function(use)
 	--	}
 
     -- Telescope plugin (fuzzy sorting) + sorter for speed
-    --use {
-    --  'nvim-telescope/telescope.nvim',
-    --    requires = { {'nvim-lua/plenary.nvim'} }
-    --}
+    use {
+      'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
     --use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Boostrap packer 
