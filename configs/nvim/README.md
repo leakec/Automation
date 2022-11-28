@@ -1,5 +1,9 @@
+# System
+* sudo apt install ripgrep nodejs
+* sudo dnf install ripgrep nodejs
+
 # Install packages via packer
-* `:PackerCompile` followed by `PackerInstall` to install coc
+* `:PackerCompile` followed by `PackerInstall` to install packages
 
 # Coc install and packages
 * `sudo apt install npm` - NPM manager to install plugins
