@@ -28,3 +28,7 @@
 ## Installing jonaburg on fedora
 * dnf install libXext-devel libevdevel-devel libev-devel xcb-util-renderutil-devel xcb-util-image-devel uthash-devel libconfig-devel 
 
+## Tmux plugin installation
+* `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+* `prefix - I`
+
