@@ -109,12 +109,7 @@ return require('packer').startup(function(use)
 	}
 
 	-- For line numbering
-	use {
-	   "sitiom/nvim-numbertoggle",
-	   config = function()
-		  require("numbertoggle").setup()
-	   end
-	}
+	use {"sitiom/nvim-numbertoggle"}
 
 	-- Tree sitter for code folding
 	use {
