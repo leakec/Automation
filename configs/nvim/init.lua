@@ -26,12 +26,44 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Coc setup
+-- Code folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
+    pattern = "*",
+    command = "normal zR",
+    desc = "Open all tree sitterfolds.",
+})
+
+-- CoC setup
 require('coc-config')
 
+-- Used to check if package is available 
+function isModuleAvailable(name)
+  if package.loaded[name] then
+    return true
+  else
+    for _, searcher in ipairs(package.searchers or package.loaders) do
+      local loader = searcher(name)
+      if type(loader) == 'function' then
+        package.preload[name] = loader
+        return true
+      end
+    end
+    return false
+  end
+end
+
 -- Set mappings for leap
-require('leap').add_default_mappings()
-require('leap').opts.highlight_unlabeled_phase_one_targets = true
+if isModuleAvailable("leap") then
+    require('leap').add_default_mappings()
+    require('leap').opts.highlight_unlabeled_phase_one_targets = true
+end
+
+-- Telescope setup
+if isModuleAvailable("telescope") then
+    require("telescope-config")
+end
 
 -- LSP setup
 -- local lsp = require('lsp-zero')
@@ -51,36 +83,11 @@ require('leap').opts.highlight_unlabeled_phase_one_targets = true
 -- })
 -- lsp.setup()
 
--- Code folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
-    pattern = "*",
-    command = "normal zR",
-    desc = "Open all tree sitterfolds.",
-})
-
--- Telescope keybindings
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
-require('telescope').setup {
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
-    }
-  }
-}
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
+-- Cosmetic packages
+-- Smooth scrolling
+if isModuleAvailable("neoscroll") then
+    require('neoscroll-config')
+end
 
 -- Install packer for plugins
 local fn = vim.fn
@@ -150,7 +157,14 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+
+    -- Cosmetic packages
+
+    -- Smooth scrolling
+    use 'karb94/neoscroll.nvim'
 
     -- Boostrap packer 
     if packer_bootstrap then
