@@ -34,6 +34,7 @@ vim.api.nvim_set_keymap("n", "]g", "<Plug>(coc-diagnostic-next)", {silent = true
 
 -- GoTo code navigation.
 vim.api.nvim_set_keymap("n", "gd", "<Plug>(coc-definition)", {silent = true})
+vim.api.nvim_set_keymap("n", "gv", ":call CocAction('jumpDefinition','vsplit')<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "gy", "<Plug>(coc-type-definition)", {silent = true})
 vim.api.nvim_set_keymap("n", "gi", "<Plug>(coc-implementation)", {silent = true})
 vim.api.nvim_set_keymap("n", "gr", "<Plug>(coc-reference)", {silent = true})

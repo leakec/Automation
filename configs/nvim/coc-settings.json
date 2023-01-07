@@ -3,7 +3,6 @@
   "coc.preferences.triggerSignatureHelp":true,
   "python.formatting.provider": "black",
   "pydocstring.formatter": "numpy",
-  "coc.preferences.jumpCommand": "vsplit",
   "suggest.noselect": true,
   "diagnostic.errorSign": "✘",
   "diagonistc.warningSign": "⚠",
