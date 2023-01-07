@@ -65,6 +65,12 @@ if isModuleAvailable("telescope") then
     require("telescope-config")
 end
 
+-- Navigating the jump list with portal
+if isModuleAvailable("portal") then
+    require("portal-config")
+end
+
+
 -- LSP setup
 -- local lsp = require('lsp-zero')
 -- lsp.preset('recommended')
@@ -103,21 +109,40 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Store last position when closing a file
-    use 'farmergreg/vim-lastplace'
-
-	-- For code traversal
-	use 'ggandor/leap.nvim'
-
 	-- For synchronizing nvim across tmux 
 	use {
 		"aserowy/tmux.nvim",
 		config = function() require("tmux").setup() end
 	}
 
+    -- NAVIGATION
+    -- Store last position when closing a file
+    use 'farmergreg/vim-lastplace'
+
+	-- For code traversal
+	use 'ggandor/leap.nvim'
+
 	-- For line numbering
 	use {"sitiom/nvim-numbertoggle"}
 
+    -- Navigating the jump list
+    use {
+    "cbochs/portal.nvim",
+        requires = {
+            "cbochs/grapple.nvim",  -- Optional: provides the "grapple" query item
+            "ThePrimeagen/harpoon", -- Optional: provides the "harpoon" query item
+        },
+    }
+
+    -- Telescope plugin (fuzzy sorting) + sorter for speed
+    use {
+      'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
+    -- CODE VISUALIZATION
 	-- Tree sitter for code folding
 	use {
         'nvim-treesitter/nvim-treesitter',
@@ -126,6 +151,7 @@ return require('packer').startup(function(use)
 		auto_install = true,
     }
 
+    -- LSP 
     -- Coc setup
     use {'neoclide/coc.nvim', branch = 'release'}
 
@@ -151,15 +177,6 @@ return require('packer').startup(function(use)
 	--		{'rafamadriz/friendly-snippets'},
 	--	  }
 	--	}
-
-    -- Telescope plugin (fuzzy sorting) + sorter for speed
-    use {
-      'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-
 
     -- Cosmetic packages
 

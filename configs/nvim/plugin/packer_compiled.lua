@@ -79,6 +79,16 @@ _G.packer_plugins = {
     path = "/home/leake/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  ["grapple.nvim"] = {
+    loaded = true,
+    path = "/home/leake/.local/share/nvim/site/pack/packer/start/grapple.nvim",
+    url = "https://github.com/cbochs/grapple.nvim"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/home/leake/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/leake/.local/share/nvim/site/pack/packer/start/leap.nvim",
@@ -108,6 +118,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/leake/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["portal.nvim"] = {
+    loaded = true,
+    path = "/home/leake/.local/share/nvim/site/pack/packer/start/portal.nvim",
+    url = "https://github.com/cbochs/portal.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
