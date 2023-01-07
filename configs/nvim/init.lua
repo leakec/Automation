@@ -1,3 +1,19 @@
+-- Lazy.nvim plugin loading
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
+end
+vim.opt.runtimepath:prepend(lazypath)
+
+require("lazy").setup("plugins")
+
 -- Set tab
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -94,98 +110,3 @@ end
 if isModuleAvailable("neoscroll") then
     require('neoscroll-config')
 end
-
--- Install packer for plugins
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
--- Setup plugins
--- coc setup for LSP
-return require('packer').startup(function(use)
-
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-	-- For synchronizing nvim across tmux 
-	use {
-		"aserowy/tmux.nvim",
-		config = function() require("tmux").setup() end
-	}
-
-    -- NAVIGATION
-    -- Store last position when closing a file
-    use 'farmergreg/vim-lastplace'
-
-	-- For code traversal
-	use 'ggandor/leap.nvim'
-
-	-- For line numbering
-	use {"sitiom/nvim-numbertoggle"}
-
-    -- Navigating the jump list
-    use {
-    "cbochs/portal.nvim",
-        requires = {
-            "cbochs/grapple.nvim",  -- Optional: provides the "grapple" query item
-            "ThePrimeagen/harpoon", -- Optional: provides the "harpoon" query item
-        },
-    }
-
-    -- Telescope plugin (fuzzy sorting) + sorter for speed
-    use {
-      'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-
-    -- CODE VISUALIZATION
-	-- Tree sitter for code folding
-	use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-		ensure_installed = { "cpp", "python" },
-		auto_install = true,
-    }
-
-    -- LSP 
-    -- Coc setup
-    use {'neoclide/coc.nvim', branch = 'release'}
-
-	-- LSP setup
-	--use {
-	--  'VonHeikemen/lsp-zero.nvim',
-	--  requires = {
-	--		-- LSP Support
-	--		{'neovim/nvim-lspconfig'},
-	--		{'williamboman/mason.nvim'},
-	--		{'williamboman/mason-lspconfig.nvim'},
-
-	--		-- Autocompletion
-	--		{'hrsh7th/nvim-cmp'},
-	--		{'hrsh7th/cmp-buffer'},
-	--		{'hrsh7th/cmp-path'},
-	--		{'saadparwaiz1/cmp_luasnip'},
-	--		{'hrsh7th/cmp-nvim-lsp'},
-	--		{'hrsh7th/cmp-nvim-lua'},
-
-	--		-- Snippets
-	--		{'L3MON4D3/LuaSnip'},
-	--		{'rafamadriz/friendly-snippets'},
-	--	  }
-	--	}
-
-    -- Cosmetic packages
-
-    -- Smooth scrolling
-    use 'karb94/neoscroll.nvim'
-
-    -- Boostrap packer 
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-
-end)
