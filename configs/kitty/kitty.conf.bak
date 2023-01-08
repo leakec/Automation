@@ -620,7 +620,7 @@ font_size 14.0
 
 #: Terminal bell {{{
 
-# enable_audio_bell yes
+enable_audio_bell no
 
 #: The audio bell. Useful to disable it in environments that require
 #: silence.
@@ -990,9 +990,8 @@ font_size 14.0
 #: }}}
 
 #: Color scheme {{{
-
-# foreground #dddddd
-# background #000000
+# foreground: '#ffffff'
+# background: '#000000'
 
 #: The foreground and background colors.
 
@@ -1063,6 +1062,26 @@ font_size 14.0
 #: the program running in the terminal.
 
 #: The color table {{{
+
+# Normal colors
+# color0 #073642
+# color1 #dc322f
+# color2 #859900
+# color3 #b58900
+# color4 #268bd2
+# color5 #d33682
+# color6 #2aa198
+# color7 #eee8d5
+
+# Bright colors
+# color8 #002b36
+# color9 #cb4b16
+# color10 #586e75
+# color11 #657b83
+# color12 #839496
+# color13 #6c71c4
+# color14 #93a1a1
+# color15 #fdf6e3
 
 #: The 256 terminal colors. There are 8 basic colors, each color has a
 #: dull and bright version, for the first 16 colors. You can set the
@@ -2242,3 +2261,9 @@ font_size 14.0
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_THEME
+# Symfonic
+include current-theme.conf
+# END_KITTY_THEME
