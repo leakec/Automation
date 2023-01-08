@@ -2264,6 +2264,6 @@ enable_audio_bell no
 
 
 # BEGIN_KITTY_THEME
-# Symfonic
+# Lavandula
 include current-theme.conf
 # END_KITTY_THEME
