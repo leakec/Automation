@@ -32,3 +32,10 @@
 * `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 * `prefix - I`
 
+## DPI monitor settings
+* On certain monitors, the AwesomeWM bars may appear too big or too small. This is because the DPI setting is messed up.
+* To fix it: 
+  * Calculate the DPI 
+  * Add it to `~/.Xresources` with a line like `Xft.dpi: 144`
+  * Source this file with `xrdb -merge ~/.Xresources`
+* I found [this](https://winaero.com/find-change-screen-dpi-linux/) really useful.
