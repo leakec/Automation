@@ -1,17 +1,36 @@
 #!/bin/bash
 
-mkdir -p ~/.vim/ && cp vimrc ~/.vim/vimrc
+# Awesome
 mkdir -p ~/.config/awesome/ && cp theme.lua ~/.config/awesome/ && cp rc.lua ~/.config/awesome/ && cp -r awesome-copycats/* ~/.config/awesome
+
+# Picom
 mkdir -p ~/.config/picom && cp picom.conf ~/.config/picom/picom.conf
-cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
-cp tmux.conf ~/.tmux.conf
-cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
+
+# Lock screen
 cp ./betterlockscreenrc ~/.config/betterlockscreenrc
+
+# Tmux
+mkdir -p ~/.tmux/plugins/tmux
+cp tmux.conf ~/.tmux.conf
+rsync -r tmux/plugins/tmux/ ~/.tmux/plugins/tmux/
+
+# Kitty
+rsync -r kitty/ ~/.config/kitty
+
+# Zsh
 cp ./zshrc ~/.zshrc
+
+# Neovim
+rsync -r nvim/ ~/.config/nvim
+
+# Vim
+mkdir -p ~/.vim/ && cp vimrc ~/.vim/vimrc
 cp ./ctags ~/.ctags
-rm -rf ~/.config/nvim; cp -r nvim ~/.config/nvim
+
+# Extras
+cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
+cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
 cp screenkey.json ~/.config/screenkey.json
-rm -rf ~/.config/kitty; cp -r kitty ~/.config/kitty
 
 # Not used anymore
 # cat ./gterminal.preferences | dconf load /org/gnome/terminal/legacy/profiles:/
