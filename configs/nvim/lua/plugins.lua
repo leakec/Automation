@@ -72,4 +72,8 @@ return {
 
     -- Smooth scrolling
     'karb94/neoscroll.nvim',
+
+    -- Status bar
+    { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }}
 }
+

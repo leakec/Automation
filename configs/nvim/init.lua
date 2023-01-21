@@ -110,3 +110,9 @@ end
 if isModuleAvailable("neoscroll") then
     require('neoscroll-config')
 end
+
+if isModuleAvailable("lualine") then
+    require('lualine-config')
+end
+
+
