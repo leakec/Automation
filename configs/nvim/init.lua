@@ -111,8 +111,10 @@ if isModuleAvailable("neoscroll") then
     require('neoscroll-config')
 end
 
+-- Status line 
 if isModuleAvailable("lualine") then
     require('lualine-config')
 end
 
-
+-- Set colors based on terminal
+vim.opt.termguicolors = true

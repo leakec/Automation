@@ -1,24 +1,25 @@
--- TODO: Fix this so it pulls from theme better
 function getColor( group, color_type, default_color)
     local hl = vim.api.nvim_get_hl_by_name(group, true)[color_type]
     if hl ~= nil then
-        return string.format("%06x", hl)
+        return "#"..string.format("%06x", hl)
     else
-        return string.format("%06x", vim.api.nvim_get_color_by_name(default_color))
+        return "#"..string.format("%06x", vim.api.nvim_get_color_by_name(default_color))
     end
 end
 
 local colors = {
-	red = getColor("Error","foreground","Red"),
-	grey = getColor("Normal","background","Grey"),
+	red = getColor("Error","background","Red"),
+	grey = getColor("CursorLine","background","Grey"),
 	black = getColor("Normal","background","Black"),
 	white = getColor("Normal","foreground","White"),
+	orange = getColor("Tag", "foreground", "Orange"),
+	green = getColor("Structure", "foreground", "Green"),
 	light_green = getColor("Type", "foreground", "LightGreen"),
-	orange = getColor("Statement", "foreground", "Orange"),
-	green = getColor("Type", "foreground", "Green"),
-	blue = getColor("Function", "foreground", "Blue"),
-    purple = getColor("String", "foreground", "Purple"),
+	blue = getColor("Comment", "foreground", "Blue"),
+	bright_blue = getColor("Function", "foreground", "Blue"),
+    purple = getColor("Normal", "foreground", "Purple"),
     none = "NONE",
+    fg = getColor("CurSearch","foreground","White")
 }
 
 local theme = {
@@ -38,7 +39,7 @@ local vim_icons = {
 		return " "
 	end,
 	separator = { left = "", right = "" },
-	color = { bg = colors.black, fg = colors.blue },
+	color = { bg = colors.grey, fg = colors.blue },
 }
 
 local space = {
@@ -50,7 +51,7 @@ local space = {
 
 local filename = {
 	'filename',
-	color = { bg = colors.blue, fg = colors.white },
+	color = { bg = colors.blue, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -58,7 +59,7 @@ local filetype = {
 	"filetype",
 	icon_only = true,
 	colored = true,
-	color = { bg = "#313244" },
+	color = { bg = colors.grey },
 	separator = { left = "", right = "" },
 }
 
@@ -81,7 +82,7 @@ local filetype_tab = {
 
 local fileformat = {
 	'fileformat',
-	color = { bg = colors.purple, fg = colors.black },
+	color = { bg = colors.purple, fg = colors.black},
 	separator = { left = "", right = "" },
 }
 
@@ -93,13 +94,13 @@ local encoding = {
 
 local branch = {
 	'branch',
-	color = { bg = "#a6e3a1", fg = "#313244" },
+	color = { bg = colors.green, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
 local diff = {
 	"diff",
-	color = { bg = "#313244", fg = "#313244" },
+	color = { bg = colors.green, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -109,6 +110,7 @@ local modes = {
 	separator = { left = "", right = "" },
 }
 
+-- TODO Update this to work with CoC
 local function getLspName()
 	local msg = 'No Active Lsp'
 	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
