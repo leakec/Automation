@@ -1,5 +1,8 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
+# Set true color support 
+term xterm-256color
+
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
@@ -2264,6 +2267,6 @@ background_opacity 0.5
 
 
 # BEGIN_KITTY_THEME
-# Batman
+# GitHub Dark High Contrast
 include current-theme.conf
 # END_KITTY_THEME
