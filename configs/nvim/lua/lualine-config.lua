@@ -67,7 +67,7 @@ local filetype_tab = {
 	"filetype",
 	icon_only = true,
 	colored = true,
-	color = { bg = "#313244" },
+	color = { bg = colors.black },
 }
 
 -- local buffer = {

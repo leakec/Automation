@@ -68,7 +68,10 @@ return {
 	--	  }
 	--	}
 
-    -- Cosmetic packages
+    -- COSMETIC 
+    
+    -- Colorscheme
+    'folke/tokyonight.nvim',
 
     -- Smooth scrolling
     'karb94/neoscroll.nvim',

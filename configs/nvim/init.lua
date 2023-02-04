@@ -116,5 +116,16 @@ if isModuleAvailable("lualine") then
     require('lualine-config')
 end
 
--- Set colors based on terminal
-vim.opt.termguicolors = true
+-- Colorscheme
+if isModuleAvailable("tokyonight") then
+    require('tokyonight-config')
+
+    -- Set colors based on terminal
+    --vim.opt.termguicolors = true
+end
+
+-- USER FUNCTIONS
+if isModuleAvailable("user.functions") then
+    require('user.functions')
+end
+
