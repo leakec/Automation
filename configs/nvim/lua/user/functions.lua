@@ -24,3 +24,41 @@ function ExportColorsKitty()
     io.close(file)
     print("Colors exported to " .. filename)
 end
+
+function ExportColorsTmux()
+    local fn = vim.fn
+    local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/catppuccin-nvim.tmuxtheme"
+    -- local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/test.tmuxtheme"
+    local file = io.open(filename, "w")
+    io.output(file)
+    local fg = fn.synIDattr(fn.hlID("Normal"), "fg")
+    local bg = fn.synIDattr(fn.hlID("Normal"), "bg")
+    if bg == "" then
+        bg = "#000000"
+    end
+    io.write("thm_fg=\"" .. fg .. "\"\n")
+    io.write("thm_bg=\"" .. bg .. "\"\n")
+
+    local colors = {}
+    colors["cyan"] = 14
+    colors["black"] = 0
+    colors["gray"] = 8
+    colors["magenta"] = 5
+    colors["pink"] = 13
+    colors["red"] = 9
+    colors["green"] = 10
+    colors["yellow"] = 11
+    colors["blue"] = 4
+    colors["orange"] = 3
+    colors["black4"] = 8
+
+    for my_color,i in pairs(colors) do
+        local var = "g:terminal_color_" .. tostring(i)
+        if fn.exists(var) == 1 then
+            local tc = fn.eval(var)
+            io.write("thm_" .. tostring(my_color) .. "=\"" .. tc .. "\"\n")
+        end
+    end
+    io.close(file)
+    print("Colors exported to " .. filename)
+end
