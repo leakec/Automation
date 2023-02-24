@@ -49,7 +49,7 @@ function _ExportColorsTmux()
     colors["green"] = 10
     colors["yellow"] = 11
     colors["blue"] = 4
-    colors["orange"] = 3
+    colors["orange"] = 5-- 3 is actually orange, but I output magenta again here since I don't like orange
     colors["black4"] = 8
 
     for my_color,i in pairs(colors) do
