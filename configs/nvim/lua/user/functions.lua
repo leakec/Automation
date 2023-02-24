@@ -1,4 +1,4 @@
-function ExportColorsKitty()
+function _ExportColorsKitty()
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.config/kitty/nvim_export.conf"
     local file = io.open(filename, "w")
@@ -25,7 +25,7 @@ function ExportColorsKitty()
     print("Colors exported to " .. filename)
 end
 
-function ExportColorsTmux()
+function _ExportColorsTmux()
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/catppuccin-nvim.tmuxtheme"
     -- local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/test.tmuxtheme"
@@ -61,4 +61,9 @@ function ExportColorsTmux()
     end
     io.close(file)
     print("Colors exported to " .. filename)
+end
+
+function ExportColors()
+    _ExportColorsTmux()
+    _ExportColorsKitty()
 end

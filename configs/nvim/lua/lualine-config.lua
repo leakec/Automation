@@ -191,7 +191,7 @@ require('lualine').setup {
 		},
 		lualine_z = {
 			dia,
-			lsp,
+			--lsp,
 		}
 	},
 	inactive_sections = {
