@@ -51,9 +51,6 @@ vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
     desc = "Open all tree sitterfolds.",
 })
 
--- CoC setup
-require('coc-config')
-
 -- Used to check if package is available 
 function isModuleAvailable(name)
   if package.loaded[name] then
@@ -69,6 +66,17 @@ function isModuleAvailable(name)
     return false
   end
 end
+
+-- Colorscheme (do this first so others pick it up)
+if isModuleAvailable("tokyonight") then
+    require('tokyonight-config')
+
+    -- Set colors based on terminal
+    --vim.opt.termguicolors = true
+end
+
+-- CoC setup
+require('coc-config')
 
 -- Set mappings for leap
 if isModuleAvailable("leap") then
@@ -114,14 +122,6 @@ end
 -- Status line 
 if isModuleAvailable("lualine") then
     require('lualine-config')
-end
-
--- Colorscheme
-if isModuleAvailable("tokyonight") then
-    require('tokyonight-config')
-
-    -- Set colors based on terminal
-    --vim.opt.termguicolors = true
 end
 
 -- USER FUNCTIONS

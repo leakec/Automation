@@ -10,16 +10,17 @@ end
 local colors = {
 	red = getColor("Error","background","Red"),
 	grey = getColor("CursorLine","background","Grey"),
-	black = getColor("Normal","background","Black"),
+    black = getColor("Normal","background","Black"),
 	white = getColor("Normal","foreground","White"),
-	orange = getColor("Tag", "foreground", "Orange"),
+	orange = getColor("Number", "foreground", "Orange"),
 	green = getColor("Structure", "foreground", "Green"),
 	light_green = getColor("Type", "foreground", "LightGreen"),
 	blue = getColor("Comment", "foreground", "Blue"),
 	bright_blue = getColor("Function", "foreground", "Blue"),
-    purple = getColor("Normal", "foreground", "Purple"),
+    cyan = getColor("Tag", "foreground", "Cyan"),
+    purple = getColor("Identifier", "foreground", "Purple"),
     none = "NONE",
-    fg = getColor("CurSearch","foreground","White")
+    fg = getColor("CurSearch","foreground","White"),
 }
 
 local theme = {
@@ -106,7 +107,7 @@ local diff = {
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color = { bg = colors.orange, fg = colors.black },
+	color = { bg = colors.cyan, fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -166,7 +167,7 @@ require('lualine').setup {
 		lualine_a = {
 			--{ 'mode', fmt = function(str) return str:gsub(str, "  ") end },
 			modes,
-			vim_icons,
+			--vim_icons,
 			--{ 'mode', fmt = function(str) return str:sub(1, 1) end },
 		},
 		lualine_b = {
