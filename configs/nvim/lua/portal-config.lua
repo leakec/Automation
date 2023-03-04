@@ -1,2 +1,2 @@
-vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
-vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
+vim.keymap.set("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
+vim.keymap.set("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
