@@ -41,6 +41,9 @@ return {
 		auto_install = true,
     },
 
+    -- Julia editing
+    {'JuliaEditorSupport/julia-vim'},
+
     -- LSP 
     -- Coc setup
     {'neoclide/coc.nvim', branch = 'release'},
