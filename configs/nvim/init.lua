@@ -94,6 +94,11 @@ if isModuleAvailable("portal") then
     require("portal-config")
 end
 
+-- Telescope setup
+if isModuleAvailable("nvim-treesitter") then
+    require("nvim-treesitter-config")
+end
+
 
 -- LSP setup
 -- local lsp = require('lsp-zero')

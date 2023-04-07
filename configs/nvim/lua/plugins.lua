@@ -68,16 +68,16 @@ return {
 	--		-- Snippets
 	--		{'L3MON4D3/LuaSnip'},
 	--		{'rafamadriz/friendly-snippets'},
-	--	  }
-	--	}
+	--	  },
+    --},
 
     -- COSMETIC 
     
     -- Colorscheme
-    'folke/tokyonight.nvim',
+    {'folke/tokyonight.nvim'},
 
     -- Smooth scrolling
-    'karb94/neoscroll.nvim',
+    {'karb94/neoscroll.nvim'},
 
     -- Status bar
     { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }}
