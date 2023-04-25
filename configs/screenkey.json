@@ -11,7 +11,7 @@
     "font_size": "medium",
     "font_color": "#616135358383",
     "bg_color": "black",
-    "opacity": 0.8,
+    "opacity": 0.2,
     "key_mode": "composed",
     "bak_mode": "baked",
     "mods_mode": "normal",
@@ -20,10 +20,10 @@
     "vis_shift": false,
     "vis_space": true,
     "geometry": [
-        0,
-        901,
-        1001,
-        152
+        1223,
+        40,
+        816,
+        117
     ],
     "screen": 0,
     "start_disabled": false,

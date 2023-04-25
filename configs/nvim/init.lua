@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Code folding
-vim.opt.foldmethod = "expr"
+vim.opt.foldmethod = "expr" -- expr isn't working for me (likey something wrong with how I'm getting treesitter's foldexpr)
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
     pattern = "*",

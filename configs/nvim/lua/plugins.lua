@@ -80,6 +80,24 @@ return {
     {'karb94/neoscroll.nvim'},
 
     -- Status bar
-    { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }}
+    { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }},
+
+    -- test
+    {
+      'deifyed/naVi',
+      dependencies = { 
+        {
+          "jcdickinson/http.nvim", build = "cargo build --workspace --release",
+        },
+      },
+      config = function()
+        require("navi").setup({ })
+      end,
+      keys = {
+        { "<C-PageDown>", "<cmd>lua require('navi').open()<cr>", mode = "i", desc = "NaVI prompt" },
+        { "<C-PageDown>", "<cmd>lua require('navi').openRange()<cr>", mode = "v", desc = "NaVI prompt with context" },
+        { "<C-PageUp>", "<cmd>lua require('navi').requestReview()<cr>", mode = "v", desc = "NaVI request review" },
+      },
+    },
 }
 
