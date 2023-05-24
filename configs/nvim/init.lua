@@ -43,8 +43,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Code folding
-vim.opt.foldmethod = "expr" -- expr isn't working for me (likey something wrong with how I'm getting treesitter's foldexpr)
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+function codeFolding()
+    if vim.api.nvim_buf_line_count(0) < 50000 then
+        -- This is really slow for large buffers, so only run it on small ones 
+        vim.opt.foldmethod = "expr" 
+        vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    end
+end
+
+vim.api.nvim_create_autocmd({"BufWinEnter", "BufEnter"}, {
+    callback=codeFolding
+})
+
+-- Automatically unfold everything
 vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
     pattern = "*",
     command = "normal zR",
