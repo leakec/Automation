@@ -23,16 +23,23 @@ local colors = {
     fg = getColor("CurSearch","foreground","White"),
 }
 
+if colors.black == "#000000" then
+    -- Lualine + tokyonight has issues with black being 000000 for
+    -- some reason. It doesn't cover the whole background. Setting 
+    -- it to 010101 fixes this.
+    colors.black = "#010101"
+end
+
 local theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.none},
+		a = { fg = colors.black, bg = colors.cyan},
 		b = { fg = colors.blue, bg = colors.none },
 		c = { fg = colors.white, bg = colors.none },
 		z = { fg = colors.white, bg = colors.none },
 	},
 	insert = { a = { fg = colors.black, bg = colors.orange } },
 	visual = { a = { fg = colors.black, bg = colors.green } },
-	replace = { a = { fg = colors.black, bg = colors.green } },
+	replace = { a = { fg = colors.black, bg = colors.red } },
 }
 
 local vim_icons = {
@@ -89,7 +96,7 @@ local fileformat = {
 
 local encoding = {
 	'encoding',
-	color = { bg = colors.black, fg = colors.blue },
+	color = { bg = colors.black, fg = colors.white },
 	separator = { left = "", right = "" },
 }
 
@@ -107,7 +114,7 @@ local diff = {
 
 local modes = {
 	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color = { bg = colors.cyan, fg = colors.black },
+	color = {fg = colors.black },
 	separator = { left = "", right = "" },
 }
 
@@ -134,6 +141,18 @@ local dia = {
 	separator = { left = "", right = "" },
 }
 
+local progress = {
+    'progress',
+    color = {bg = colors.black, fg = colors.white },
+	separator = { left = "", right = "" },
+}
+
+local location = {
+    'location',
+    color={bg=colors.black, fg=colors.white},
+	separator = { left = "", right = "" },
+}
+
 local lsp = {
 	function()
 		return getLspName()
@@ -141,6 +160,7 @@ local lsp = {
 	separator = { left = "", right = "" },
 	color = { bg = colors.red, fg = colors.black },
 }
+
 
 require('lualine').setup {
 
@@ -186,9 +206,11 @@ require('lualine').setup {
 			space,
 		},
 		lualine_y = {
+            progress,
+            location,
 			encoding,
 			fileformat,
-			space,
+            space,
 		},
 		lualine_z = {
 			dia,
