@@ -118,7 +118,6 @@ local modes = {
 	separator = { left = "", right = "" },
 }
 
--- TODO Update this to work with CoC
 local function getLspName()
 	local msg = 'No Active Lsp'
 	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
@@ -133,6 +132,21 @@ local function getLspName()
 		end
 	end
 	return "  " .. msg
+end
+
+local function getLspColor()
+	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+	local clients = vim.lsp.get_active_clients()
+	if next(clients) == nil then
+        return {bg = colors.red, fg = colors.black}
+	end
+	for _, client in ipairs(clients) do
+		local filetypes = client.config.filetypes
+		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            return {bg = colors.green, fg = colors.black}
+		end
+	end
+    return {bg = colors.red, fg = colors.black}
 end
 
 local dia = {
@@ -154,11 +168,9 @@ local location = {
 }
 
 local lsp = {
-	function()
-		return getLspName()
-	end,
+    getLspName,
 	separator = { left = "", right = "" },
-	color = { bg = colors.red, fg = colors.black },
+	color = getLspColor,
 }
 
 
@@ -214,7 +226,7 @@ require('lualine').setup {
 		},
 		lualine_z = {
 			dia,
-			--lsp,
+			lsp,
 		}
 	},
 	inactive_sections = {

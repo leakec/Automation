@@ -86,8 +86,15 @@ if isModuleAvailable("tokyonight") then
     --vim.opt.termguicolors = true
 end
 
+-- LSP setup
+
 -- CoC setup
-require('coc-config')
+--require('coc-config')
+
+-- LSP zero
+if isModuleAvailable("lsp-zero") then
+    require("lsp-zero-config")
+end
 
 -- Set mappings for leap
 if isModuleAvailable("leap") then

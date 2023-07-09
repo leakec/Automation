@@ -46,30 +46,31 @@ return {
 
     -- LSP 
     -- Coc setup
-    {'neoclide/coc.nvim', branch = 'release'},
+    -- {'neoclide/coc.nvim', branch = 'release'},
 
-	-- LSP setup
-	--{
-	--  'VonHeikemen/lsp-zero.nvim',
-	--  dependencies = {
-	--		-- LSP Support
-	--		{'neovim/nvim-lspconfig'},
-	--		{'williamboman/mason.nvim'},
-	--		{'williamboman/mason-lspconfig.nvim'},
+	-- LSP zero
+    {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+      dependencies = {
+        -- LSP Support
+        {'neovim/nvim-lspconfig'},             -- Required
+        {                                      -- Optional
+          'williamboman/mason.nvim',
+          build = function()
+            pcall(vim.cmd, 'MasonUpdate')
+          end,
+        },
+        {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-	--		-- Autocompletion
-	--		{'hrsh7th/nvim-cmp'},
-	--		{'hrsh7th/cmp-buffer'},
-	--		{'hrsh7th/cmp-path'},
-	--		{'saadparwaiz1/cmp_luasnip'},
-	--		{'hrsh7th/cmp-nvim-lsp'},
-	--		{'hrsh7th/cmp-nvim-lua'},
-
-	--		-- Snippets
-	--		{'L3MON4D3/LuaSnip'},
-	--		{'rafamadriz/friendly-snippets'},
-	--	  },
-    --},
+        -- Autocompletion
+        {'hrsh7th/nvim-cmp'},     -- Required
+        {'hrsh7th/cmp-nvim-lsp'}, -- Required
+        {'hrsh7th/cmp-path'},     -- Optional, for path autocomplete
+        {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, used for completion inside function signatures
+        {'L3MON4D3/LuaSnip'},     -- Required
+      }
+    },
 
     -- COSMETIC 
     

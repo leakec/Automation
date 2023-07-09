@@ -8,5 +8,11 @@
   "diagonistc.warningSign": "⚠",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "⚑",
-  "clangd.fallbackFlags": [ "-I$YAM_ROOT/include", "-std=c++17"]
+  "clangd.fallbackFlags": [ "-I$YAM_ROOT/include", "-std=c++17"],
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**"
+  ],
+  "rust-analyzer.checkOnSave": false
 }
