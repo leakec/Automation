@@ -117,6 +117,9 @@ if isModuleAvailable("nvim-treesitter") then
     require("nvim-treesitter-config")
 end
 
+-- Gitsigns setup
+if isModuleAvailable("gitsigns") then
+    require("gitsigns-config")
 -- Neogen
 if isModuleAvailable("neogen") then
     require("neogen-config")
