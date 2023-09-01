@@ -117,16 +117,15 @@ if isModuleAvailable("nvim-treesitter") then
     require("nvim-treesitter-config")
 end
 
--- Gitsigns setup
-if isModuleAvailable("gitsigns") then
-    require("gitsigns-config")
+-- Neogen
+if isModuleAvailable("neogen") then
+    require("neogen-config")
 end
 
 -- Neogen
 if isModuleAvailable("neogen") then
     require("neogen-config")
 end
-
 
 -- LSP setup
 -- local lsp = require('lsp-zero')

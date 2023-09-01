@@ -44,17 +44,6 @@ return {
     -- Julia editing
     {'JuliaEditorSupport/julia-vim'},
 
-    -- Working with git
-    {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
-    {"lewis6991/gitsigns.nvim"},
-
     -- LSP 
     -- Coc setup
     -- {'neoclide/coc.nvim', branch = 'release'},
