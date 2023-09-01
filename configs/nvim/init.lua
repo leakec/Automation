@@ -117,24 +117,10 @@ if isModuleAvailable("nvim-treesitter") then
     require("nvim-treesitter-config")
 end
 
-
--- LSP setup
--- local lsp = require('lsp-zero')
--- lsp.preset('recommended')
---
--- lsp.use('pyright', {
---   settings = {
---     python = {
---       analysis = {
--- 		autoImportCompletions = true,
--- 		autoSearchPaths = true,
--- 		useLibraryCodeForTypes = true,
--- 		typeCheckingMode = 'basic',
---       }
---     }
---   }
--- })
--- lsp.setup()
+-- Gitsigns setup
+if isModuleAvailable("gitsigns") then
+    require("gitsigns-config")
+end
 
 -- Cosmetic packages
 -- Smooth scrolling
