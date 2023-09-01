@@ -120,10 +120,6 @@ end
 -- Gitsigns setup
 if isModuleAvailable("gitsigns") then
     require("gitsigns-config")
--- Neogen
-if isModuleAvailable("neogen") then
-    require("neogen-config")
-end
 
 -- Neogen
 if isModuleAvailable("neogen") then
