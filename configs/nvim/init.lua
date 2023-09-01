@@ -120,7 +120,29 @@ end
 -- Gitsigns setup
 if isModuleAvailable("gitsigns") then
     require("gitsigns-config")
+-- Neogen
+if isModuleAvailable("neogen") then
+    require("neogen-config")
 end
+
+
+-- LSP setup
+-- local lsp = require('lsp-zero')
+-- lsp.preset('recommended')
+--
+-- lsp.use('pyright', {
+--   settings = {
+--     python = {
+--       analysis = {
+-- 		autoImportCompletions = true,
+-- 		autoSearchPaths = true,
+-- 		useLibraryCodeForTypes = true,
+-- 		typeCheckingMode = 'basic',
+--       }
+--     }
+--   }
+-- })
+-- lsp.setup()
 
 -- Cosmetic packages
 -- Smooth scrolling
