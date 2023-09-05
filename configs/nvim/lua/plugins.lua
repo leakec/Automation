@@ -55,6 +55,8 @@ return {
 
     {"lewis6991/gitsigns.nvim"},
 
+    {"dinhhuy258/git.nvim"},
+
     -- LSP 
     -- Coc setup
     -- {'neoclide/coc.nvim', branch = 'release'},

@@ -122,6 +122,11 @@ if isModuleAvailable("gitsigns") then
     require("gitsigns-config")
 end
 
+-- Git.nvim setup
+if isModuleAvailable("git") then
+    require("git-config")
+end
+
 -- Neogen
 if isModuleAvailable("neogen") then
     require("neogen-config")
