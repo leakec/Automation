@@ -115,10 +115,13 @@ if isModuleAvailable("nvim-treesitter") then
 end
 
 -- Copying
-if isModuleAvailable("nvim-osc52") then
+if isModuleAvailable("osc52") then
     require("nvim-osc52-config")
 end
-vim.opt.clipboard = "unnamedplus"
+
+if isModuleAvailable("deferred-clipboard") then
+    require("deferred-clipboard-config")
+end
 
 -- Git
 -- Gitsigns setup
