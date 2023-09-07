@@ -24,6 +24,9 @@ return {
         },
     },
 
+    -- Copy-paste into osc52
+    {'ojroques/nvim-osc52'},
+
     -- Telescope plugin (fuzzy sorting) + sorter for speed
     {
       'nvim-telescope/telescope.nvim',
@@ -58,8 +61,6 @@ return {
     {"dinhhuy258/git.nvim"},
 
     -- LSP 
-    -- Coc setup
-    -- {'neoclide/coc.nvim', branch = 'release'},
     { 
         "danymat/neogen", 
         dependencies = "nvim-treesitter/nvim-treesitter", 

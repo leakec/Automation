@@ -86,16 +86,13 @@ if isModuleAvailable("tokyonight") then
     --vim.opt.termguicolors = true
 end
 
--- LSP setup
-
--- CoC setup
---require('coc-config')
-
+-- LSP
 -- LSP zero
 if isModuleAvailable("lsp-zero") then
     require("lsp-zero-config")
 end
 
+-- Navigation
 -- Set mappings for leap
 if isModuleAvailable("leap") then
     require('leap').add_default_mappings()
@@ -117,6 +114,13 @@ if isModuleAvailable("nvim-treesitter") then
     require("nvim-treesitter-config")
 end
 
+-- Copying
+if isModuleAvailable("nvim-osc52") then
+    require("nvim-osc52-config")
+end
+vim.opt.clipboard = "unnamedplus"
+
+-- Git
 -- Gitsigns setup
 if isModuleAvailable("gitsigns") then
     require("gitsigns-config")
@@ -131,24 +135,6 @@ end
 if isModuleAvailable("neogen") then
     require("neogen-config")
 end
-
--- LSP setup
--- local lsp = require('lsp-zero')
--- lsp.preset('recommended')
---
--- lsp.use('pyright', {
---   settings = {
---     python = {
---       analysis = {
--- 		autoImportCompletions = true,
--- 		autoSearchPaths = true,
--- 		useLibraryCodeForTypes = true,
--- 		typeCheckingMode = 'basic',
---       }
---     }
---   }
--- })
--- lsp.setup()
 
 -- Cosmetic packages
 -- Smooth scrolling
