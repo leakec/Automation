@@ -14,6 +14,9 @@ mkdir -p ~/.tmux/plugins/tmux
 cp tmux.conf ~/.tmux.conf
 rsync -r tmux/plugins/tmux/ ~/.tmux/plugins/tmux/
 
+# Zellij
+rsync -r zellij/ ~/.config/zellij
+
 # Kitty
 rsync -r kitty/ ~/.config/kitty
 

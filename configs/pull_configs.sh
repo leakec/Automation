@@ -6,6 +6,7 @@ cp ~/.config/awesome/rc.lua .
 cp ~/.config/picom/picom.conf .
 cp ~/.config/gromit-mpx.cfg .
 cp ~/.tmux.conf ./tmux.conf
+cp -r ~/.config/zellij .
 mkdir -p ./tmux/plugins/tmux
 rsync -r ~/.tmux/plugins/tmux/ tmux/plugins/tmux/
 cp -r ~/.config/kitty .
