@@ -1,3 +1,5 @@
+-- Terminal color output can be found here: https://jeffkreeftmeijer.com/vim-16-color/
+
 function _ExportColorsKitty()
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.config/kitty/nvim_export.conf"
@@ -63,7 +65,51 @@ function _ExportColorsTmux()
     print("Colors exported to " .. filename)
 end
 
+function _ExportColorsZellij()
+    local fn = vim.fn
+    local filename = os.getenv("HOME") .. "/.config/zellij/themes/nvim.kdl"
+    local file = io.open(filename, "w")
+    io.output(file)
+
+    io.write("themes {\n")
+    io.write("    nvim {\n")
+
+    local fg = fn.synIDattr(fn.hlID("Normal"), "fg")
+    local bg = fn.synIDattr(fn.hlID("Normal"), "bg")
+    if bg == "" then
+        bg = "#000000"
+    end
+    io.write("        fg \"" .. fg .. "\"\n")
+    io.write("        bg \"" .. bg .. "\"\n")
+
+    local colors = {}
+    colors["black"] = 0
+    colors["red"] = 9
+    colors["blue"] = 4
+    colors["yellow"] = 11
+    colors["white"] = 7 
+
+    colors["green"] = 5 -- Swapped with magenta so current pane/tab is magenta
+    colors["orange"] = 14 -- Swapped with cyan so temp color when switching becomes green
+    colors["magenta"] = 3 -- Swapped with green
+    colors["cyan"] = 10 -- Swapped with orange
+
+    for my_color,i in pairs(colors) do
+        local var = "g:terminal_color_" .. tostring(i)
+        if fn.exists(var) == 1 then
+            local tc = fn.eval(var)
+            io.write("        " .. tostring(my_color) .. " \"" .. tc .. "\"\n")
+        end
+    end
+
+    io.write("    }\n")
+    io.write("}")
+    io.close(file)
+    print("Colors exported to " .. filename)
+end
+
 function ExportColors()
     _ExportColorsTmux()
+    _ExportColorsZellij()
     _ExportColorsKitty()
 end
