@@ -27,9 +27,6 @@ return {
     -- Copy-paste into osc52
     {'ojroques/nvim-osc52'},
 
-    -- Sync regular register with system clipboard
-    {'EtiamNullam/deferred-clipboard.nvim'},
-
     -- Telescope plugin (fuzzy sorting) + sorter for speed
     {
       'nvim-telescope/telescope.nvim',

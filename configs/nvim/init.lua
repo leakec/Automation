@@ -118,10 +118,7 @@ end
 if isModuleAvailable("osc52") then
     require("nvim-osc52-config")
 end
-
-if isModuleAvailable("deferred-clipboard") then
-    require("deferred-clipboard-config")
-end
+vim.opt.clipboard = "unnamedplus"
 
 -- Git
 -- Gitsigns setup
