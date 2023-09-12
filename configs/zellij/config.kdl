@@ -7,10 +7,14 @@ keybinds {
 
         // Change from Ctrl h to Ctrl m for move
         unbind "Ctrl h"
+        unbind "Ctrl g"
+        unbind "Ctrl o"
         bind "Ctrl y" { SwitchToMode "Move"; }
+        bind "Ctrl w" { SwitchToMode "Session"; }
+        bind "Ctrl a" { SwitchToMode "Locked"; }
     }
     locked {
-        bind "Ctrl g" { SwitchToMode "Normal"; }
+        bind "Ctrl a" { SwitchToMode "Normal"; }
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
@@ -115,7 +119,7 @@ keybinds {
         bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
     }
     session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
+        bind "Ctrl w" { SwitchToMode "Normal"; }
         bind "Ctrl s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
     }
@@ -143,8 +147,7 @@ keybinds {
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
     shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+        bind "Ctrl a" { SwitchToMode "Locked"; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
@@ -168,7 +171,7 @@ keybinds {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
     }
     shared_except "session" "locked" {
-        bind "Ctrl o" { SwitchToMode "Session"; }
+        bind "Ctrl w" { SwitchToMode "Session"; }
     }
     shared_except "tab" "locked" {
         bind "Ctrl t" { SwitchToMode "Tab"; }
@@ -264,7 +267,7 @@ default_layout "/home/leake/.config/zellij/my_layout"
 //   - true (default)
 //   - false
 //
-// mouse_mode false
+mouse_mode false
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
