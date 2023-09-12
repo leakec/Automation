@@ -58,7 +58,7 @@ setopt nosharehistory # Does not share between tmux panes
 #setopt hist_ignore_all_dups
 #setopt hist_save_no_dups
 setopt hist_ignore_dups # Removes subsequent dupes
-#setopt hist_find_no_dups
+setopt hist_find_no_dups
 
 ## Set keyboard repeat rate
 xset r rate 150 30
@@ -74,4 +74,41 @@ export PATH
 export EDITOR='nvim'
 export SVN_EDITOR='nvim'
 
+
+## Plugins
+# From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
+
+# where do you want to store your plugins?
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+
+# get zsh_unplugged and store it with your other plugins
+if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
+  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
+fi
+source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
+
+# make list of the Zsh plugins you use
+repos=(
+  # plugins that you want loaded first
+  #sindresorhus/pure
+
+  # other plugins
+  #zsh-users/zsh-completions
+  #rupa/z
+  # ...
+
+  # plugins you want loaded last
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-history-substring-search
+  #zsh-users/zsh-autosuggestions
+)
+
+# now load your plugins
+plugin-load $repos
+
+# Keybindings for plugins
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Source DARTS
 source ~/.zshrc_darts
