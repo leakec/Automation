@@ -74,6 +74,11 @@ export PATH
 export EDITOR='nvim'
 export SVN_EDITOR='nvim'
 
+## Zellij aliases
+function zr () { zellij run --name "$*" -- zsh -ic "$*";}
+function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
+function ze () { zellij edit "$*";}
+function zef () { zellij edit --floating "$*";}
 
 ## Plugins
 # From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
