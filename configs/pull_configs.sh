@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cp ~/.vim/vimrc .
+cp -r ~/.config/hypr .
 cp ~/.config/awesome/theme.lua .
 cp ~/.config/awesome/rc.lua .
 cp ~/.config/picom/picom.conf .

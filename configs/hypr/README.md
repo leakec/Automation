@@ -29,3 +29,6 @@ sudo cp target/release/swww-daemon /usr/local/bin
 sudo cp completions/_swww /usr/share/zsh/site-functions # Fedora
 sudo cp completions/_swww /usr/share/zsh/vendor-completions # Debian
 ```
+
+## Screensharing
+* Using nuclear option from [here](https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/) to launch xdg-desktop-portal-hyprland
