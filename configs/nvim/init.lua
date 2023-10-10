@@ -147,6 +147,11 @@ if isModuleAvailable("lualine") then
     require('lualine-config')
 end
 
+-- Using neovim in the browser
+if isModuleAvailable("firenvim") then
+    require('firenvim-config')
+end
+
 -- USER FUNCTIONS
 if isModuleAvailable("user.functions") then
     require('user.functions')
