@@ -63,5 +63,5 @@ if options["change_bg"]:
         for line in lines:
             f.write(line)
 
-    system("swww img "+pic.strip()+" --transition-type outer --transition-pos 0.584,0.977 --transition-step 90")
+    system("swww img "+pic.strip()+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration .75 --transition-step 255 --transition-fps 60")
 
