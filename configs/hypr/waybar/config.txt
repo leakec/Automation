@@ -1,8 +1,8 @@
 {
 	"layer": "top",
-	"modules-left": ["sway/workspaces", "mpd", "sway/mode"],
+	"modules-left": ["hyprland/workspaces", "hyprland/submap"], // Removed "mpd"
 	"modules-center": [],
-	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "clock"],
+	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock", "tray"],
 	"mpd": {
 		"tooltip": false,
 		"format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -33,5 +33,32 @@
 	"memory": {
 		"tooltip": false,
 		"format": " {}%"
-	}
+	},
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": true,
+        "warp-on-scroll": false,
+        //"format": "{name}: {icon}",
+        "format": "{icon}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
 }
