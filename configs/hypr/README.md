@@ -32,3 +32,9 @@ sudo cp completions/_swww /usr/share/zsh/vendor-completions # Debian
 
 ## Screensharing
 * Using nuclear option from [here](https://wiki.hyprland.org/Useful-Utilities/Hyprland-desktop-portal/) to launch xdg-desktop-portal-hyprland
+
+## Waybar
+sudo dnf copr enable solopasha/hyprland
+sudo dnf install waybar-git
+
+* Install `waybar-git`. Using `waybar` will lead to crashes when switching workspaces.
