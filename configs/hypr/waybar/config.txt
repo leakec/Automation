@@ -45,7 +45,7 @@
             "focused": "",
             "default": "●"
         },
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "*": 5
         }
     },

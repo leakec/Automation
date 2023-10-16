@@ -38,3 +38,8 @@ sudo dnf copr enable solopasha/hyprland
 sudo dnf install waybar-git
 
 * Install `waybar-git`. Using `waybar` will lead to crashes when switching workspaces.
+
+## swaylock
+sudo dnf install swaylock
+
+* Used for locking the screen. A Python script makes this choose the same picture as the current background.
