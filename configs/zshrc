@@ -79,6 +79,7 @@ function zr () { zellij run --name "$*" -- zsh -ic "$*";}
 function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
 function ze () { zellij edit "$*";}
 function zef () { zellij edit --floating "$*";}
+function zm () { zellij action start-or-reload-plugin file:~/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL"}
 
 ## Plugins
 # From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
@@ -101,6 +102,7 @@ repos=(
   #zsh-users/zsh-completions
   #rupa/z
   # ...
+  z-shell/zsh-diff-so-fancy
 
   # plugins you want loaded last
   zsh-users/zsh-syntax-highlighting
