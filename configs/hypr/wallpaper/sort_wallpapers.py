@@ -38,7 +38,7 @@ if isinstance(run, int):
 
 # Create file if it does not exist
 if options["randomize_list"] or not pic_file.is_file():
-    exts = ["png","jpg","jpeg"]
+    exts = ["png","jpg","jpeg","gif"]
     pics = []
     home = environ["HOME"]
 
