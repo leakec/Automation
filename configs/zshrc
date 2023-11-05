@@ -79,7 +79,7 @@ function zr () { zellij run --name "$*" -- zsh -ic "$*";}
 function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
 function ze () { zellij edit "$*";}
 function zef () { zellij edit --floating "$*";}
-function zm () { zellij action start-or-reload-plugin file:~/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL"}
+function zm () { zellij action launch-or-focus-plugin file:$HOME/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL,cwd=`pwd`"}
 
 ## Plugins
 # From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
