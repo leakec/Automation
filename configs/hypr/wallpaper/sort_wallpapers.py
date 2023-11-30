@@ -3,6 +3,7 @@ import random
 from glob import glob
 from pathlib import Path
 from os import system, environ
+from colorthief import ColorThief
 
 # Define variables used througout
 options = {}
@@ -36,6 +37,42 @@ if isinstance(run, int):
 
     sys.exit(run)
 
+def get_color_palette(p: Path, num_colors: int = 4):
+    return ColorThief(p).get_palette(color_count=num_colors)
+
+def show_color_palette(colors):
+    """
+    Shows the colol palette from get_color_palette.
+    Useful for debugging
+    """
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    dark = np.array(colors)
+    size = dark.shape[0]
+    dark.resize((size, 1, 3))
+    plt.imshow(dark)
+    plt.show()
+
+def write_rofi_colors(pallete, p: Path = Path(environ.get("HOME") + "/.config/rofi/colors.rasi")):
+    orig = """* {
+    background:     COLOR;
+    background-alt: COLOR;
+    foreground:     COLOR;
+    selected:       COLOR;
+    active:         COLOR;
+    urgent:         COLOR;
+}
+"""
+    assert(len(pallete)==6)
+
+    for color in pallete:
+        dark = "#{:02x}{:02x}{:02x}".format(*color)
+        orig = orig.replace("COLOR",dark,1)
+    
+    with open(p,"w") as f:
+        f.write(orig)
+
 # Create file if it does not exist
 if options["randomize_list"] or not pic_file.is_file():
     exts = ["png","jpg","jpeg","gif"]
@@ -55,7 +92,7 @@ if options["change_bg"]:
     with open(pic_file,"r+") as f:
         lines = f.readlines()
         counter = int(lines[-1])
-        pic = lines[counter]
+        pic = lines[counter].strip()
         lines[-1] = str((counter + 1)%(len(lines)-1)) + "\n"
 
         f.seek(0)
@@ -64,6 +101,9 @@ if options["change_bg"]:
             f.write(line)
 
     # This transition is really laggy. Try again at a future time when https://github.com/Horus645/swww/issues/154 is fixed.
-    # system("swww img "+pic.strip()+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration 1.00 --transition-step 90 --transition-fps 60")
-    system("swww img "+pic.strip()+" --transition-type none")
+    # system("swww img "+pic+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration 1.00 --transition-step 90 --transition-fps 60")
+    system("swww img "+pic+" --transition-type none")
+
+    pallete = get_color_palette(Path(pic), num_colors=6)
+    write_rofi_colors(pallete)
 
