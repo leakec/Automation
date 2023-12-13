@@ -106,6 +106,32 @@ local cycle_prev   = true  -- cycle with only the previously focused client or a
 local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "librewolf"
 
+---
+-- Function to retrieve console output
+-- 
+local function capture(cmd, raw)
+    local handle = assert(io.popen(cmd, 'r'))
+    local output = assert(handle:read('*a'))
+    
+    handle:close()
+    
+    if raw then 
+        return output 
+    end
+   
+    output = string.gsub(
+        string.gsub(
+            string.gsub(output, '^%s+', ''), 
+            '%s+$', 
+            ''
+        ), 
+        '[\n\r]+',
+        ' '
+    )
+   
+   return output
+end
+
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
@@ -516,6 +542,19 @@ globalkeys = mytable.join(
             beautiful.volume.update()
         end,
         {description = "volume 0%", group = "hotkeys"}),
+
+    -- Microphone control
+    awful.key({ modkey }, "i",
+        function ()
+            os.execute("$HOME/.config/awesome/scripts/volume --toggle-mic")
+            local output = capture("pamixer --default-source --get-mute", true)
+            if string.find(output,"true") then
+                naughty.notify({ text = "Microphone Switched OFF", icon = os.getenv("HOME") .. "/.config/awesome/scripts/microphone-mute.png", icon_size=48, timeout=0.5})
+            else
+                naughty.notify({ text = "Microphone Switched ON", icon = os.getenv("HOME") .. "/.config/awesome/scripts/microphone.png", icon_size=48, timeout=0.5})
+            end
+        end,
+        {description = "Toggle microphone mute", group = "hotkeys"}),
 
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
