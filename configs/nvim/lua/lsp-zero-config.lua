@@ -45,3 +45,4 @@ cmp.setup({
 })
 
 vim.api.nvim_set_keymap('n', 'gv', ':vsplit | lua vim.lsp.buf.definition()<CR>', {silent=true})
+vim.api.nvim_set_keymap('i', '<c-K>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', {silent=true})
