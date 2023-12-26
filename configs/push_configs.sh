@@ -30,10 +30,14 @@ rsync -r nvim/ ~/.config/nvim
 mkdir -p ~/.vim/ && cp vimrc ~/.vim/vimrc
 cp ./ctags ~/.ctags
 
+# Rofi
+cp ./rofi_config/* ~/.config/rofi
+
 # Extras
 cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
 cp screenkey.json ~/.config/screenkey.json
+
 
 # Not used anymore
 # cat ./gterminal.preferences | dconf load /org/gnome/terminal/legacy/profiles:/
