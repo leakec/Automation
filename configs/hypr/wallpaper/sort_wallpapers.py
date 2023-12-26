@@ -116,3 +116,13 @@ if options["change_bg"]:
 
     with sys_args_ctx():
         pywal_main()
+
+    pallete = get_color_palette(Path(pic), num_colors=6)
+    write_rofi_colors(pallete)
+
+    # This works, but maybe I want the foreground colors instead? 
+    # This will give the primary color, which I may not want.
+    pallete = get_color_palette(Path(pic), num_colors=2)
+    c1 = "{:02x}{:02x}{:02x}ee".format(*pallete[1])
+    c2 = "{:02x}{:02x}{:02x}ee".format(*pallete[2])
+    system(f'hyprctl keyword general:col.active_border "rgba({c1}) rgba({c2}) 45deg"')
