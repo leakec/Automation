@@ -1,9 +1,12 @@
+import sys
 import click
 import random
 from glob import glob
 from pathlib import Path
 from os import system, environ
 from colorthief import ColorThief
+from pywal.__main__ import main as pywal_main
+from contextlib import contextmanager
 
 # Define variables used througout
 options = {}
@@ -31,11 +34,9 @@ pic_file = Path("/tmp/swww_pics.txt")
 def cli(ctx, **kwargs):
     options.update(kwargs)
 
-run = cli(standalone_mode=False)
-if isinstance(run, int):
-    import sys
-
-    sys.exit(run)
+dark = cli(standalone_mode=False)
+if isinstance(dark, int):
+    sys.exit(dark)
 
 def get_color_palette(p: Path, num_colors: int = 4):
     return ColorThief(p).get_palette(color_count=num_colors)
@@ -104,12 +105,14 @@ if options["change_bg"]:
     # system("swww img "+pic+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration 1.00 --transition-step 90 --transition-fps 60")
     system("swww img "+pic+" --transition-type none")
 
-    pallete = get_color_palette(Path(pic), num_colors=6)
-    write_rofi_colors(pallete)
+    @contextmanager
+    def sys_args_ctx():
+        save = sys.argv
+        try:
+            sys.argv = ["wal","-i",pic,"-t","-s","-q"]
+            yield
+        finally:
+            sys.argv = save
 
-    # This works, but maybe I want the foreground colors instead? 
-    # This will give the primary color, which I may not want.
-    pallete = get_color_palette(Path(pic), num_colors=2)
-    c1 = "{:02x}{:02x}{:02x}ee".format(*pallete[1])
-    c2 = "{:02x}{:02x}{:02x}ee".format(*pallete[2])
-    system(f'hyprctl keyword general:col.active_border "rgba({c1}) rgba({c2}) 45deg"')
+    with sys_args_ctx():
+        pywal_main()

@@ -8,6 +8,8 @@
  ********************************************
  */
 
+@import 'colors-waybar.css';
+
 * {
 	border: none;
 	border-radius: 0;
@@ -42,8 +44,8 @@ window#waybar.termite #window,
 window#waybar.Firefox #window,
 window#waybar.Navigator #window,
 window#waybar.PCSX2 #window {
-    color: #4d4d4d;
-	background: #e6e6e6;
+    color: @foreground;
+	background: @background;
 }
 
 #workspaces {
@@ -51,25 +53,25 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 2px;
 	border-radius: 16px;
-	background: transparent;
+	background: @background;
 }
 
 #workspaces button {
 	transition: none;
-	color: #f8f8f2;
+	color: @background;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.persistent {
 	transition: none;
-	color: #f8f8f2;
+	color: @foreground;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.active {
-	color: #ff79c6;
+	color: @color1;
 }
 
 #workspaces button:hover {
@@ -103,8 +105,8 @@ window#waybar.PCSX2 #window {
 #pulseaudio,
 #network,
 #battery {
-	background: #282a36;
-	color: #f8f8f2;
+	background: @background;
+	color: @foreground;
 	margin-top: 2px;
 	margin-left: 8px;
 	margin-right: 8px;
