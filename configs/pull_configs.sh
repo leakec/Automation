@@ -18,7 +18,7 @@ cp ~/.zshrc ./zshrc
 cp ~/.ctags ./ctags
 cp -r ~/.config/nvim .
 cp ~/.config/screenkey.json .
-cp ~/.config/rofi/*.rasi rofi_config
+cp ~/.config/rofi/*.rasi ./rofi_config/
 
 # Not used anymore 
 # dconf dump /org/gnome/terminal/ > ./gterminal.preferences

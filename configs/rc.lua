@@ -235,6 +235,7 @@ function setWallpaper()
 	beautiful.wallpaper = Wallpapers[WallpaperNum]
 	gears.wallpaper.maximized(beautiful.wallpaper, awful.screen.focused(), true)
 	os.execute("betterlockscreen -u "..Wallpapers[WallpaperNum].." &")
+    os.execute("~/.local/bin/wal -i "..beautiful.wallpaper.." -t -s -q &")
 end
 
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -644,7 +645,7 @@ globalkeys = mytable.join(
     --awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
     --          {description = "run prompt", group = "launcher"}),
     awful.key({ modkey }, "r", function ()
-            os.execute(string.format("$HOME/.config/rofi/launchers/type-6/launcher.sh"))
+            os.execute(string.format("rofi -theme $HOME/.config/rofi/config.rasi -show drun"))
         end,
         {description = "show rofi", group = "launcher"}),
 
