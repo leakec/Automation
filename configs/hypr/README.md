@@ -43,3 +43,10 @@ sudo dnf install waybar-git
 sudo dnf install swaylock
 
 * Used for locking the screen. A Python script makes this choose the same picture as the current background.
+
+## Stuff to try
+* monitor=,highres,auto,1
+* Trying pywal stuff
+  * Reddit post [here](https://www.reddit.com/r/unixporn/comments/145xyh6/hyprland_pywal_is_insane/)
+  * Dot files [here](https://github.com/rchrdwllm/dotfiles/tree/master/.config/hypr/scripts)
+  * Was looking at Nov 15 commit.
