@@ -90,14 +90,12 @@ if options["randomize_list"] or not pic_file.is_file():
         f.write("0\n") # Counter
 
 if options["change_bg"]:
-    with open(pic_file,"r+") as f:
+    with open(pic_file,"r") as f:
         lines = f.readlines()
         counter = int(lines[-1])
         pic = lines[counter].strip()
-        lines[-1] = str((counter + 1)%(len(lines)-1)) + "\n"
-
-        f.seek(0)
-    
+        lines[-1] = str((counter + 1)%(len(lines)-1))+"\n"
+    with open(pic_file,"w") as f:
         for line in lines:
             f.write(line)
 
