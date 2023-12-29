@@ -9,11 +9,6 @@ mkdir -p ~/.config/picom && cp picom.conf ~/.config/picom/picom.conf
 # Lock screen
 cp ./betterlockscreenrc ~/.config/betterlockscreenrc
 
-# Tmux
-mkdir -p ~/.tmux/plugins/tmux
-cp tmux.conf ~/.tmux.conf
-rsync -r tmux/plugins/tmux/ ~/.tmux/plugins/tmux/
-
 # Zellij
 rsync -r zellij/ ~/.config/zellij
 
