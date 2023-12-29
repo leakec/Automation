@@ -33,6 +33,9 @@ cp ./ctags ~/.ctags
 # Rofi
 cp ./rofi/* ~/.config/rofi
 
+# Wal (pywal)
+cp -r ./wal/* ~/.config/wal
+
 # Extras
 cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini

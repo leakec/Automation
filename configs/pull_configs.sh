@@ -19,6 +19,7 @@ cp ~/.ctags ./ctags
 cp -r ~/.config/nvim .
 cp ~/.config/screenkey.json .
 cp ~/.config/rofi/*.rasi ./rofi/
+cp -r ~/.config/wal .
 
 # Not used anymore 
 # dconf dump /org/gnome/terminal/ > ./gterminal.preferences
