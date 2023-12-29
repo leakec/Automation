@@ -31,7 +31,7 @@ mkdir -p ~/.vim/ && cp vimrc ~/.vim/vimrc
 cp ./ctags ~/.ctags
 
 # Rofi
-cp ./rofi_config/* ~/.config/rofi
+cp ./rofi/* ~/.config/rofi
 
 # Extras
 cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
