@@ -71,8 +71,11 @@ then
 fi
 export PATH
 
+# Use neovim for editing
 export EDITOR='nvim'
 export SVN_EDITOR='nvim'
+export MANPAGER='nvim +Man!'
+export MANWIDTH=999
 
 ## Zellij aliases
 function zr () { zellij run --name "$*" -- zsh -ic "$*";}
