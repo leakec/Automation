@@ -1,10 +1,4 @@
 return {
-	-- For synchronizing nvim across tmux 
-	{
-		"aserowy/tmux.nvim",
-		config = function() require("tmux").setup() end
-	},
-
     -- NAVIGATION
     -- Store last position when closing a file
     'farmergreg/vim-lastplace',
