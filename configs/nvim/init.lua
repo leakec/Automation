@@ -94,27 +94,7 @@ if isModuleAvailable("leap") then
     require('leap').opts.highlight_unlabeled_phase_one_targets = true
 end
 
--- Git
--- Gitsigns setup
-if isModuleAvailable("gitsigns") then
-    require("gitsigns-config")
-end
-
--- Git.nvim setup
-if isModuleAvailable("git") then
-    require("git-config")
-end
-
--- Neogen
-if isModuleAvailable("neogen") then
-    require("neogen-config")
-end
-
 -- Cosmetic packages
--- Smooth scrolling
-if isModuleAvailable("neoscroll") then
-    require('neoscroll-config')
-end
 
 -- Status line 
 if isModuleAvailable("lualine") then

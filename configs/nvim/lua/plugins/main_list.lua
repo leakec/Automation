@@ -27,26 +27,7 @@ return {
     -- Julia editing
     {'JuliaEditorSupport/julia-vim'},
 
-    -- Working with git
-    {
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
-    {"lewis6991/gitsigns.nvim"},
-    {"dinhhuy258/git.nvim"},
-
     -- LSP 
-    { 
-        "danymat/neogen", 
-        dependencies = "nvim-treesitter/nvim-treesitter", 
-        config = true,
-        -- Uncomment next line if you want to follow only stable versions
-        -- version = "*" 
-    },
 
 	-- LSP zero
     {
@@ -74,9 +55,6 @@ return {
 
     -- COSMETIC 
     
-    -- Smooth scrolling
-    {'karb94/neoscroll.nvim'},
-
     -- Status bar
     { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }},
 
