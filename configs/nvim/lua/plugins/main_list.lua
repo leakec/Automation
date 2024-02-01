@@ -23,13 +23,6 @@ return {
     {'ojroques/nvim-osc52'},
 
     -- CODE VISUALIZATION
-	-- Tree sitter for code folding
-	{
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-		ensure_installed = { "cpp", "python" },
-		auto_install = true,
-    },
 
     -- Julia editing
     {'JuliaEditorSupport/julia-vim'},
@@ -44,7 +37,6 @@ return {
     },
 
     {"lewis6991/gitsigns.nvim"},
-
     {"dinhhuy258/git.nvim"},
 
     -- LSP 
@@ -82,9 +74,6 @@ return {
 
     -- COSMETIC 
     
-    -- Colorscheme
-    {'folke/tokyonight.nvim'},
-
     -- Smooth scrolling
     {'karb94/neoscroll.nvim'},
 

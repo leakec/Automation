@@ -81,14 +81,6 @@ function isModuleAvailable(name)
   end
 end
 
--- Colorscheme (do this first so others pick it up)
-if isModuleAvailable("tokyonight") then
-    require('tokyonight-config')
-
-    -- Set colors based on terminal
-    --vim.opt.termguicolors = true
-end
-
 -- LSP
 -- LSP zero
 if isModuleAvailable("lsp-zero") then
@@ -101,17 +93,6 @@ if isModuleAvailable("leap") then
     require('leap').add_default_mappings()
     require('leap').opts.highlight_unlabeled_phase_one_targets = true
 end
-
--- Telescope setup
-if isModuleAvailable("nvim-treesitter") then
-    require("nvim-treesitter-config")
-end
-
--- Copying
-if isModuleAvailable("osc52") then
-    require("nvim-osc52-config")
-end
-vim.opt.clipboard = "unnamedplus"
 
 -- Git
 -- Gitsigns setup
