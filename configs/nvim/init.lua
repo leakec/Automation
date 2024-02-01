@@ -81,13 +81,6 @@ function isModuleAvailable(name)
   end
 end
 
--- Navigation
--- Set mappings for leap
-if isModuleAvailable("leap") then
-    require('leap').add_default_mappings()
-    require('leap').opts.highlight_unlabeled_phase_one_targets = true
-end
-
 -- USER FUNCTIONS
 if isModuleAvailable("user.functions") then
     require('user.functions')
