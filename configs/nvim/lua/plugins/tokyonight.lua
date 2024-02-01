@@ -1,6 +1,7 @@
 -- Colorscheme
 return {
     'folke/tokyonight.nvim',
+    priority=100,
 
     config = function()
         require("tokyonight").setup({

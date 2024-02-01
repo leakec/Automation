@@ -1,7 +1,7 @@
 -- Copy/paste across terminals and SSH
 
 return {
-    'karb94/neoscroll.nvim',
+    'ojroques/nvim-osc52',
 
     config = function()
 
