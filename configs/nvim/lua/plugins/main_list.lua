@@ -27,49 +27,8 @@ return {
     -- Julia editing
     {'JuliaEditorSupport/julia-vim'},
 
-    -- LSP 
-
-	-- LSP zero
-    {
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v2.x',
-      dependencies = {
-        -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-          'williamboman/mason.nvim',
-          build = function()
-            pcall(vim.cmd, 'MasonUpdate')
-          end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-        -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-        {'hrsh7th/cmp-path'},     -- Optional, for path autocomplete
-        {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, used for completion inside function signatures
-        {'L3MON4D3/LuaSnip'},     -- Required
-      }
-    },
-
     -- COSMETIC 
     
-    -- Status bar
-    { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }},
-
-    -- NVIM IN BROWSER
-    {
-        'glacambre/firenvim',
-
-        -- Lazy load firenvim
-        -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-        lazy = not vim.g.started_by_firenvim,
-        build = function()
-            vim.fn["firenvim#install"](0)
-        end
-    }
-
 
     -- test
     -- {

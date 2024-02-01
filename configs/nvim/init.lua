@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd({"BufWinEnter", "BufEnter"}, {
 vim.api.nvim_create_autocmd({"BufWinEnter", "BufReadPost","FileReadPost"}, {
     pattern = "*",
     command = "normal zR",
-    desc = "Open all tree sitterfolds.",
+    desc = "Open all treesitter folds.",
 })
 
 -- Used to check if package is available 
@@ -81,29 +81,11 @@ function isModuleAvailable(name)
   end
 end
 
--- LSP
--- LSP zero
-if isModuleAvailable("lsp-zero") then
-    require("lsp-zero-config")
-end
-
 -- Navigation
 -- Set mappings for leap
 if isModuleAvailable("leap") then
     require('leap').add_default_mappings()
     require('leap').opts.highlight_unlabeled_phase_one_targets = true
-end
-
--- Cosmetic packages
-
--- Status line 
-if isModuleAvailable("lualine") then
-    require('lualine-config')
-end
-
--- Using neovim in the browser
-if isModuleAvailable("firenvim") then
-    require('firenvim-config')
 end
 
 -- USER FUNCTIONS
