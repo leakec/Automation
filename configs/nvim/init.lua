@@ -103,16 +103,6 @@ if isModuleAvailable("leap") then
 end
 
 -- Telescope setup
-if isModuleAvailable("telescope") then
-    require("telescope-config")
-end
-
--- Navigating the jump list with portal
-if isModuleAvailable("portal") then
-    require("portal-config")
-end
-
--- Telescope setup
 if isModuleAvailable("nvim-treesitter") then
     require("nvim-treesitter-config")
 end
