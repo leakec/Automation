@@ -114,3 +114,6 @@ if options["change_bg"]:
 
     with sys_args_ctx():
         pywal_main()
+
+    system("~/.local/bin/pywalfox update &")
+

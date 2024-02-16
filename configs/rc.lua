@@ -235,7 +235,8 @@ function setWallpaper()
 	beautiful.wallpaper = Wallpapers[WallpaperNum]
 	gears.wallpaper.maximized(beautiful.wallpaper, awful.screen.focused(), true)
 	os.execute("betterlockscreen -u "..Wallpapers[WallpaperNum].." &")
-    os.execute("~/.local/bin/wal -i "..beautiful.wallpaper.." -t -s -q &")
+    os.execute("~/.local/bin/wal -i "..beautiful.wallpaper.." -t -s -q")
+    os.execute("~/.local/bin/pywalfox update &")
 end
 
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
