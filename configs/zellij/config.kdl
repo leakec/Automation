@@ -16,10 +16,10 @@ keybinds {
         unbind "Ctrl t"
         bind "Alt y" { SwitchToMode "Move"; }
         bind "Alt w" { SwitchToMode "Session"; }
-        bind "Alt l" { SwitchToMode "Locked"; }
+        bind "Alt a" { SwitchToMode "Locked"; }
     }
     locked {
-        bind "Alt l" { SwitchToMode "Normal"; }
+        bind "Alt a" { SwitchToMode "Normal"; }
     }
     resize {
         bind "Alt n" { SwitchToMode "Normal"; }
