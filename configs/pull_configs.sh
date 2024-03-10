@@ -4,7 +4,7 @@ cp ~/.vim/vimrc .
 cp -r ~/.config/hypr .
 cp ~/.config/awesome/theme.lua .
 cp ~/.config/awesome/rc.lua .
-cp -r ~/.config/awesome/scripts .
+rsync -r ~/.config/awesome/scripts/ ./awesome_scripts/
 cp ~/.config/picom/picom.conf .
 cp ~/.config/gromit-mpx.cfg .
 cp -r ~/.config/zellij .
