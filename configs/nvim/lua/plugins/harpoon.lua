@@ -11,7 +11,6 @@ return
                 local plenary_path = require("plenary.path")
                 local handle = io.popen("yamroot")
                 local output = handle:read()
-                print(output)
                 handle:close()
                 path = plenary_path:new(output)
                 if path:exists() then
