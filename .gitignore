@@ -133,3 +133,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Waybar colors from pywal
+configs/hypr/waybar/colors-waybar.css
