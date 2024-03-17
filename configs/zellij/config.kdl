@@ -305,7 +305,10 @@ default_layout "/home/leake/.config/zellij/my_layout"
 //   - true (default)
 //   - false
 //
-mouse_mode false
+// Mouse mode will disable being able to highlight and past text.
+// Just hold shift while doing these things to pass the mouse events
+// to the underlying program.
+mouse_mode true
 
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
