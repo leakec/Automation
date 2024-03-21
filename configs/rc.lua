@@ -360,24 +360,24 @@ globalkeys = mytable.join(
               {description = "go back", group = "tag"}),
 
     -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-              {description = "view  previous nonempty", group = "tag"}),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-              {description = "view  previous nonempty", group = "tag"}),
+    -- awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
+    --           {description = "view  previous nonempty", group = "tag"}),
+    -- awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
+    --           {description = "view  previous nonempty", group = "tag"}),
 
     -- Default client focus
-    awful.key({ altkey }, "Up",
-        function ()
-            awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
-    ),
-    awful.key({ altkey }, "Down",
-        function ()
-            awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
-    ),
+    -- awful.key({ altkey }, "Up",
+    --     function ()
+    --         awful.client.focus.byidx( 1)
+    --     end,
+    --     {description = "focus next by index", group = "client"}
+    -- ),
+    -- awful.key({ altkey }, "Down",
+    --     function ()
+    --         awful.client.focus.byidx(-1)
+    --     end,
+    --     {description = "focus previous by index", group = "client"}
+    -- ),
 
     -- By-direction client focus
     awful.key({ modkey }, "j",
@@ -514,19 +514,19 @@ globalkeys = mytable.join(
               {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+    awful.key({ altkey, "Control" }, "Up",
         function ()
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume up", group = "hotkeys"}),
-    awful.key({ altkey }, "Down",
+    awful.key({ altkey, "Control" }, "Down",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end,
         {description = "volume down", group = "hotkeys"}),
-    awful.key({ altkey }, "m",
+    awful.key({ altkey, "Control" }, "m",
         function ()
             os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
@@ -559,43 +559,43 @@ globalkeys = mytable.join(
         {description = "Toggle microphone mute", group = "hotkeys"}),
 
     -- MPD control
-    awful.key({ altkey, "Control" }, "Up",
-        function ()
-            os.execute("mpc toggle")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc toggle", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Down",
-        function ()
-            os.execute("mpc stop")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc stop", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Left",
-        function ()
-            os.execute("mpc prev")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc prev", group = "widgets"}),
-    awful.key({ altkey, "Control" }, "Right",
-        function ()
-            os.execute("mpc next")
-            beautiful.mpd.update()
-        end,
-        {description = "mpc next", group = "widgets"}),
-    awful.key({ altkey }, "0",
-        function ()
-            local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
-            if beautiful.mpd.timer.started then
-                beautiful.mpd.timer:stop()
-                common.text = common.text .. lain.util.markup.bold("OFF")
-            else
-                beautiful.mpd.timer:start()
-                common.text = common.text .. lain.util.markup.bold("ON")
-            end
-            naughty.notify(common)
-        end,
-        {description = "mpc on/off", group = "widgets"}),
+    -- awful.key({ altkey, "Control" }, "Up",
+    --     function ()
+    --         os.execute("mpc toggle")
+    --         beautiful.mpd.update()
+    --     end,
+    --     {description = "mpc toggle", group = "widgets"}),
+    -- awful.key({ altkey, "Control" }, "Down",
+    --     function ()
+    --         os.execute("mpc stop")
+    --         beautiful.mpd.update()
+    --     end,
+    --     {description = "mpc stop", group = "widgets"}),
+    -- awful.key({ altkey, "Control" }, "Left",
+    --     function ()
+    --         os.execute("mpc prev")
+    --         beautiful.mpd.update()
+    --     end,
+    --     {description = "mpc prev", group = "widgets"}),
+    -- awful.key({ altkey, "Control" }, "Right",
+    --     function ()
+    --         os.execute("mpc next")
+    --         beautiful.mpd.update()
+    --     end,
+    --     {description = "mpc next", group = "widgets"}),
+    -- awful.key({ altkey }, "0",
+    --     function ()
+    --         local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
+    --         if beautiful.mpd.timer.started then
+    --             beautiful.mpd.timer:stop()
+    --             common.text = common.text .. lain.util.markup.bold("OFF")
+    --         else
+    --             beautiful.mpd.timer:start()
+    --             common.text = common.text .. lain.util.markup.bold("ON")
+    --         end
+    --         naughty.notify(common)
+    --     end,
+    --     {description = "mpc on/off", group = "widgets"}),
 
 	-- Screenshots
     awful.key({}, "Print",
