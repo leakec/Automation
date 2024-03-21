@@ -87,6 +87,9 @@ function zff () { zellij edit -i ""; zellij action write-chars " ff"}
 function zfg () { zellij edit -i ""; zellij action write-chars " fg"}
 alias z="zellij options --no-pane-frames"
 
+# Use the OSC52 escape sequence and base64 encoding to copy to system clipboard via a pipe
+function copy () {echo -en "\e]52;c;$(cat $1|base64)\a" }
+
 ## Plugins
 # From https://github.com/mattmc3/zsh_unplugged#jigsaw-the-humble-plugin-load-function
 
