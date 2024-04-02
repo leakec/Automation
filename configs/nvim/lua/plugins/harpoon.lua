@@ -5,52 +5,57 @@ return
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        settings = {
-            key = function()
-                -- Try to use yamroot if it exists.
-                local plenary_path = require("plenary.path")
+        local Path = require("plenary.path")
+        local function keyFn()
+            -- Try to use yamroot if it exists.
 
-                local function getPath(cmd)
-                    -- Run the command
-                    local handle = io.popen(cmd)
-                    if handle == nil then
-                        -- If the command fails then return an empty string
-                        return nil
+            local function getPath(cmd)
+                -- Run the command
+                local handle = io.popen(cmd)
+                if handle == nil then
+                    -- If the command fails then return an empty string
+                    return nil
+                else
+                    -- Get the result of the command. Trim it so we don't have extra whitespace.
+                    local output = handle:read("*all"):gsub("^%s*(.-)%s*$", "%1")
+                    handle:close()
+                    local path = Path:new(output)
+                    -- If the command passed, make sure it is a real file
+                    if path:exists() then
+                        return path.filename
                     else
-                        -- Get the result of the command. Trim it so we don't have extra whitespace.
-                        local output = handle:read("*all"):gsub("^%s*(.-)%s*$", "%1")
-                        handle:close()
-                        local path = plenary_path:new(output)
-                        -- If the command passed, make sure it is a real file
-                        if path:exists() then
-                            return path.filename
-                        else
-                            -- Otherwise, return an empty string
-                            return nil
-                        end
+                        -- Otherwise, return an empty string
+                        return nil
                     end
                 end
+            end
 
-                local yam_path = getPath("yamroot")
-                if yam_path ~= nil then
-                    -- Use the yamroot if it exists
-                    return yam_path
-                end
+            local yam_path = getPath("yamroot")
+            if yam_path ~= nil then
+                -- Use the yamroot if it exists
+                return yam_path
+            end
 
-                local git_path = getPath("git rev-parse --show-toplevel")
-                --print("git_path: "..git_path)
-                if git_path ~= nil then
-                    -- Use the git root if it exists
-                    print("Using git path "..git_path)
-                    return git_path
-                end
+            local git_path = getPath("git rev-parse --show-toplevel")
+            --print("git_path: "..git_path)
+            if git_path ~= nil then
+                -- Use the git root if it exists
+                print("Using git path "..git_path)
+                return git_path
+            end
 
-                -- Fallback to vim.loop.cwd() otherwise
-                return vim.loop.cwd()
-            end,
+            -- Fallback to vim.loop.cwd() otherwise
+            return vim.loop.cwd()
+        end
+
+        local settings = {
+            key = keyFn
+        }
+        local default = {
+            get_root_dir = function() return "~" end
         }
         local harpoon = require("harpoon")
-        harpoon.setup({settings=settings})
+        harpoon.setup({settings=settings, default=default})
 
         -- basic telescope configuration
         local conf = require("telescope.config").values
@@ -71,7 +76,7 @@ return
         end
 
         -- Creating keymaps
-        vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+        vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
         vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
         vim.keymap.set("n", "<leader>fh", function() toggle_telescope(harpoon:list()) end,
         { desc = "Open harpoon window" })
