@@ -1,5 +1,5 @@
 -- Harpoon 
-return 
+return
 {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -9,25 +9,44 @@ return
             key = function()
                 -- Try to use yamroot if it exists.
                 local plenary_path = require("plenary.path")
-                local handle = io.popen("yamroot")
-                local output = handle:read()
-                handle:close()
-                local path = plenary_path:new(output)
-                if path:exists() then
-                    return path.path
-                else
-                    local handle_git = io.popen("git rev-parse --show-toplevel")
-                    local output_git = handle:read()
-                    handle_git:close()
-                    local path_git = plenary_path:new(output_git)
-                    if path_git:exists() then
-                        -- Use the git root if it exists
-                        return path_git.path
+
+                local function getPath(cmd)
+                    -- Run the command
+                    local handle = io.popen(cmd)
+                    if handle == nil then
+                        -- If the command fails then return an empty string
+                        return nil
                     else
-                        -- Fallback to vim.loop.cwd() otherwise
-                        return vim.loop.cwd()
+                        -- Get the result of the command. Trim it so we don't have extra whitespace.
+                        local output = handle:read("*all"):gsub("^%s*(.-)%s*$", "%1")
+                        handle:close()
+                        local path = plenary_path:new(output)
+                        -- If the command passed, make sure it is a real file
+                        if path:exists() then
+                            return path.filename
+                        else
+                            -- Otherwise, return an empty string
+                            return nil
+                        end
                     end
                 end
+
+                local yam_path = getPath("yamroot")
+                if yam_path ~= nil then
+                    -- Use the yamroot if it exists
+                    return yam_path
+                end
+
+                local git_path = getPath("git rev-parse --show-toplevel")
+                --print("git_path: "..git_path)
+                if git_path ~= nil then
+                    -- Use the git root if it exists
+                    print("Using git path "..git_path)
+                    return git_path
+                end
+
+                -- Fallback to vim.loop.cwd() otherwise
+                return vim.loop.cwd()
             end,
         }
         local harpoon = require("harpoon")
