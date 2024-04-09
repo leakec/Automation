@@ -20,6 +20,9 @@ return {
         {'hrsh7th/cmp-path'},     -- Optional, for path autocomplete
         {'hrsh7th/cmp-nvim-lsp-signature-help'}, -- Optional, used for completion inside function signatures
         {'L3MON4D3/LuaSnip'},     -- Required
+
+        -- Formatting
+        {'mhartington/formatter.nvim'},
     },
     config = function()
         local lsp = require('lsp-zero').preset({})
@@ -67,6 +70,15 @@ return {
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
             }
         })
+
+        -- Formatting setup
+        local formatter = require('formatter')
+        formatter.setup({
+            logging=true,
+            log_level = vim.log.levels.TRACE,
+            filetype={python={require("formatter.filetypes.python").black}}
+        })
+
 
         vim.api.nvim_set_keymap('n', 'gv', ':vsplit | lua vim.lsp.buf.definition()<CR>', {silent=true})
         vim.keymap.set('i', '<c-K>', function() lsp.buf.signature_help() end, {silent=true})
