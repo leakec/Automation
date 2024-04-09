@@ -58,20 +58,20 @@ window#waybar.PCSX2 #window {
 
 #workspaces button {
 	transition: none;
-	color: @background;
+	color: @foreground;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.persistent {
 	transition: none;
-	color: @foreground;
+	color: @color1;
 	background: transparent;
 	font-size: 16px;
 }
 
 #workspaces button.active {
-	color: @color1;
+	color: @color2;
 }
 
 #workspaces button:hover {

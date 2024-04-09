@@ -36,18 +36,15 @@
 	},
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "warp-on-scroll": false,
         //"format": "{name}: {icon}",
-        "format": "{icon}",
+        "format": "{name}",
         "format-icons": {
             "urgent": "",
             "focused": "",
             "default": "●"
         },
-        "persistent-workspaces": {
-            "*": 5
-        }
     },
     "battery": {
         "states": {
