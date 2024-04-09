@@ -32,10 +32,6 @@ window#waybar.hidden {
     padding-right: 16px;
 	border-radius: 16px;
 	transition: none;
-	/*
-    color: #f8f8f2;
-	background: #282a36;
-    */
     color: transparent;
 	background: transparent;
 }
@@ -45,7 +41,7 @@ window#waybar.Firefox #window,
 window#waybar.Navigator #window,
 window#waybar.PCSX2 #window {
     color: @foreground;
-	background: @background;
+	background: alpha(@background, 0.6);
 }
 
 #workspaces {
@@ -53,7 +49,7 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 2px;
 	border-radius: 16px;
-	background: @background;
+    background: alpha(@background, 0.6);
 }
 
 #workspaces button {
@@ -72,11 +68,13 @@ window#waybar.PCSX2 #window {
 
 #workspaces button.active {
 	color: @color2;
+    background: transparent;
 }
 
 #workspaces button:hover {
     box-shadow: inset 0 -3px #ffffff;
 	text-shadow: inherit;
+    background: transparent;
 }
 
 #mpd {
@@ -105,7 +103,7 @@ window#waybar.PCSX2 #window {
 #pulseaudio,
 #network,
 #battery {
-	background: @background;
+    background: alpha(@background, 0.6);
 	color: @foreground;
 	margin-top: 2px;
 	margin-left: 8px;
