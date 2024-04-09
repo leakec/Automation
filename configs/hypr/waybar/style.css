@@ -24,6 +24,7 @@ window#waybar {
 
 window#waybar.hidden {
 	opacity: 0.2;
+    background: transparent;
 }
 
 #window {
@@ -41,7 +42,7 @@ window#waybar.Firefox #window,
 window#waybar.Navigator #window,
 window#waybar.PCSX2 #window {
     color: @foreground;
-	background: alpha(@background, 0.6);
+	background: alpha(@background, 0.7);
 }
 
 #workspaces {
@@ -49,7 +50,7 @@ window#waybar.PCSX2 #window {
 	margin-left: 12px;
 	margin-bottom: 2px;
 	border-radius: 16px;
-    background: alpha(@background, 0.6);
+    background: alpha(@background, 0.7);
 }
 
 #workspaces button {
@@ -103,8 +104,8 @@ window#waybar.PCSX2 #window {
 #pulseaudio,
 #network,
 #battery {
-    background: alpha(@background, 0.6);
 	color: @foreground;
+    background: alpha(@background, 0.7);
 	margin-top: 2px;
 	margin-left: 8px;
 	margin-right: 8px;
