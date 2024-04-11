@@ -136,3 +136,6 @@ dmypy.json
 
 # Waybar colors from pywal
 configs/hypr/waybar/colors-waybar.css
+
+# Dunst config from partial + pyway colors
+configs/hypr/dunst/dunstrc
