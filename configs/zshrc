@@ -82,7 +82,7 @@ function zr () { zellij run --name "$*" -- zsh -ic "$*";}
 function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
 function ze () { zellij edit "$*";}
 function zef () { zellij edit --floating "$*";}
-function zm () { zellij action launch-or-focus-plugin file:$HOME/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL,cwd=`pwd`"}
+function zm () { zellij action start-or-reload-plugin file:$HOME/.zellij_plugins/multitask.wasm --configuration "shell=$SHELL,cwd=`pwd`" }
 function zff () { zellij edit -i ""; zellij action write-chars " ff"}
 function zfg () { zellij edit -i ""; zellij action write-chars " fg"}
 alias z="zellij options --no-pane-frames"
