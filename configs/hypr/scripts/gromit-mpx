@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+GROMIT_MPX=/var/lib/flatpak/app/net.christianbeier.Gromit-MPX/current/active/export/bin/net.christianbeier.Gromit-MPX
+
+# Start by switching to the special workspace and firing up gromit-mpx
+hyprctl dispatch togglespecialworkspace gromit
+#hyprctl dispatch exec $GROMIT_MXP
+hyprctl dispatch exec $GROMIT_MPX 
+hyprctl dispatch -- exec $GROMIT_MPX -t
+
+# Bind F9 to turn on/off gromit + the workspace
+hyprctl keyword bind ", F9, togglespecialworkspace, gromit"
+hyprctl keyword bind ", F9, exec, $GROMIT_MPX -t"
+
+# Bind F8 and Shift F8 to undo and redo
+hyprctl keyword bind ", F8, exec, $GROMIT_MPX -z"
+hyprctl keyword bind "SHIFT, F8, exec, $GROMIT_MPX -y"
+
+# Bind shift F9 to clear the screen
+hyprctl keyword bind "SHIFT, F9, exec, $GROMIT_MPX -c"
+
+# Bind Alt F9 to quit and unbind everything
+hyprctl keyword bind "ALT, F9, exec, $GROMIT_MPX -q"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F8"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F8"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F9"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F9"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind ALT, F9"
