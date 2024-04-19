@@ -50,7 +50,7 @@ keybinds {
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
-    // Using Alt m for move so it doesn't conflict with normal move commands for nvim
+    // Using Alt y for move so it doesn't conflict with normal move commands for nvim
     move {
         bind "Alt y" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
@@ -130,7 +130,7 @@ keybinds {
         bind "Alt s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
-            LaunchOrFocusPlugin "zellij:session-manager" {
+            LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
             };
@@ -163,6 +163,8 @@ keybinds {
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt n" { NewPane; }
+        bind "Alt u" { MoveTab "Left"; }
+        bind "Alt i" { MoveTab "Right"; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
@@ -199,11 +201,17 @@ keybinds {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
-    session-manager { path "session-manager"; }
+    tab-bar location="zellij:tab-bar"
+    status-bar location="zellij:status-bar"
+    strider location="zellij:strider"
+    compact-bar location="zellij:compact-bar"
+    session-manager location="zellij:session-manager"
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen true
+    }
+    filepicker location="zellij:strider" {
+        cwd "/"
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -291,7 +299,7 @@ theme "nvim"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "/home/leake/.config/zellij/my_layout"
+default_layout "my_layout"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -367,3 +375,9 @@ mouse_mode true
 // Default: true
 //
 // styled_underlines false
+
+// Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
+// metadata info on this session)
+// Default: false
+//
+// disable_session_metadata true
