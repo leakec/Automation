@@ -99,9 +99,14 @@ if options["change_bg"]:
         for line in lines:
             f.write(line)
 
+    if "fit" in pic:
+        resize = "--resize fit"
+    else:
+        resize = ""
+
     # This transition is really laggy. Try again at a future time when https://github.com/Horus645/swww/issues/154 is fixed.
     # system("swww img "+pic+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration 1.00 --transition-step 90 --transition-fps 60")
-    system("swww img "+pic+" --transition-type none")
+    system("swww img "+pic+f" --transition-type none {resize}")
 
     @contextmanager
     def sys_args_ctx():
