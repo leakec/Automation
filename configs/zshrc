@@ -19,16 +19,20 @@ autoload -Uz compinit
 compinit
 
 ## Setup coloring
-# enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+# Setup ls aliases
+if type exa &> /dev/null; then
+    # Exa exists in the path. Use that instead of ls
+    alias ls="exa"
+    alias ll="exa -alF"
+else
+    # Fallback to using ls
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias ll='ls -alF'
+    alias la='ls -A'
+    alias l='ls -CF'
 fi
 
 ## Setup PSI
@@ -37,11 +41,6 @@ export PROMPT='%F{#6C71C4}[%2d]$%f '
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 ## Key bindings
 bindkey '^[[H' beginning-of-line
