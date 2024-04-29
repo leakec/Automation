@@ -129,5 +129,8 @@ plugin-load $repos
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# Initialize zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
 # Source DARTS
 source ~/.zshrc_darts
