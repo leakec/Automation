@@ -39,3 +39,8 @@
   * Add it to `~/.Xresources` with a line like `Xft.dpi: 144`
   * Source this file with `xrdb -merge ~/.Xresources`
 * I found [this](https://winaero.com/find-change-screen-dpi-linux/) really useful.
+
+## Rust packages
+* `cargo install --locked zellij`
+* `cargo install --locked exa`
+* `cargo install --locked zoxide`
