@@ -114,6 +114,7 @@ repos=(
   #rupa/z
   # ...
   z-shell/zsh-diff-so-fancy
+  joshskidmore/zsh-fzf-history-search
 
   # plugins you want loaded last
   zsh-users/zsh-syntax-highlighting
