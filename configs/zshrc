@@ -8,10 +8,12 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 
 # use the vi navigation keys in menu completion
+# and vi mode in the terminal
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v
 
 autoload -Uz compinit
 compinit
