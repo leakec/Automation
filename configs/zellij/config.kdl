@@ -13,6 +13,7 @@ keybinds {
         unbind "Ctrl y"
         unbind "Ctrl m"
         unbind "Ctrl t"
+        unbind "Ctrl s"
         bind "Alt y" { SwitchToMode "Move"; }
         bind "Alt o" { SwitchToMode "Session"; }
         bind "Alt g" { SwitchToMode "Locked"; }
