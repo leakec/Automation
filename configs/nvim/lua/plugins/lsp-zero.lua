@@ -2,17 +2,12 @@
 return {
 
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     dependencies = {
         -- LSP Support
-        {'neovim/nvim-lspconfig'},             -- Required
-        {                                      -- Optional
-            'williamboman/mason.nvim',
-            build = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        {'neovim/nvim-lspconfig'},
+        {'williamboman/mason.nvim'},
+        {'williamboman/mason-lspconfig.nvim'},
 
         -- Autocompletion
         {'hrsh7th/nvim-cmp'},     -- Required
@@ -26,19 +21,27 @@ return {
     },
     config = function()
         local lsp = require('lsp-zero').preset({})
+        require('mason').setup({})
+        require('mason-lspconfig').setup({
+            ensure_installed = {'pyright', 'clangd', 'tsserver', 'rust_analyzer'},
+            handlers = {
+                function(server_name)
+                    require('lspconfig')[server_name].setup({})
+                end,
+                -- this is the "custom handler" for `lua_ls`
+                lua_ls = function()
+                    local lua_opts = lsp.nvim_lua_ls()
+                    require('lspconfig').lua_ls.setup(lua_opts)
+                end,
+            }
+        })
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({buffer = bufnr})
         end)
 
-        -- (Optional) Configure lua language server for neovim
-        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-        lsp.setup()
-
         -- You need to setup `cmp` after lsp-zero
         local cmp = require('cmp')
-        local cmp_action = require('lsp-zero').cmp_action()
 
         cmp.setup({
             -- Menu is hidden by default, invoked only when I call it
@@ -54,7 +57,7 @@ return {
             },
 
             -- Key bindings
-            mapping = {
+            mapping = cmp.mapping.preset.insert({
                 -- `Enter` key to confirm completion
                 ['<CR>'] = cmp.mapping.confirm({select = false}),
 
@@ -66,9 +69,9 @@ return {
                 ['<Tab>'] = cmp.mapping.select_next_item(),
 
                 -- Navigate between snippet placeholder
-                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            }
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            })
         })
 
         -- Formatting setup
