@@ -30,17 +30,15 @@ return
                 end
             end
 
-            local yam_path = getPath("yamroot")
+            local yam_path = getPath("yamroot 2>/dev/null")
             if yam_path ~= nil then
                 -- Use the yamroot if it exists
                 return yam_path
             end
 
-            local git_path = getPath("git rev-parse --show-toplevel")
-            --print("git_path: "..git_path)
+            local git_path = getPath("git rev-parse --show-toplevel 2>/dev/null")
             if git_path ~= nil then
                 -- Use the git root if it exists
-                print("Using git path "..git_path)
                 return git_path
             end
 
