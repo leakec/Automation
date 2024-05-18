@@ -23,10 +23,10 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 # Setup ls aliases
-if type exa &> /dev/null; then
+if type eza &> /dev/null; then
     # Exa exists in the path. Use that instead of ls
-    alias ls="exa"
-    alias ll="exa -alF"
+    alias ls="eza"
+    alias ll="eza -alF"
 else
     # Fallback to using ls
     alias ls='ls --color=auto'
