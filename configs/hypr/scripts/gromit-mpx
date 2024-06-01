@@ -4,8 +4,8 @@ GROMIT_MPX=/var/lib/flatpak/app/net.christianbeier.Gromit-MPX/current/active/exp
 
 # Start by switching to the special workspace and firing up gromit-mpx
 hyprctl dispatch togglespecialworkspace gromit
-#hyprctl dispatch exec $GROMIT_MXP
 hyprctl dispatch exec $GROMIT_MPX 
+sleep 0.5
 hyprctl dispatch -- exec $GROMIT_MPX -t
 
 # Bind F9 to turn on/off gromit + the workspace
@@ -19,10 +19,14 @@ hyprctl keyword bind "SHIFT, F8, exec, $GROMIT_MPX -y"
 # Bind shift F9 to clear the screen
 hyprctl keyword bind "SHIFT, F9, exec, $GROMIT_MPX -c"
 
+# Bind shift F9 to hide the screen
+#hyprctl keyword bind "CTRL, F9, exec, $GROMIT_MPX -v"
+
 # Bind Alt F9 to quit and unbind everything
-hyprctl keyword bind "ALT, F9, exec, $GROMIT_MPX -q"
 hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F8"
 hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F8"
 hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind , F9"
 hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind SHIFT, F9"
 hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind ALT, F9"
+hyprctl keyword bind "ALT, F9, exec, hyprctl keyword unbind CTRL, F9"
+hyprctl keyword bind "ALT, F9, exec, $GROMIT_MPX -q"
