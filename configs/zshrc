@@ -5,6 +5,7 @@
 
 # Setup completion menu
 zstyle ':completion:*' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zmodload zsh/complist
 
 # use the vi navigation keys in menu completion
