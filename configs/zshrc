@@ -131,7 +131,9 @@ if type "plugin-load" > /dev/null; then
     bindkey '^[[B' history-substring-search-down
     
     # Initialize zoxide
-    eval "$(zoxide init --cmd cd zsh)"
+    if [ -x "$(command -v zoxide)" ]; then
+        eval "$(zoxide init --cmd cd zsh)"
+    fi
     
     # Initialize fzf
     if [ -x "$(command -v fzf)" ]; then
