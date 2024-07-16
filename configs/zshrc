@@ -159,5 +159,10 @@ if type "plugin-load" > /dev/null; then
     }
 fi
 
+# Source cargo
+if [ -f $HOME/.cargo/env ]; then
+    source "$HOME/.cargo/env"
+fi
+
 # Source DARTS
 source ~/.zshrc_darts
