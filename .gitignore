@@ -134,8 +134,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Waybar colors from pywal
+# Waybar colors from pywal and state file
 configs/hypr/waybar/colors-waybar.css
+configs/hypr/waybar/waybar_state.txt
 
 # Dunst config from partial + pyway colors
 configs/hypr/dunst/dunstrc
