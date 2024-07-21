@@ -140,3 +140,6 @@ configs/hypr/waybar/waybar_state.txt
 
 # Dunst config from partial + pyway colors
 configs/hypr/dunst/dunstrc
+
+# Ignore zellij themes, since we auto-generate them
+configs/zellij/themes
