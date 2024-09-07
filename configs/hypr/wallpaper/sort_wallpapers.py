@@ -30,6 +30,12 @@ pic_file = Path("/tmp/swww_pics.txt")
     help="Change bg using swww.",
     default=True
 )
+@click.option(
+    "--same-bg/--no-same-bg",
+    type=bool,
+    help="Keep the same background as before.",
+    default=False,
+)
 @click.pass_context
 def cli(ctx, **kwargs):
     options.update(kwargs)
@@ -90,14 +96,20 @@ if options["randomize_list"] or not pic_file.is_file():
         f.write("0\n") # Counter
 
 if options["change_bg"]:
-    with open(pic_file,"r") as f:
-        lines = f.readlines()
-        counter = int(lines[-1])
-        pic = lines[counter].strip()
-        lines[-1] = str((counter + 1)%(len(lines)-1))+"\n"
-    with open(pic_file,"w") as f:
-        for line in lines:
-            f.write(line)
+    if options["same_bg"]:
+        with open(pic_file,"r") as f:
+            lines = f.readlines()
+            counter = int(lines[-1])-1
+            pic = lines[counter].strip()
+    else:
+        with open(pic_file,"r") as f:
+            lines = f.readlines()
+            counter = int(lines[-1])
+            pic = lines[counter].strip()
+            lines[-1] = str((counter + 1)%(len(lines)-1))+"\n"
+        with open(pic_file,"w") as f:
+            for line in lines:
+                f.write(line)
 
     if "fit" in pic:
         resize = "--resize fit"
