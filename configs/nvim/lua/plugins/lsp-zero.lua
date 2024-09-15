@@ -23,7 +23,7 @@ return {
         local lsp = require('lsp-zero').preset({})
         require('mason').setup({})
         require('mason-lspconfig').setup({
-            ensure_installed = {'pyright', 'clangd', 'tsserver', 'rust_analyzer'},
+            ensure_installed = {'pyright', 'clangd', 'ts_ls', 'rust_analyzer'},
             handlers = {
                 function(server_name)
                     require('lspconfig')[server_name].setup({})
