@@ -1,5 +1,7 @@
-# Created by newuser for 5.8.1
-#
+# Source cargo if it exists
+if [ -f $HOME/.cargo/env ]; then
+    source "$HOME/.cargo/env"
+fi
 
 ## tab-completion settings
 
@@ -137,7 +139,12 @@ if type "plugin-load" > /dev/null; then
     
     # Initialize fzf
     if [ -x "$(command -v fzf)" ]; then
-        source /usr/share/fzf/shell/key-bindings.zsh
+        if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+            source /usr/share/fzf/shell/key-bindings.zsh
+        elif [ -f /usr/share/fzf/key-bindings.zsh ]; then
+            source /usr/share/fzf/key-bindings.zsh
+        fi
+
         source /usr/share/zsh/site-functions/fzf
     fi
     
@@ -157,11 +164,6 @@ if type "plugin-load" > /dev/null; then
     _fzf_compgen_dir() {
       fd --type=d --hidden --exclude .git . "$1"
     }
-fi
-
-# Source cargo
-if [ -f $HOME/.cargo/env ]; then
-    source "$HOME/.cargo/env"
 fi
 
 # Source DARTS

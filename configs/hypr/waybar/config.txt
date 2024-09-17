@@ -6,11 +6,11 @@
 	"mpd": {
 		"tooltip": false,
 		"format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-		"format-disconnected": "ﳌ",
-		"format-stopped": "",
+		"format-disconnected": "󰟎",
+		"format-stopped": "󰋋",
         "state-icons": {
-            "playing": "",
-            "paused": ""
+            "playing": "󰋋",
+            "paused": "󰏤"
         }
 	},
 	"pulseaudio": {
@@ -18,17 +18,17 @@
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
 		"format-icons": {
-			"default": ["奄", "奔", "墳"]
+			"default": ["󰕿", "󰖀", "󰕾"]
 		}
 	},
 	"network": {
 		"tooltip": false,
 		"format-wifi": " {essid} {ipaddr}",
-		"format-ethernet": " {ipaddr}"
+		"format-ethernet": "󰈁 {ipaddr}"
 	},
 	"cpu": {
 		"tooltip": false,
-		"format": " {}%"
+		"format": "󰍛 {}%"
 	},
 	"memory": {
 		"tooltip": false,
@@ -53,7 +53,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰃨",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -62,7 +62,7 @@
     },
     "clock": {
         "format": "{:%H:%M}  ",
-        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)} 󰃰 ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "year",

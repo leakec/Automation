@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Awesome
-mkdir -p ~/.config/awesome/ && cp theme.lua ~/.config/awesome/ && cp rc.lua ~/.config/awesome/ && cp -r awesome-copycats/* ~/.config/awesome && rsync -r ./awesome_scripts/ ~/.config/awesome/scripts/
-
-# Picom
-mkdir -p ~/.config/picom && cp picom.conf ~/.config/picom/picom.conf
-
-# Lock screen
-cp ./betterlockscreenrc ~/.config/betterlockscreenrc
+# Hypr
+rsync -r hypr/ ~/.config/hypr
 
 # Zellij
 rsync -r zellij/ ~/.config/zellij
@@ -26,6 +20,7 @@ mkdir -p ~/.vim/ && cp vimrc ~/.vim/vimrc
 cp ./ctags ~/.ctags
 
 # Rofi
+mkdir -p ~/.config/rofi
 cp ./rofi/* ~/.config/rofi
 
 # Wal (pywal)
@@ -35,8 +30,3 @@ cp -r ./wal/* ~/.config/wal
 cp gromit-mpx.cfg ~/.config/gromit-mpx.cfg
 cp InputAutoCfg.ini /usr/local/share/mupen64plus/InputAutoCfg.ini
 cp screenkey.json ~/.config/screenkey.json
-
-
-# Not used anymore
-# cat ./gterminal.preferences | dconf load /org/gnome/terminal/legacy/profiles:/
-#mkdir -p ~/.config/alacritty/ && cp alacritty.yml ~/.config/alacritty/alacritty.yml

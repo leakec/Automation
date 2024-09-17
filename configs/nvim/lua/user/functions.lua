@@ -109,7 +109,7 @@ function _ExportColorsZellij()
 end
 
 function ExportColors()
-    _ExportColorsTmux()
+    pcall(_ExportColorsTmux)
     _ExportColorsZellij()
     _ExportColorsKitty()
 end
