@@ -1,6 +1,8 @@
 -- Terminal color output can be found here: https://jeffkreeftmeijer.com/vim-16-color/
 
-function _ExportColorsKitty()
+local M = {}
+
+function _ExportColorsKitty(quiet)
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.config/kitty/nvim_export.conf"
     local file = io.open(filename, "w")
@@ -24,10 +26,12 @@ function _ExportColorsKitty()
         end
     end
     io.close(file)
-    print("Colors exported to " .. filename)
+    if not quiet then
+        print("Colors exported to " .. filename)
+    end
 end
 
-function _ExportColorsTmux()
+function _ExportColorsTmux(quiet)
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/catppuccin-nvim.tmuxtheme"
     -- local filename = os.getenv("HOME") .. "/.tmux/plugins/tmux/test.tmuxtheme"
@@ -62,10 +66,13 @@ function _ExportColorsTmux()
         end
     end
     io.close(file)
-    print("Colors exported to " .. filename)
+
+    if not quiet then
+        print("Colors exported to " .. filename)
+    end
 end
 
-function _ExportColorsZellij()
+function _ExportColorsZellij(quiet)
     local fn = vim.fn
     local filename = os.getenv("HOME") .. "/.config/zellij/themes/nvim.kdl"
     local file = io.open(filename, "w")
@@ -105,11 +112,18 @@ function _ExportColorsZellij()
     io.write("    }\n")
     io.write("}")
     io.close(file)
-    print("Colors exported to " .. filename)
+    if not quiet then
+        print("Colors exported to " .. filename)
+    end
 end
 
-function ExportColors()
-    pcall(_ExportColorsTmux)
-    _ExportColorsZellij()
-    _ExportColorsKitty()
+function ExportColors(quiet)
+    if quiet == nil then quiet = false end
+    pcall(_ExportColorsTmux, quiet)
+    _ExportColorsZellij(quiet)
+    _ExportColorsKitty(quiet)
 end
+
+M.ExportColors = ExportColors
+
+return M
