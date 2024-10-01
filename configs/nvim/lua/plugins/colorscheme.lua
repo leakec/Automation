@@ -2,6 +2,7 @@
 return {
     {
         'zaldih/themery.nvim',
+        priority=100,
         config = function()
             require("themery").setup({
                 themes = {"tokyonight-night", "tokyonight-storm", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato"},
@@ -11,7 +12,6 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-        priority=100,
 
         config = function()
             require("tokyonight").setup({
