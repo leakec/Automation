@@ -6,7 +6,7 @@ return {
         config = function()
             require("themery").setup({
                 themes = {"tokyonight-night", "tokyonight-storm", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "cyberdream", "eldritch", "rose-pine", "dracula"},
-                globalAfter = [[require("user.functions").ExportColors(true)]]
+                globalAfter = [[require("user.functions").ExportColors(true); require("lazy.core.loader").reload("lualine.nvim")]]
             })
         end
     },
