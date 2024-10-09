@@ -12,7 +12,6 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-
         config = function()
             require("tokyonight").setup({
                 -- your configuration comes here
@@ -49,17 +48,7 @@ return {
                 ---@param colors ColorScheme
                 on_highlights = function(highlights, colors) end,
             })
-
-            --require('lualine').setup {
-                --  options = {
-                    --    -- ... your lualine config
-                    --    theme = 'tokyonight-night'
-                    --    -- ... your lualine config
-                    --  }
-                    --}
-
-                    vim.cmd[[colorscheme tokyonight-night]]
-                end
+        end
     },
     {
         "catppuccin/nvim",
