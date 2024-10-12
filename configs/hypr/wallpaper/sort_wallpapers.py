@@ -108,6 +108,14 @@ if options["change_bg"]:
             pic = lines[counter].strip()
     elif options["file"] is not None:
         pic = options["file"]
+        with open(pic_file,"r") as f:
+            lines = f.readlines()
+        for k,line in enumerate(lines):
+            if pic == line.strip():
+                lines[-1] = str(k+1)+"\n"
+                with open(pic_file, "w") as f:
+                    f.write("".join(lines))
+                break
     else:
         with open(pic_file,"r") as f:
             lines = f.readlines()
