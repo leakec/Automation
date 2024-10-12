@@ -1,0 +1,4 @@
+#!/bin/bash
+
+WALLPAPER=$(for a in $(cat /tmp/swww_pics.txt | head -n-1); do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu)
+python ~/.config/hypr/wallpaper/sort_wallpapers.py --file $WALLPAPER

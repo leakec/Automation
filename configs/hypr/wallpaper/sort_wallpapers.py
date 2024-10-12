@@ -36,6 +36,11 @@ pic_file = Path("/tmp/swww_pics.txt")
     help="Keep the same background as before.",
     default=False,
 )
+@click.option(
+    "--file",
+    type=click.Path(exists=True, dir_okay=False),
+    help="File to change the background to."
+)
 @click.pass_context
 def cli(ctx, **kwargs):
     options.update(kwargs)
@@ -101,6 +106,8 @@ if options["change_bg"]:
             lines = f.readlines()
             counter = int(lines[-1])-1
             pic = lines[counter].strip()
+    elif options["file"] is not None:
+        pic = options["file"]
     else:
         with open(pic_file,"r") as f:
             lines = f.readlines()
