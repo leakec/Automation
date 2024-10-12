@@ -1,6 +1,9 @@
 -- Set the leader key 
 vim.g.mapleader = ' '
 
+-- Set termguicolors to true
+vim.opt.termguicolors = true
+
 -- Lazy.nvim plugin loading
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
