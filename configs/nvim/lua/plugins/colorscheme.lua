@@ -1,15 +1,35 @@
 -- Colorscheme
 return {
     {
-        'zaldih/themery.nvim',
+        'panghu-huang/theme-picker.nvim',
+        lazy=false,
         priority=100,
         config = function()
-            require("themery").setup({
-                themes = {"tokyonight-night", "tokyonight-storm", "catppuccin-mocha", "catppuccin-frappe", "catppuccin-macchiato", "cyberdream", "eldritch", "rose-pine", "dracula"},
-                globalAfter = [[require("user.functions").ExportColors(true); require("lazy.core.loader").reload("lualine.nvim")]]
+            local after = function()
+                require("user.functions").ExportColors(true)
+                require("lazy.core.loader").reload("lualine.nvim")
+            end
+
+            require("theme-picker").setup({
+                themes = {
+                    { name = "tokyonight-night", colorscheme = "tokyonight-night", after = after},
+                    { name = "tokyonight-storm", colorscheme = "tokyonight-storm", after = after},
+                    { name = "catppuccin-mocha", colorscheme = "catppuccin-mocha", after = after},
+                    { name = "catppuccin-frappe", colorscheme = "catppuccin-frappe", after = after},
+                    { name = "catppuccin-macchiato", colorscheme = "catppuccin-macchiato", after = after},
+                    { name = "cyberdream", colorscheme = "cyberdream", after = after},
+                    { name = "eldritch", colorscheme = "eldritch", after = after},
+                    { name = "rose-pine", colorscheme = "rose-pine", after = after},
+                    { name = "dracula", colorscheme = "dracula", after = after},
+                },
+                picker = {
+                    prompt_title = "Select Theme",
+                }
             })
+            vim.api.nvim_set_keymap("n", "<leader>tp", ':lua require("theme-picker").open_theme_picker()<CR>', { noremap = true, silent = true })
         end
     },
+
     {
         'folke/tokyonight.nvim',
         config = function()
