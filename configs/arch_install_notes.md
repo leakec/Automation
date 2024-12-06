@@ -6,7 +6,7 @@
 * `yay -Y --devel --save`
 
 # Yay packages
-* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal python-pywalfox swww swayidle dunst cmake npm yarn zsh waybar zip unzip inotify-tools clip-hist zoxide meld lm_sensors sway-audio-idle-inhibit-git`
+* `yay -Sy rsync neovim fzf ripgrep python-click python-colorthief python-pywal python-pywalfox swww swayidle dunst cmake npm yarn zsh waybar zip unzip inotify-tools clip-hist zoxide meld lm_sensors sway-audio-idle-inhibit-git libnotify`
 
 # Basic directories
 * `mkdir -p ~/Downloads`
