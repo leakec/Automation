@@ -32,7 +32,7 @@
 	},
 	"memory": {
 		"tooltip": false,
-		"format": " {}%"
+		"format": " {}%"
 	},
     "hyprland/workspaces": {
         "disable-scroll": true,
