@@ -28,11 +28,11 @@
 	},
 	"cpu": {
 		"tooltip": false,
-		"format": "󰍛 {}%"
+		"format": "󰍛 {usage}%"
 	},
 	"memory": {
 		"tooltip": false,
-		"format": " {}%"
+		"format": " {percentage}%"
 	},
     "hyprland/workspaces": {
         "disable-scroll": true,
