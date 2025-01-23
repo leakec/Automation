@@ -147,5 +147,4 @@ if options["change_bg"]:
     with sys_args_ctx():
         pywal_main()
 
-    #system("~/.local/bin/pywalfox update &")
-    system("/usr/bin/pywalfox update &")
+    system("~/.config/hypr/wallpaper/apply-theme.sh -s")

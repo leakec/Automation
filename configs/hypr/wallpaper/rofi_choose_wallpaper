@@ -1,4 +1,5 @@
 #!/bin/bash
 
-WALLPAPER=$(for a in $(cat /tmp/swww_pics.txt | head -n-1); do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu)
-python ~/.config/hypr/wallpaper/sort_wallpapers.py --file $WALLPAPER
+BASE_PATH=~/Pictures/Wallpapers
+WALLPAPER=$(for a in $(cat /tmp/swww_pics.txt | head -n-1 | xargs -n1 basename); do echo -en "$a\0icon\x1f$BASE_PATH/$a\n" ; done | rofi -config ~/.config/rofi/wallpaper.rasi -dmenu)
+python ~/.config/hypr/wallpaper/sort_wallpapers.py --file $BASE_PATH/$WALLPAPER
