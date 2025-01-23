@@ -10,6 +10,7 @@ configuration {
 
 window {
   width: 60%;
+  background-image: none;
 }
 
 /* ---- Imagebox ---- */

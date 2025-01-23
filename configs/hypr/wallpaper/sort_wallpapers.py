@@ -127,13 +127,15 @@ if options["change_bg"]:
                 f.write(line)
 
     if "fit" in pic:
-        resize = "--resize fit"
+        resize = "--resize fit "
     else:
         resize = ""
 
     # This transition is really laggy. Try again at a future time when https://github.com/Horus645/swww/issues/154 is fixed.
-    # system("swww img "+pic+" --transition-type outer --transition-pos 0.584,0.977 --transition-duration 1.00 --transition-step 90 --transition-fps 60")
+    #system("swww img -t any"+f" --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .75 --transition-step 255 --transition-fps 60 {resize}"+pic)
     system("swww img "+pic+f" --transition-type none {resize}")
+
+    system(f"ln -fs {pic} ~/.config/hypr/wallpaper/current_wallpaper")
 
     @contextmanager
     def sys_args_ctx():
