@@ -132,7 +132,7 @@ if options["change_bg"]:
         resize = ""
 
     # This transition is really laggy. Try again at a future time when https://github.com/Horus645/swww/issues/154 is fixed.
-    #system("swww img -t any"+f" --transition-bezier 0.0,0.0,1.0,1.0 --transition-duration .75 --transition-step 255 --transition-fps 60 {resize}"+pic)
+    #system("swww img "+f" -t wipe --transition-bezier .43,1.19,1,.4 --transition-duration 2 --transition-fps 30 {resize}"+pic)
     system("swww img "+pic+f" --transition-type none {resize}")
 
     system(f"ln -fs {pic} ~/.config/hypr/wallpaper/current_wallpaper")
