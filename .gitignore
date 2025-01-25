@@ -3,6 +3,7 @@ Pass.py
 */site
 recipe_book/docs
 lazy-lock.json
+configs/hypr/waybar/config
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
