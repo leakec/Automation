@@ -10,6 +10,11 @@ if [ ! -f $config_file ]; then
     ln -sf $HOME/.config/hypr/waybar/configs/main $config_file
 fi
 
+style_file=$HOME/.config/hypr/waybar/style.css 
+if [ ! -f $style_file ]; then
+    ln -sf $HOME/.config/hypr/waybar/styles/main.css $style_file
+fi
+
 while true; do
     echo "" > $STATE_FILE
     \cp -r $HOME/.cache/wal/colors-waybar.css $HOME/.config/hypr/waybar &
