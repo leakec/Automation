@@ -1,0 +1,10 @@
+{
+    "include": [
+        "$HOME/.config/hypr/waybar/Modules",
+    ],
+	"layer": "top",
+	"position": "left",
+	"modules-left": ["hyprland/workspaces", "hyprland/submap"], // Removed "mpd"
+	"modules-center": [],
+	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock", "tray"],
+}

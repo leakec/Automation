@@ -1,0 +1,6 @@
+#!/bin/bash
+
+BASE_PATH=~/.config/hypr/waybar
+LAYOUT=$(for a in $(ls $BASE_PATH/configs); do echo -en "$a\n" ; done | rofi -config ~/.config/rofi/simple_menu.rasi -dmenu)
+ln -sf $BASE_PATH/configs/$LAYOUT $BASE_PATH/config
+touch $BASE_PATH/config
