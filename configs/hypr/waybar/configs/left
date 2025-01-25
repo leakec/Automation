@@ -6,5 +6,5 @@
 	"position": "left",
 	"modules-left": ["hyprland/workspaces", "hyprland/submap"], // Removed "mpd"
 	"modules-center": [],
-	"modules-right": ["network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock", "tray"],
+	"modules-right": ["network#vertical", "pulseaudio#vertical", "temperature#vertical", "cpu#vertical", "memory#vertical", "battery", "clock#vertical", "tray"],
 }

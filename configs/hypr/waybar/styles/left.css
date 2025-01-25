@@ -1,0 +1,119 @@
+/*
+ ********************************************
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
+ *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
+ *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ ********************************************
+ */
+
+@import 'colors-waybar.css';
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: Nerd Font Hack;
+	font-size: 14px;
+	min-height: 10px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+    background: transparent;
+}
+
+#window {
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+	border-radius: 16px;
+	transition: none;
+    color: transparent;
+	background: transparent;
+}
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: @foreground;
+	background: alpha(@background, 0.7);
+}
+
+#workspaces {
+	margin-top: 2px;
+	margin-right: 2px;
+	margin-left: 8px;
+	margin-bottom: 2px;
+	border-radius: 16px;
+    background: alpha(@background, 0.7);
+}
+
+#workspaces button {
+	transition: none;
+	color: @foreground;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.persistent {
+	transition: none;
+	color: @color1;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.active {
+	color: @color2;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    box-shadow: inset 0 -3px #ffffff;
+	text-shadow: inherit;
+    background: transparent;
+}
+
+#mpd {
+	margin-top: 8px;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	border-radius: 26px;
+	background: #282a36;
+	transition: none;
+	color: #4d4d4d;
+	background: #5af78e;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+	color: #f8f8f2;
+	background: #282a36;
+}
+
+#clock,
+#memory,
+#cpu,
+#temperature,
+#pulseaudio,
+#network,
+#battery {
+	color: @foreground;
+    background: alpha(@background, 0.7);
+	margin-top: 8px;
+	margin-left: 4px;
+	margin-right: 2px;
+	margin-bottom: 8px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-radius: 16px;
+}
+
