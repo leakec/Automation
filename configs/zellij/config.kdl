@@ -17,6 +17,7 @@ keybinds {
         bind "Alt y" { SwitchToMode "Move"; }
         bind "Alt o" { SwitchToMode "Session"; }
         bind "Alt g" { SwitchToMode "Locked"; }
+        bind "Alt m" { Run "zellij" "action" "start-or-reload-plugin" "file:/home/leake/.zellij_plugins/multitask.wasm" "--configuration" "shell=/bin/zsh,ccwd=`pwd`";}
     }
     locked {
         bind "Alt g" { SwitchToMode "Normal"; }
