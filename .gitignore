@@ -5,6 +5,7 @@ recipe_book/docs
 lazy-lock.json
 configs/hypr/waybar/config
 configs/hypr/waybar/style.css
+configs/hypr/wallpaper/current_wallpaper
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
